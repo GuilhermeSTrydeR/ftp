@@ -1,0 +1,33 @@
+body{
+
+    background-color: 	#dfe3ee;
+
+}
+
+.navbar.navbar-light{
+
+    background-color: #3b5998;
+
+}
+
+
+
+#logo{
+
+    border: 5px solid #8b9dc3;
+    padding: 2px;
+    border-radius: 10px;
+
+
+}
+
+#logo a{
+
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    
+}
+
+
