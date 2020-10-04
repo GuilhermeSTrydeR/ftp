@@ -40,6 +40,15 @@ $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'inicio';
             <li class="nav-item <?= ($pagina == 'contato')?'active':'' ?>">
               <a class="nav-link" href="?pagina=contato"><b>Contato</b></a>
             </li>
+
+            <div id="form_login">
+            <form action="/action_page.php">
+              <input type="text" placeholder="Username" name="username">
+              <input type="password" placeholder="Password" name="psw">
+              <button type="submit">Login</button>
+            </form>
+            </div>
+
           </ul>
 
         </div>
@@ -50,6 +59,13 @@ $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'inicio';
         include("./paginas/$pagina.php");
     ?>
         
-        
+
 </body>
+  <footer>
+    
+    <p>footer</p>
+
+  </footer>
+
+
 </html>

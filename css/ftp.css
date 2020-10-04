@@ -1,13 +1,16 @@
 body{
 
     background-color: 	#dfe3ee;
+    position: fixed;
+    width: 100%;
 
 }
 
 .navbar.navbar-light{
 
     background-color: #3b5998;
-    padding: 10px;
+    width: 10%;
+   
 
 }
 
@@ -34,5 +37,44 @@ body{
     position: absolute;
     margin-left: 90px;
     padding: 10px;
+
+}
+
+.row.justify-content-md-center{
+
+    padding-top: 25px;
+
+
+}
+
+footer {
+
+    position: fixed;
+    bottom:0;
+    left:0;
+    right: -500px;
+    display: grid;
+    background-color:	#cad2e9;
+
+}
+
+footer p{
+
+    font-size: small;
+    color: #3b5998;
+
+}
+
+.navbar.navbar-expand-lg.navbar-light{
+
+    width: 102%;
+
+}
+
+#form_login{
+
+    display: grid;
+    position: fixed;
+    right: 10px;
 
 }
