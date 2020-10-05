@@ -43,9 +43,9 @@ $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'inicio';
 
             <div id="form_login">
             <form action="/action_page.php">
-              <input type="text" placeholder="Username" name="username">
-              <input type="password" placeholder="Password" name="psw">
-              <button type="submit">Login</button>
+              <input type="text" placeholder="Usuário" name="username">
+              <input type="password" placeholder="Senha" name="psw">
+              <button type="submit">Logar</button>
             </form>
             </div>
 
