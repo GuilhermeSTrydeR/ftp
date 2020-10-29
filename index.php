@@ -1,5 +1,10 @@
 <?php
 
+//requerimento para linkar a classe PDO de conexão do banco
+require("classes/conexao_bd.php");
+
+
+
 //a variavel abaixo define a pagina selecionada ao clicar nos menus
 $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'inicio';
 
@@ -15,12 +20,14 @@ $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'inicio';
     <!--  bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/ftp.css">
+    <script language="JavaScript" src="js/script.js"></script>
+   
 
 </head>
 <body>
 
 
-
+    
 
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: 	#3b5998;">
         <div id="logo">
@@ -42,10 +49,10 @@ $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'inicio';
             </li>
 
             <div id="form_login">
-            <form action="/action_page.php">
-              <input type="text" placeholder="Usuário" name="username">
-              <input type="password" placeholder="Senha" name="psw">
-              <button type="submit">Logar</button>
+            <form method="POST" action="classes/logar.php">
+              <input type="text" placeholder="Usuário" name="user">
+              <input type="password" placeholder="Senha" name="pass">
+              <button type="submit" value="login" id="login" name="logar">Logar</button>
             </form>
             </div>
 
@@ -53,7 +60,8 @@ $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'inicio';
 
         </div>
       </nav>
-    
+
+     
     <?php
         //esse include ira colocar na tela a pagina selecionada e que foi atribuida a variavel $pagina, assim sempre que uma pagina for atribuida a variavel $pagina, ela sera incluida abaixo
         include("./paginas/$pagina.php");
