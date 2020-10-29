@@ -11,7 +11,7 @@
             $sql = "SELECT * FROM usuarios where user = :user AND pass = :pass";
             $sql = $pdo->prepare($sql);
             $sql->bindValue("user", $user);
-            $sql->bindValue("pass", $pass);
+            $sql->bindValue("pass", md5($pass));
             $sql->execute();
 
             if($sql->rowCount() > 0){
