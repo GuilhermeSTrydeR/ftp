@@ -19,7 +19,7 @@
 
         else{
 
-            header("location: ../paginas/testeLoginERROR.php");
+            header("location: ../index.php");
 
         }
 
