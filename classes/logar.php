@@ -13,7 +13,7 @@
 
         if($u->login($user, $pass) == true){
 
-            header("location: ../paginas/testeLoginOK.php");
+            header("location: ../paginas/adm/adm.php");
 
         }
 
@@ -28,7 +28,7 @@
 
     else{
 
-        header("location: ftp/index.php");
+        header("location: ../index.php");
 
     }
 

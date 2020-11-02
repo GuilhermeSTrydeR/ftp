@@ -78,3 +78,46 @@ footer p{
     right: 10px;
 
 }
+
+#contato_esq{
+
+    background-color: #cad2e9;
+    margin: 10px;
+    padding: 5px;
+    
+    display: inline-block;
+    float: left;
+
+
+
+}
+
+#contato_dir{
+
+    background-color: #cad2e9;
+    margin: 10px;
+    padding: 5px;
+
+    display: inline-block;
+    float: right;
+}
+
+
+#container_adm{
+
+    margin: 20px;
+
+}
+
+.card.text-white.bg-primary.mb-3{
+
+
+    background-color: #8b9dc3 !important;
+
+}
+
+.navbar.navbar-expand-lg.navbar-light.bg-light{
+
+    background-color: #3b5998 !important;
+
+}
