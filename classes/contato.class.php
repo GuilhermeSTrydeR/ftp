@@ -1,0 +1,21 @@
+<?php
+
+    class Contato{
+
+
+        //essa funcao ira preparar os comandos para gravar no banco
+        public function Gravar($nome, $email, $telefone, $texto){
+
+            global $pdo;
+            $sql = "INSERT INTO contato(nome, email, telefone, texto) VALUES(:nome, :email, :telefone, :texto)";
+            $sql = $pdo->prepare($sql);
+            $sql->bindValue("nome", $nome);
+            $sql->bindValue("email", $email);
+            $sql->bindValue("telefone", $telefone);
+            $sql->bindValue("texto", $texto);
+            $sql->execute();
+        }
+    }
+
+
+?>

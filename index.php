@@ -1,10 +1,11 @@
 <?php
+session_start();
 
 //requerimento para linkar a classe PDO de conexão do banco
 require("classes/conexao_bd.php");
 
 //a variavel abaixo define a pagina selecionada ao clicar nos menus
-$pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'inicio';
+$pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'index/inicio';
 
 ?>
 
@@ -16,17 +17,10 @@ $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'inicio';
     <title>Sistema FTP</title>
 
     <!--  bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="css/ftp.css">
-    <script language="JavaScript" src="js/script.js"></script>
-   
-
 </head>
 <body>
-
-
-    
-
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: 	#3b5998;">
         <div id="logo">
             <a href="/ftp/">FTP</a>
@@ -38,19 +32,19 @@ $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'inicio';
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav">
             <li class="nav-item <?= ($pagina == 'inicio')?'active':'' ?>">
-              <a class="nav-link" href="?pagina=inicio"><b>Início</b></a>
+              <a class="nav-link" href="?pagina=/index/inicio"><b>Início</b></a>
             </li>
             <li class="nav-item <?= ($pagina == 'sobre')?'active':'' ?>">
-              <a class="nav-link" href="?pagina=sobre"><b>Sobre</b></a>
+              <a class="nav-link" href="?pagina=/index/sobre"><b>Sobre</b></a>
             </li>
             <li class="nav-item <?= ($pagina == 'contato')?'active':'' ?>">
-              <a class="nav-link" href="?pagina=contato"><b>Contato</b></a>
+              <a class="nav-link" href="?pagina=/index/contato"><b>Contato</b></a>
             </li>
 
             <div id="form_login">
             <form method="POST" action="classes/logar.php">
-              <input type="text" placeholder="Usuário" name="user">
-              <input type="password" placeholder="Senha" name="pass">
+              <input type="text" placeholder="Usuário" name="user" required>
+              <input type="password" placeholder="Senha" name="pass" required>
               <button type="submit" value="login" id="login" name="logar">Logar</button>
             </form>
             </div>
@@ -63,14 +57,18 @@ $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'inicio';
      
     <?php
         //esse include ira colocar na tela a pagina selecionada e que foi atribuida a variavel $pagina, assim sempre que uma pagina for atribuida a variavel $pagina, ela sera incluida abaixo
-        include("./paginas/$pagina.php");
+        include("paginas/$pagina.php");
     ?>
         
 
+<script src="../../js/bootstrap/popper/popper.min.js"></script>
+<script src="../../js/jquery/jquery.js"></script>
+<script src="js/bootstrap/bootstrap.js"></script>
+<script src="js/script.js"></script>
 </body>
   <footer>
     
-    <p>footer</p>
+    <p>Mesa Preta Sistemas</p>
 
   </footer>
 

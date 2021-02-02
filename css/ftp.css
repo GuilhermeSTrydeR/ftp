@@ -76,6 +76,7 @@ footer p{
     display: grid;
     position: fixed;
     right: 10px;
+    
 
 }
 
@@ -120,4 +121,48 @@ footer p{
 
     background-color: #3b5998 !important;
 
+}
+
+a{
+
+    color: white !important;
+
+}
+
+p a{
+
+    color: blue !important;
+
+}
+
+.btn_adm_h{
+    border-radius: 20px;
+
+    height: 180px;
+    width: 180px;
+    background-color: #8b9dc3;
+    padding: 5px;
+    margin: 20px;
+
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.btn_main{
+
+    margin-left: 20px;
+
+}
+
+#navbar-main{
+
+    margin-left: 1000px;
+
+}
+
+.nav-item{
+
+    margin-left: 25px;
 }
