@@ -3,7 +3,6 @@
     class Contato{
 
 
-        //essa funcao ira preparar os comandos para gravar no banco
         public function Gravar($nome, $email, $telefone, $texto){
 
             global $pdo;
@@ -14,6 +13,7 @@
             $sql->bindValue("telefone", $telefone);
             $sql->bindValue("texto", $texto);
             $sql->execute();
+
         }
     }
 

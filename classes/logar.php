@@ -13,23 +13,17 @@
 
         //aqui instanciamos a classe
         $u = new Usuario();
-        
 
         $user = addslashes($_POST["user"]);
         $pass = addslashes($_POST["pass"]);
 
-
         if($u->login($user, $pass) == true){
-
             header("location: ../paginas/main/main.php");
-
         }
 
         else{
-
             echo  "Usuário ou senha invalidos!";
             // header("location: ../index.php");
-
         }
 
     }

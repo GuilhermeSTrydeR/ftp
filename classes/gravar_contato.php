@@ -19,9 +19,31 @@
         $email = addslashes($_POST["email"]);
         $telefone = addslashes($_POST["telefone"]);
         $texto = addslashes($_POST["texto"]);
+
+        //se a funcao da classe tiver as variaveis, sera gravado no banco, se nao 
+        if($c->Gravar($nome, $email, $telefone, $texto) == true){
+
+            echo "<h4>grvaou</h4>";
+            // header("location: ../paginas/main/main.php");
+
+        }
+
+        else{
+
         
-        
+            // header("location: ../index.php");
+
+        }
+
     }
 
-    header("location: ../index.php");
+
+    else{
+   
+        echo  "<script>alert('Usuário ou senha invalidos!');</script>";
+        header("location: ../index.php");
+  
+
+    }
+
 ?>
