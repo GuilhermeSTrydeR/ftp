@@ -2,7 +2,6 @@
 
     class Contato{
 
-
         public function Gravar($nome, $email, $telefone, $texto){
 
             global $pdo;
@@ -13,9 +12,7 @@
             $sql->bindValue("telefone", $telefone);
             $sql->bindValue("texto", $texto);
             $sql->execute();
-
+            
         }
     }
-
-
 ?>
