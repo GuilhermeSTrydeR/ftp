@@ -33,6 +33,17 @@
             }
         }
 
+        public function gravar($user, $pass){
+
+            global $pdo;
+            $sql = "INSERT INTO usuarios(user, pass) VALUES(:user, :pass)";
+            $sql = $pdo->prepare($sql);
+            $sql->bindValue("user", $user);
+            $sql->bindValue ("pass", $pass);
+            $sql->execute();
+
+        }
+
 
 
 

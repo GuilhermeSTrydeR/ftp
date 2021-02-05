@@ -174,8 +174,15 @@ p a{
     left: 0;
     overflow-x: hidden;
     overflow-y: auto;
-    background: #1a1a1a;
-    color: #fff;
+    background: #8b9dc3;
+    color: black;
+    
+  }
+
+  .sidebar-container a{
+   
+    text-decoration: none;
+    
   }
   
   .content-container {
@@ -185,7 +192,8 @@ p a{
   .sidebar-logo {
     padding: 10px 15px 10px 30px;
     font-size: 20px;
-    background-color: #2574A9;
+    background-color: #8b9dc3;
+    color: black;
   }
   
   .sidebar-navigation {
@@ -240,8 +248,9 @@ p a{
   .sidebar-navigation .header {
     font-size: 12px;
     text-transform: uppercase;
-    background-color: #151515;
+    background-color: #000000;
     padding: 10px 15px 10px 30px;
+    color: white;
   }
   
   .sidebar-navigation .header::before {
@@ -257,10 +266,4 @@ p a{
 
   background-color: #3b5998;
 
-}
-
-.sidebar-logo {
-  padding: 10px 15px 10px 30px;
-  font-size: 20px;
-  background-color: #8b9dc3;
 }

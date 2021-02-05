@@ -1,9 +1,6 @@
 <center>
 
 <div class="sidebar-container">
-  <div class="sidebar-logo">
-    FTP
-  </div>
   <ul class="sidebar-navigation">
     <li class="header">Usuarios</li>
     <li>

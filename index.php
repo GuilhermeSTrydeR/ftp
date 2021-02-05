@@ -42,7 +42,7 @@ $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'index/inicio';
             </li>
 
             <div id="form_login">
-            <form method="POST" action="classes/logar.php">
+            <form method="POST" action="classes/usuario/logar.php">
               <input type="text" placeholder="Usuário" name="user" required>
               <input type="password" placeholder="Senha" name="pass" required>
               <button type="submit" value="login" id="login" name="logar">Logar</button>
