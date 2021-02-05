@@ -1,6 +1,8 @@
 <?php
 
+
     class Contato{
+
 
         public function gravar($nome, $email, $telefone, $texto){
 
@@ -14,5 +16,16 @@
             $sql->execute();
             
         }
+
+        static function listar(){
+
+            
+
+        }
+
+           
+
+
+
     }
 ?>

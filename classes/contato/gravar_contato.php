@@ -35,13 +35,19 @@
 
         }
 
+        echo "<script>alert('Contato enviado!, muito obrigado pelo feedback.');</script>";
+            $url = '/ftp/index.php?pagina=index/contato';
+        echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
+
+
+
     }
 
 
     else{
    
-        echo  "<script>alert('Usuário ou senha invalidos!');</script>";
-        header("location: ../index.php");
+        // echo  "<script>alert('Usuário ou senha invalidos!');</script>";
+        // header("location: ../index.php");
   
 
     }

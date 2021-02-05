@@ -7,6 +7,8 @@ require("classes/conexao_bd.php");
 //a variavel abaixo define a pagina selecionada ao clicar nos menus
 $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'index/inicio';
 
+
+
 ?>
 
 <!DOCTYPE html>

@@ -18,7 +18,7 @@
         $pass = addslashes($_POST["pass"]);
 
         if($u->login($user, $pass) == true){
-            header("location: ../../paginas/main/main.php");
+            header("location: ../../paginas/adm/main.php");
         }
 
         else{
