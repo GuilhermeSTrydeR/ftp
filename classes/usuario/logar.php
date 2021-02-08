@@ -1,8 +1,9 @@
 <?php
-    
+    session_start();
+
     if(isset($_POST["user"]) && !empty($_POST["user"]) && isset($_POST["pass"]) && !empty($_POST["pass"])){
         
-        session_start();
+        
 
         //requer classe de conexao do banco
         require("../conexao_bd.php");
@@ -13,14 +14,12 @@
         //aqui instanciamos a classe
         $u = new Usuario();
 
-
         $user = addslashes($_POST["user"]);
         $pass = addslashes($_POST["pass"]);
 
-        $sql = "SELECT permissao FROM usuarios where user = :user";
-        $permissao = $pdo->prepare($sql);
-        // $permissao = 3;
+        $permissao = 3;
 
+        $_SESSION['permissao'] = $permissao;
 
         if($u->login($user, $pass) == true && $permissao == 1){
 
@@ -28,17 +27,19 @@
             
         }
 
-        elseif($u->login($user, $pass) == true && $permissao == 2){
+        if($u->login($user, $pass) == true && $permissao == 2){
 
             header("location: ../../paginas/supervisor/main.php");
             
         }
+
         
-        elseif($u->login($user, $pass) == true && $permissao == 3){
+        if($u->login($user, $pass) == true && $permissao == 3){
 
             header("location: ../../paginas/adm/main.php");
             
         }
+
 
         else{
             echo "<script>alert('Usuário ou senha inválidos!, por favor digite novamente');</script>";
