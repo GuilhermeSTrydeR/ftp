@@ -23,6 +23,7 @@
 
 
                 return true;
+                
 
             }
         
@@ -33,15 +34,18 @@
             }
         }
 
-        public function gravar($nome, $email, $user, $pass){
+ 
+
+        public function gravar($nome, $email, $user, $pass, $permissao){
 
             global $pdo;
-            $sql = "INSERT INTO usuarios(nome, email, user, pass) VALUES(:nome, :email, :user, :pass)";
+            $sql = "INSERT INTO usuarios(nome, email, user, pass, permissao) VALUES(:nome, :email, :user, :pass, :permissao)";
             $sql = $pdo->prepare($sql);
             $sql->bindValue("nome", $nome);
             $sql->bindValue ("email", $email);
             $sql->bindValue("user", $user);
             $sql->bindValue ("pass", $pass);
+            $sql->bindValue ("permissao", $permissao);
             $sql->execute();
 
         }

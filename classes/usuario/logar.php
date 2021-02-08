@@ -1,6 +1,5 @@
 <?php
     
-
     if(isset($_POST["user"]) && !empty($_POST["user"]) && isset($_POST["pass"]) && !empty($_POST["pass"])){
         
         session_start();
@@ -14,11 +13,31 @@
         //aqui instanciamos a classe
         $u = new Usuario();
 
+
         $user = addslashes($_POST["user"]);
         $pass = addslashes($_POST["pass"]);
 
-        if($u->login($user, $pass) == true){
+        $sql = "SELECT permissao FROM usuarios where user = :user";
+        $permissao = $pdo->prepare($sql);
+        // $permissao = 3;
+
+
+        if($u->login($user, $pass) == true && $permissao == 1){
+
+            header("location: ../../paginas/comum/main.php");
+            
+        }
+
+        elseif($u->login($user, $pass) == true && $permissao == 2){
+
+            header("location: ../../paginas/supervisor/main.php");
+            
+        }
+        
+        elseif($u->login($user, $pass) == true && $permissao == 3){
+
             header("location: ../../paginas/adm/main.php");
+            
         }
 
         else{
@@ -29,12 +48,11 @@
 
     }
 
-
     else{
    
-        echo  "<script>alert('Usuário ou senha invalidos!');</script>";
-        header("location: ../index.php");
-  
+        echo "<script>alert('algo deu errado!, entre em contato com o administrador do sistema');</script>";
+        $url = '../../index.php';
+        echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
 
     }
 
