@@ -1,4 +1,4 @@
-<center>
+<center style="margin-left: 100px; margin-top: 100px !important; position: relative !important;">
     <?php
 
         include("../../classes/conexao_bd.php");
@@ -9,22 +9,25 @@
         echo "<table class='table table-striped table-bordered table-condensed table-hover'>";
         echo "<thead>";
         echo "<tr>";
+        echo "<div class='thead'>";
         echo "<th scope='col'>ID</th>";
         echo "<th scope='col'>Nome</th>";
         echo "<th scope='col'>Usuário</th>";
         echo "<th scope='col'>Permissão</th>";
+        echo "</div>";
         echo "</tr>";
         echo "</thead>";
-
-
+    
         while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
             echo "<tr>";
             echo  " <td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> {$linha['user']} </td> <td> {$linha['permissao']} </td>";
             echo "</tr>";
+            
         }
         
         echo "</table>";
-
+  
+        
 
         
     
@@ -43,6 +46,6 @@
     //     <td>R$ 1258,75</td>
     //     <td>Em dia</td>
     //     <td>
-
+    
     ?>
 </center>

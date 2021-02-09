@@ -1,7 +1,7 @@
 body{
 
     background-color: 	#dfe3ee;
-    position: fixed;
+    position: relative;
     width: 100%;
 
 }
@@ -10,6 +10,7 @@ body{
 
     background-color: #3b5998;
     width: 10%;
+    z-index: 1;
    
 
 }
@@ -68,6 +69,8 @@ footer p{
 .navbar.navbar-expand-lg.navbar-light{
 
     width: 102%;
+    position: fixed;
+    
 
 }
 
@@ -75,7 +78,8 @@ footer p{
 
     display: grid;
     position: fixed;
-    right: 10px;
+    right: -50px;
+    padding: -10px !important;
     
 
 }
@@ -168,6 +172,7 @@ p a{
 }
 
 .sidebar-container {
+    margin-top: 62px;
     position: fixed;
     width: 220px;
     height: 100%;

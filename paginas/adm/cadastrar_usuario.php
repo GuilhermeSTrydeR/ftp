@@ -1,4 +1,4 @@
-<center>
+<center style="margin-left: 60px; margin-top: 100px !important;">
     <!-- <div id="contato_form_dir">
         <div class="row justify-content-md-center">
             <form method="POST" action="../../classes/usuario/gravar_usuario.php" class="needs-validation" novalidate>
