@@ -37,7 +37,7 @@
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="?pagina=visualizar_usuario">
         <i class="fa fa-tachometer" aria-hidden="true"></i> Visualizar/Editar
       </a>
     </li>
