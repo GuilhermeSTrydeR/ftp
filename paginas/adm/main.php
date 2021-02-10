@@ -37,7 +37,7 @@
       </a>
     </li>
     <li>
-      <a href="?pagina=visualizar_usuario">
+      <a href="?pagina=../../classes/usuario/visualizar_usuario">
         <i class="fa fa-tachometer" aria-hidden="true"></i> Visualizar/Editar
       </a>
     </li>
@@ -54,7 +54,7 @@
     </li>
         <li class="header">FeedBack</li>
     <li>
-      <a href="?pagina=../../classes/contato/listar_contato">
+      <a href="?pagina=../../classes/contato/visualizar_contato">
         <i class="fa fa-cog" aria-hidden="true"></i> Formulario de Contato
       </a>
     </li>

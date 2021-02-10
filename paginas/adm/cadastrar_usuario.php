@@ -54,6 +54,7 @@
             <div class="form-group col-md-7"> <label for="nome">Nome</label> <input type="text" class="form-control" name="nome" required> </div>
             <div class="form-group col-md-3"> <label for="campo2">Usuário</label> <input type="text" class="form-control" name="user" required> </div>
         </div>
+        <br>
         <div class="row">
             <div class="form-group col-md-5"> <label for="campo1">E-mail</label> <input type="email" class="form-control" name="email" required> </div>
             <div class="form-group col-md-3"> <label for="campo2">Senha</label> <input type="text" class="form-control" name="pass" required> </div>

@@ -11,7 +11,6 @@ body{
     background-color: #3b5998;
     width: 10%;
     z-index: 1;
-   
 
 }
 
@@ -20,7 +19,6 @@ body{
     border: 5px solid #8b9dc3;
     padding: 2px;
     border-radius: 10px;
-
 
 }
 
@@ -44,7 +42,6 @@ body{
 .row.justify-content-md-center{
 
     padding-top: 25px;
-
 
 }
 
@@ -71,7 +68,6 @@ footer p{
     width: 102%;
     position: fixed;
     
-
 }
 
 #form_login{
@@ -181,6 +177,7 @@ p a{
     overflow-y: auto;
     background: #8b9dc3;
     color: black;
+    z-index: 1;
     
   }
 
@@ -283,6 +280,7 @@ p a{
 .listagem tr, td, th{
 
   border: 2px solid black !important;
+  white-space: pre-wrap;
   
 
 }

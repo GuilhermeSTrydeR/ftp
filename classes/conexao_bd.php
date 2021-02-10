@@ -18,7 +18,8 @@ try{
     // echo $sql->rowCount();
 
 }catch(PDOException $e){
-    echo "<h4>ERRO: ".$e->getMessage()."</h4>";
+    // echo "<h4>ERRO: NÃO FOI POSSIVEL SE CONECTAR AO BANCO DE DADOS: ".$e->getMessage()."</h4>";
+    include("paginas/erros/conexao_banco.php");
     exit;
 
 }
