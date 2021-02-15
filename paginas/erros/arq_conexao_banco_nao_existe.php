@@ -5,22 +5,22 @@
 
         <h4 style="color: red;">Não foi possivel se conectar ao banco de dados!</h4>
         <h3>Possiveis causas:</h3>
-        <p>*o arquivo de conexão com o banco de dados está corrompido arquivo: ('classes/conexao_bd')</p>
-        <p>*esta pagina pode estar em cache e você está sem internet, com isso não é possivel se conectar ao banco</p>
-        <p>*o usuario ou senha de conexao foram trocados</p>
+        <p>*o arquivo de conexão com o banco de dados está corrompido, com outro nome ou não existe no diretorio: ('classes/conexao_bd')</p>
         
     </center>
 
     <br><br>
 
     <center style="border: 2px solid red; border-radius: 10px; background-color: #ffffcc;">
-        
-    <?php
-        echo "Descrição do erro:";
-        echo "<br>";
-        echo "<h4>".$e->getMessage()."</h4>";
-    ?>
+            
+        <?php
+            echo "Descrição do erro:";
+            echo "<br>";
+            echo "<h4>".$e->getMessage()."</h4>";
+        ?>
         
     </center>
+
+
 
 </body>

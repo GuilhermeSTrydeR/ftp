@@ -2,11 +2,35 @@
 session_start();
 
 //requerimento para linkar a classe PDO de conexão do banco
-require("classes/conexao_bd.php");
+
+$inc = "classes/conexao_bd.php";
+
+if (file_exists($inc) && is_readable($inc)) {
+
+    include $inc;
+
+} else{
+
+  include("paginas/erros/arq_conexao_banco_nao_existe.php");
+  exit;
+
+}
+
+
+// try{
+
+//   require("classes/conexao_bd.php");
+
+// }catch(PDOException $e){
+
+//   include("paginas/erros/conexao_banco.php");
+//   exit;
+
+// }
+
 
 //a variavel abaixo define a pagina selecionada ao clicar nos menus
 $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'index/inicio';
-
 
 
 ?>
@@ -25,9 +49,8 @@ $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'index/inicio';
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: 	#3b5998;">
         <div id="logo">
-            <a href="/ftp/">FTP</a>
+            <a href="/">FTP</a>
         </div>
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -42,7 +65,6 @@ $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'index/inicio';
             <li class="nav-item <?= ($pagina == 'contato')?'active':'' ?>">
               <a class="nav-link" href="?pagina=/index/contato"><b>Contato</b></a>
             </li>
-
             <div id="form_login">
             <form method="POST" action="classes/usuario/logar.php">
               <div class="row">
@@ -59,12 +81,9 @@ $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'index/inicio';
                    </button>
                   </div>
                 </div>
-            
             </form>
             </div>
-
           </ul>
-
         </div>
       </nav>
 

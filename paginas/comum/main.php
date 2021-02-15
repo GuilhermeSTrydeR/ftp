@@ -17,14 +17,14 @@
 
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: 	#3b5998;">
         <div id="logo">
-            <a href="/ftp">FTP</a>
+            <a href="/">FTP</a>
         </div>
         <ul class="navbar-nav" id="navbar-main">
             <li class="nav-item <?= ($pagina == 'inicio')?'active':'' ?>" style="">
               <a class="nav-link" href="?pagina=inicio"><b>Página Inicial</b></a>
             </li>
             <li class="nav-item <?= ($pagina == 'sobre')?'active':'' ?>">
-              <a class="nav-link" href="/ftp"><b>Sair</b></a>
+              <a class="nav-link" href="/"><b>Sair</b></a>
             </li>
         </ul>
 </nav>

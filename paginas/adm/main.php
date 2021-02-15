@@ -17,14 +17,14 @@
 
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: 	#3b5998;">
         <div id="logo">
-            <a href="/ftp">FTP</a>
+            <a href="/">FTP</a>
         </div>
         <ul class="navbar-nav" id="navbar-main">
             <li class="nav-item <?= ($pagina == 'inicio')?'active':'' ?>" style="">
               <a class="nav-link" href="?pagina=inicio"><b>Página Inicial</b></a>
             </li>
             <li class="nav-item <?= ($pagina == 'sobre')?'active':'' ?>">
-              <a class="nav-link" href="/ftp"><b>Sair</b></a>
+              <a class="nav-link" href="/"><b>Sair</b></a>
             </li>
         </ul>
 </nav>
@@ -58,6 +58,11 @@
         <i class="fa fa-cog" aria-hidden="true"></i> Formulario de Contato
       </a>
     </li>
+    <li>
+      <a href="?pagina=../index/contato">
+        <i class="fa fa-cog" aria-hidden="true"></i> Registrar
+      </a>
+    </li>
   </ul>
 </div>
 <div class="content-container">
@@ -74,6 +79,7 @@
     <?php
         //esse include ira colocar na tela a pagina selecionada e que foi atribuida a variavel $pagina, assim sempre que uma pagina for atribuida a variavel $pagina, ela sera incluida abaixo
         // include("./paginas/main/$pagina.php");
+        echo "<br>";
         include("$pagina.php");
     ?>
 </body>
