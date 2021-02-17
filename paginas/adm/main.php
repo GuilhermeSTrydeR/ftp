@@ -1,3 +1,13 @@
+<?php
+  session_start();
+
+  if(!isset($_SESSION['logado'])){
+
+    header("Location: /");
+
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -23,8 +33,8 @@
             <li class="nav-item <?= ($pagina == 'inicio')?'active':'' ?>" style="">
               <a class="nav-link" href="?pagina=inicio"><b>Página Inicial</b></a>
             </li>
-            <li class="nav-item <?= ($pagina == 'sobre')?'active':'' ?>">
-              <a class="nav-link" href="/"><b>Sair</b></a>
+            <li class="nav-item <?= ($pagina == 'Sair')?'active':'' ?>">
+              <a class="nav-link" href="../../funcoes/destruir_sessao.php"><b>Sair</b></a>
             </li>
         </ul>
 </nav>

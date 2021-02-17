@@ -1,6 +1,12 @@
 <?php
     session_start();
 
+    if(!isset($_POST['user']) && !isset($_POST['pass'])){
+
+        header("Location: /");
+
+    }
+
     if(isset($_POST["user"]) && !empty($_POST["user"]) && isset($_POST["pass"]) && !empty($_POST["pass"])){
         
         
@@ -17,25 +23,31 @@
         $user = addslashes($_POST["user"]);
         $pass = addslashes($_POST["pass"]);
 
-        $permissao = 3;
+        $permissao = 3; //buscar do banco a permissão!
 
         $_SESSION['permissao'] = $permissao;
 
         if($u->login($user, $pass) == true && $permissao == 1){
-
+            
+            $_SESSION['user'] = $user;
+            $_SESSION['logado'] = 1;
             header("location: ../../paginas/comum/main.php");
             
         }
 
         if($u->login($user, $pass) == true && $permissao == 2){
 
+            $_SESSION['user'] = $user;
+            $_SESSION['logado'] = 1;
             header("location: ../../paginas/supervisor/main.php");
             
         }
 
         
         if($u->login($user, $pass) == true && $permissao == 3){
-
+            
+            $_SESSION['user'] = $user;
+            $_SESSION['logado'] = 1;
             header("location: ../../paginas/adm/main.php");
             
         }

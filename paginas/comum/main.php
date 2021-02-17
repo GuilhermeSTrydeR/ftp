@@ -24,7 +24,7 @@
               <a class="nav-link" href="?pagina=inicio"><b>Página Inicial</b></a>
             </li>
             <li class="nav-item <?= ($pagina == 'sobre')?'active':'' ?>">
-              <a class="nav-link" href="/"><b>Sair</b></a>
+              <a class="nav-link" href="../../funcoes/destruir_sessao.php"><b>Sair</b></a>
             </li>
         </ul>
 </nav>
