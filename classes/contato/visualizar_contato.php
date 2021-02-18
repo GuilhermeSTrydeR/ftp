@@ -1,4 +1,11 @@
 <center style=" margin-top: 100px !important; position: relative !important;">
+    <style>
+
+        .hidden{
+            display: inline-block !important;
+        }
+
+    </style>
     <?php
 
         include("../../classes/conexao_bd.php");
@@ -7,29 +14,30 @@
         
         $consulta = $pdo->query("SELECT * FROM contato;");
 
-           
- 
-            echo "<table class='table table-striped table-bordered table-condensed table-hover' style='width: 900px !important';>";
+            echo "<center>";
+            echo "<table class='table table-hover' style='margin-left: 300px;'>";
             echo "<thead>";
             echo "<tr>";
             echo "<div class='thead'>";
-            echo "<th scope='col'>ID</th>";
-            echo "<th scope='col'>Nome</th>";
+            echo "<th scope='col' style='width: 50px;'>ID</th>";
+            echo "<th scope='col' style='width: 150px;'>Nome</th>";
             echo "<th scope='col'>email</th>";
             echo "<th scope='col'>telefone</th>";
-            echo "<th scope='col'>texto</th>";
+            echo "<th scope='col' style='max-width: 500px !important;'>texto</th>";
             echo "</div>";
             echo "</tr>";
             echo "</thead>";
+    
         
         
             while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
                 echo "<tr>";
-                echo  " <td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> {$linha['email']} </td> <td> {$linha['telefone']} </td> <td> {$linha['texto']} </td>";
+                echo  "<td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> {$linha['email']} </td> <td> {$linha['telefone']} </td> <td> {$linha['texto']} </td>";
                 echo "</tr>";
             }
         
             echo "</table>";
+            echo "</center>";
 
         // echo "<table class='table table-striped table-bordered table-condensed table-hover' style='width: 900px !important';>";
         // echo "<thead>";

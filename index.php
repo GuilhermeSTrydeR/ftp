@@ -1,37 +1,16 @@
-<?php
-  session_start();
+<?php 
+    session_start();
+    //se ja houver uma sessao ativa, sera redirecionado para a pagna de listagem dos boletos
+    if (isset($_SESSION['logado'])){
 
-  if(!isset($_SESSION['logado'])){
+        header("Location: paginas/adm/main.php");
+        exit();
+    }
 
-    header("Location: inicio.php");
+    else{
+        //caso nao haja uma sessao, ira para inicio afim de validar a possivel sessao
+        header("Location: inicio.php");
+        exit();
 
-  }
-
-  elseif(isset($_SESSION['logado']) && $_SESSION['permissao'] === 1){
-
-    header("Location: paginas/comum/main.php");
-
-  }
-
-
-  elseif(isset($_SESSION['logado']) && $_SESSION['permissao'] === 2){
-
-    header("Location: paginas/supervisor/main.php");
-
-  }
-
-
-  elseif(isset($_SESSION['logado']) && $_SESSION['permissao'] === 3){
-
-    header("Location: paginas/adm/main.php");
-
-  }
-
-  else{
-
-    header("Location: /");
-
-  }
-
-
+    }
 ?>

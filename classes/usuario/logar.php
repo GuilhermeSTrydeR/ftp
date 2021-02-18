@@ -23,7 +23,7 @@
         $user = addslashes($_POST["user"]);
         $pass = addslashes($_POST["pass"]);
 
-        $permissao = 3; //buscar do banco a permissão!
+        $permissao = 3;
 
         $_SESSION['permissao'] = $permissao;
 

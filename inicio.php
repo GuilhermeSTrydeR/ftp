@@ -5,7 +5,11 @@
     header("Location: /");
 
   }
+  else{
 
+    $_SESSION['permissao'] = 0;
+
+  }
 
 //requerimento para linkar a classe PDO de conexão do banco
 

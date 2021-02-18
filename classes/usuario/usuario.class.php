@@ -1,7 +1,4 @@
 <?php
-
-
-
     class Usuario{
 
         public function login($user, $pass){
@@ -11,6 +8,8 @@
             $sql = $pdo->prepare($sql);
             $sql->bindValue("user", $user);
             $sql->bindValue("pass", md5($pass));
+
+
             $sql->execute();
 
             if($sql->rowCount() > 0){
@@ -19,10 +18,7 @@
                 echo "ID: ".$dado['ID'];
                 echo "<br>";
                 echo "Usuario: ".$dado['user'];
-
                 return array($user, $pass);
-                
-
             }
         
             else{
@@ -32,8 +28,6 @@
             }
         }
 
-
- 
 
         public function gravar($nome, $email, $user, $pass, $permissao){
 

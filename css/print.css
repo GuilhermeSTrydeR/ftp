@@ -1,0 +1,26 @@
+@media print {
+
+    nav{
+
+        display: none !important;
+
+    }
+
+    .sidebar-container{
+
+        display: none !important;
+
+    }
+
+    .table{
+
+        position: absolute !important;
+        margin-left: -300px !important;
+        max-width: 750px !important;
+        
+
+    }
+
+
+
+}

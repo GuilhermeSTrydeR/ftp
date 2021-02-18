@@ -1,16 +1,6 @@
-<div id="contato_form_esq" style="float: left;">
-
-    
-        <h4>
-            Preencha o formulario abaixo para entrar em contato conosco
-        </h4>
-
-</div>
-
-
-<div id="contato_form_dir" style="float: right;">
+<div id="contato_form_dir" style="float: right; margin-top: 50px;">
     <div class="row justify-content-md-center">
-        <form method="POST" action="././classes/contato/gravar_contato.php" class="needs-validation" novalidate>
+        <form method="POST" action="/classes/contato/gravar_contato.php" class="needs-validation" novalidate>
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                 <!-- <label for="validationCustom01">Nome</label> -->
@@ -49,6 +39,5 @@
             }, false);
             })();
         </script>
-    </div>
     </div>
 </div>

@@ -1,7 +1,7 @@
 body{
 
     background-color: 	#dfe3ee;
-    position: relative;
+    /* position: relative; */
     width: 100%;
 
 }
@@ -10,7 +10,13 @@ body{
 
     background-color: #3b5998;
     width: 10%;
-    z-index: 1;
+    z-index: 2;
+
+}
+
+.sidebar{
+
+  z-index: 1;
 
 }
 
@@ -270,41 +276,22 @@ p a{
 
 }
 
-.listagem{
 
-  border: 2px solid black !important;
+img{
 
+  cursor: pointer;
 
 }
 
-.listagem tr, td, th{
+.hidden{
 
-  border: 2px solid black !important;
-  white-space: pre-wrap;
+  display: none;
+
+}
+
+table{
+
+  max-width: 900px;
   
 
-}
-
-.table.table-striped.table-bordered.table-condensed.table-hover{
-  
-  margin: 25px;
-  width: 700px !important;
-
-}
-
-.table {
-  --bs-table-bg:#dfe3ee;
-  --bs-table-striped-color: black	;
-  --bs-table-striped-bg:#8b9dc3	;
-  --bs-table-active-color: #cde6ff;
-  --bs-table-active-bg: rgba(0, 0, 0, 0.1);
-  --bs-table-hover-color: #212529;
-  --bs-table-hover-bg: rgba(139, 157, 195, 0.5);
-  width: 100%;
-  margin-bottom: 1rem;
-  color: black;
-  vertical-align: top;
-  border-color: black;
-  position: absolute;
-  left: 300px;
 }

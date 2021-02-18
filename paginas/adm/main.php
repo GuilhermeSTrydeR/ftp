@@ -10,13 +10,14 @@
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ficha Tecnica</title>
     <link rel="stylesheet" href="../../css/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="../../css/ftp.css">
-</head>
+    <link rel="stylesheet" href="../../css/print.css">
+  </head>
 <body>
 
 <?php
@@ -26,20 +27,28 @@
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: 	#3b5998;">
-        <div id="logo">
-            <a href="/">FTP</a>
-        </div>
-        <ul class="navbar-nav" id="navbar-main">
-            <li class="nav-item <?= ($pagina == 'inicio')?'active':'' ?>" style="">
-              <a class="nav-link" href="?pagina=inicio"><b>Página Inicial</b></a>
-            </li>
-            <li class="nav-item <?= ($pagina == 'Sair')?'active':'' ?>">
-              <a class="nav-link" href="../../funcoes/destruir_sessao.php"><b>Sair</b></a>
-            </li>
-        </ul>
+  <div id="logo">
+      <a href="/">FTP</a>
+  </div>
+  <ul class="navbar-nav" id="navbar-main">
+    <center>
+      <img src="/imagens/navbar/printer.png" class="hidden" onClick="window.print()" width="40" height="40" class="d-inline-block align-top" alt="imprimir" style="margin-left: 30px !important;">
+    </center>
+    <center>
+        <a href="?pagina=inicio">
+          <img src="/imagens/navbar/home.png" onclick="" width="40" height="40" class="d-inline-block align-top" alt="home" style="margin-left: 30px !important;">
+        </a>
+      </center>
+      <center>
+        <a href="/funcoes/destruir_sessao.php">
+            <img src="/imagens/navbar/sair.png" onclick="" width="40" height="40" class="d-inline-block align-top" alt="sair" style="margin-left: 30px !important;">
+        </a>
+      </center>
+  </ul>
 </nav>
 <div class="sidebar-container">
   <ul class="sidebar-navigation">
+    <br><br><br><br>
     <li class="header">Usuarios</li>
     <li>
       <a href="?pagina=cadastrar_usuario">

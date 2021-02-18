@@ -36,7 +36,7 @@
         }
 
         echo "<script>alert('Contato enviado!, muito obrigado pelo feedback.');</script>";
-            $url = '/ftp/index.php?pagina=index/contato';
+            $url = '/';
         echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
 
 
