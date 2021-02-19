@@ -1,5 +1,22 @@
 <div id="contato_form_dir" style="float: right; margin-top: 50px;">
     <div class="row justify-content-md-center">
+
+        <!-- regra para definir o texto no formulario de contato, como é utilizado a mesma pagina do 'index/contato_form' não eh necessario exibir o titulo para pessoas logadas, com isso: 
+
+        se (não houver o logon){
+
+            texto aparece;
+
+        } -->
+        <?php
+            if(!isset($_SESSION['logado'])){
+                echo "<h4>Preencha o formulario de contato abaixo:</h4>";
+                
+            }
+            echo "<br>";
+            echo "<br>";
+        ?>
+    
         <form method="POST" action="/classes/contato/gravar_contato.php" class="needs-validation" novalidate>
             <div class="form-row">
                 <div class="col-md-4 mb-3">

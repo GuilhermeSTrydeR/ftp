@@ -1,14 +1,14 @@
 <?php
 
 $db="localhost";
-$user="root";
-$pass="";
+$usuario="root";
+$password="";
 $banco="ftp";
 
 global $pdo;
 
 try{
-    $pdo = new PDO("mysql:dbname=".$banco."; host".$db, $user, $pass);
+    $pdo = new PDO("mysql:dbname=".$banco."; host".$db, $usuario, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $sql = $pdo->query("SELECT * FROM usuarios");

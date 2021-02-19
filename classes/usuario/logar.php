@@ -20,16 +20,16 @@
         //aqui instanciamos a classe
         $u = new Usuario();
 
-        $user = addslashes($_POST["user"]);
         $pass = addslashes($_POST["pass"]);
+        $user = $_POST['user'];
 
-        $permissao = 3;
+
+        $permissao = $u->permissao($user);
 
         $_SESSION['permissao'] = $permissao;
 
         if($u->login($user, $pass) == true && $permissao == 1){
             
-            $_SESSION['user'] = $user;
             $_SESSION['logado'] = 1;
             header("location: ../../paginas/comum/main.php");
             
@@ -37,7 +37,6 @@
 
         if($u->login($user, $pass) == true && $permissao == 2){
 
-            $_SESSION['user'] = $user;
             $_SESSION['logado'] = 1;
             header("location: ../../paginas/supervisor/main.php");
             
@@ -46,12 +45,12 @@
         
         if($u->login($user, $pass) == true && $permissao == 3){
             
-            $_SESSION['user'] = $user;
             $_SESSION['logado'] = 1;
-            header("location: ../../paginas/adm/main.php");
+            header("location: ../../paginas/admin/main.php");
             
         }
 
+        
 
         else{
             echo "<script>alert('Usuário ou senha inválidos!, por favor digite novamente');</script>";

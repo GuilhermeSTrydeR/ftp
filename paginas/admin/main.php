@@ -19,13 +19,11 @@
     <link rel="stylesheet" href="../../css/print.css">
   </head>
 <body>
-
 <?php
 
   $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'inicio';
 
 ?>
-
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: 	#3b5998;">
   <div id="logo">
       <a href="/">FTP</a>

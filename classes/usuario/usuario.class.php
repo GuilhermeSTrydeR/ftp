@@ -43,17 +43,29 @@
 
         }
 
+        public function permissao($user){
+            global $pdo;
+            
+            $sql = "SELECT permissao FROM usuarios WHERE user = '$user'";
+            $stmt = $pdo->prepare( $sql );
+            $stmt->bindParam( ':user', $user );        
+            $stmt->execute();
 
+            $res = $stmt->fetch();
+    
+            
+            // if ( ! $result )
+            // {
+            //     var_dump( $stmt->errorInfo() );
+            //     exit;
+            // }
+            
+            // echo $stmt->rowCount() . "linhas removidas";
+        
+            return $res;
 
-
-
+        }
     }
-
-
-
-
-
-
 ?>
 
 
