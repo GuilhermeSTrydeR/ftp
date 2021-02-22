@@ -51,16 +51,8 @@
             $stmt->bindParam( ':user', $user );        
             $stmt->execute();
 
-            $res = $stmt->fetch();
+            $res = $stmt->fetchColumn();
     
-            
-            // if ( ! $result )
-            // {
-            //     var_dump( $stmt->errorInfo() );
-            //     exit;
-            // }
-            
-            // echo $stmt->rowCount() . "linhas removidas";
         
             return $res;
 
