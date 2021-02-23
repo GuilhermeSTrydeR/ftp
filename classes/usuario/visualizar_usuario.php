@@ -14,13 +14,28 @@
         echo "<th scope='col'>Nome</th>";
         echo "<th scope='col'>Usuário</th>";
         echo "<th scope='col'>Permissão</th>";
+        echo "<th scope='col'>Tipo</th>";
         echo "</div>";
         echo "</tr>";
         echo "</thead>";
     
         while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+            
+            if($linha['tipo'] == 1){
+                $linha['tipo'] = "Ativo";
+             }
+            elseif($linha['tipo'] == 2){
+                $linha['tipo'] = "Temporario";
+            }
+            elseif($linha['tipo'] == 3){
+                $linha['tipo'] = "Desativado";
+            }
+            else{
+                $linha['tipo'] == "Tipo Não cadastrado";
+            }
+
             echo "<tr>";
-            echo  " <td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> {$linha['user']} </td> <td> {$linha['permissao']} </td>";
+            echo  " <td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> {$linha['user']} </td> <td> {$linha['permissao']} </td> <td>". $linha['tipo'] ."</td>";
             echo "</tr>";
             
         }

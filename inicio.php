@@ -5,58 +5,51 @@
     header("Location: /");
 
   }
-  else{
 
-    $_SESSION['permissao'] = 0;
+  $inc = "classes/conexao_bd.php";
 
-  }
-
-//requerimento para linkar a classe PDO de conexão do banco
-
-$inc = "classes/conexao_bd.php";
-
-if (file_exists($inc) && is_readable($inc)) {
+  if (file_exists($inc) && is_readable($inc)) {
 
     include $inc;
 
-} else{
+  } else{
 
   include("paginas/erros/arq_conexao_banco_nao_existe.php");
   exit;
 
-}
+  }
 
 
-// try{
+  // try{
 
-//   require("classes/conexao_bd.php");
+  //   require("classes/conexao_bd.php");
 
-// }catch(PDOException $e){
+  // }catch(PDOException $e){
 
-//   include("paginas/erros/conexao_banco.php");
-//   exit;
+  //   include("paginas/erros/conexao_banco.php");
+  //   exit;
 
-// }
+  // }
 
 
-//a variavel abaixo define a pagina selecionada ao clicar nos menus
-$pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'index/inicio';
+  //a variavel abaixo define a pagina selecionada ao clicar nos menus
+  $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'index/inicio';
 
 
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema FTP</title>
+  <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sistema FTP</title>
 
-    <!--  bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="css/ftp.css">
-</head>
-<body>
+        <!--  bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+        <link rel="stylesheet" href="css/ftp.css">
+    </head>
+    <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: 	#3b5998;">
         <div id="logo">
             <a href="/">FTP</a>
@@ -87,8 +80,8 @@ $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'index/inicio';
                   <!-- <button type="submit" value="login" id="login" name="logar">Logar</button> -->
                   <div class="col">
                     <button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-                     Entrar 
-                   </button>
+                    Entrar 
+                  </button>
                   </div>
                 </div>
             </form>
@@ -97,23 +90,23 @@ $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'index/inicio';
         </div>
       </nav>
 
-     
+    
     <?php
         //esse include ira colocar na tela a pagina selecionada e que foi atribuida a variavel $pagina, assim sempre que uma pagina for atribuida a variavel $pagina, ela sera incluida abaixo
         include("paginas/$pagina.php");
     ?>
         
 
-<script src="../../js/bootstrap/popper/popper.min.js"></script>
-<script src="../../js/jquery/jquery.js"></script>
-<script src="js/bootstrap/bootstrap.js"></script>
-<script src="js/script.js"></script>
-</body>
-  <footer>
-    
-    <p>Mesa Preta Sistemas</p>
+  <script src="../../js/bootstrap/popper/popper.min.js"></script>
+  <script src="../../js/jquery/jquery.js"></script>
+  <script src="js/bootstrap/bootstrap.js"></script>
+  <script src="js/script.js"></script>
+      </body>
+      <footer>
+        
+        <p>Mesa Preta Sistemas</p>
 
-  </footer>
+      </footer>
 
 
 </html>

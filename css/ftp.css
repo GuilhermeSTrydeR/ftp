@@ -295,3 +295,9 @@ table{
   
 
 }
+
+tr{
+
+  cursor: pointer;
+
+}

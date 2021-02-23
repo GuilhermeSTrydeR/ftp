@@ -1,12 +1,11 @@
 <?php
   session_start();
 
-  if(!isset($_SESSION['logado'])){
+  if(!isset($_SESSION['logado']) || $_SESSION['permissao'] != '3'){
 
     header("Location: /");
 
   }
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -30,6 +29,7 @@
   </div>
   <ul class="navbar-nav" id="navbar-main">
     <center>
+      <a href="../usuarios/main.php"><?$_SESSION['nome']?></a>
       <img src="/imagens/navbar/printer.png" class="hidden" onClick="window.print()" width="40" height="40" class="d-inline-block align-top" alt="imprimir" style="margin-left: 30px !important;">
     </center>
     <center>

@@ -2,7 +2,7 @@
     
     //aqui sera gravado no banco a funcao gravar do contato.class que no caso eh referenciada abaixo no require
 
-    if(isset($_POST["nome"]) && !empty($_POST["nome"]) && isset($_POST["email"]) && !empty($_POST["email"]) && isset($_POST["user"]) && !empty($_POST["user"]) && isset($_POST["pass"]) && !empty($_POST["pass"]) && isset($_POST["permissao"]) && !empty($_POST["permissao"])){
+    if(isset($_POST["nome"]) && !empty($_POST["nome"]) && isset($_POST["email"]) && !empty($_POST["email"]) && isset($_POST["user"]) && !empty($_POST["user"]) && isset($_POST["pass"]) && !empty($_POST["pass"]) && isset($_POST["permissao"]) && !empty($_POST["permissao"]) && isset($_POST["tipo"]) && !empty($_POST["tipo"])){
         
 
         //requer classe de conexao do banco
@@ -14,24 +14,17 @@
         //aqui instanciamos a classe
         $u = new Usuario();
 
-        
+
         //aqui adicionamos um nivel basico de seguranca
         $nome = addslashes($_POST["nome"]);
         $email = addslashes($_POST["email"]);
         $user = addslashes($_POST["user"]);
         $pass = addslashes(md5($_POST["pass"]));
         $permissao = addslashes($_POST["permissao"]);
+        $tipo = addslashes($_POST['tipo']);
+        
 
-        //se a funcao da classe tiver as variaveis, sera gravado no banco, se nao 
-        if($u->gravar($nome, $email, $user, $pass, $permissao) == true){
-
-
-            echo "<script>alert('Usuário Registrado!')</script>";
-
-
-        }
-
-       
+        $u->gravar($nome, $email, $user, $pass, $permissao, $tipo);
 
     }
 

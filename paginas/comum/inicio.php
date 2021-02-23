@@ -1,16 +1,19 @@
 <center style="margin-left: 100px; margin-top: 100px !important;">
-
-    <h4>comum</h4>
 <?php
 
+    if(!isset($_SESSION['logado']) || $_SESSION['permissao'] != '1'){
 
-echo "<br>";
+        header("Location: /");
+
+    }
+
+    echo "<h4>comum</h4>";
+    echo "<br>";
     echo "Permissão: " . $_SESSION['permissao'];
     echo "<br>";
     echo gettype($_SESSION['permissao']);
     echo "<br>";
     echo "status da sessão: " . session_status();
-
 
 ?>
 

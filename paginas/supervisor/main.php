@@ -1,3 +1,13 @@
+<?php
+  session_start();
+
+  if(!isset($_SESSION['logado']) || $_SESSION['permissao'] != '2'){
+
+    header("Location: /");
+
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

@@ -35,9 +35,16 @@
 
         }
 
-        echo "<script>alert('Contato enviado!, muito obrigado pelo feedback.');</script>";
+        if(!isset($_SESSION['logado'])){
+            
+            echo "<script>alert('Contato enviado!, muito obrigado pelo feedback.');</script>";
             $url = '/';
-        echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
+            echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
+            
+        }
+       
+
+        
 
 
 

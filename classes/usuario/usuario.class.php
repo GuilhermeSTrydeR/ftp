@@ -29,17 +29,23 @@
         }
 
 
-        public function gravar($nome, $email, $user, $pass, $permissao){
+        public function gravar($nome, $email, $user, $pass, $permissao, $tipo){
 
             global $pdo;
-            $sql = "INSERT INTO usuarios(nome, email, user, pass, permissao) VALUES(:nome, :email, :user, :pass, :permissao)";
+            $sql = "INSERT INTO usuarios(nome, email, user, pass, permissao, tipo) VALUES(:nome, :email, :user, :pass, :permissao, :tipo)";
             $sql = $pdo->prepare($sql);
             $sql->bindValue("nome", $nome);
             $sql->bindValue ("email", $email);
             $sql->bindValue("user", $user);
             $sql->bindValue ("pass", $pass);
             $sql->bindValue ("permissao", $permissao);
+            $sql->bindValue("tipo", $tipo);
             $sql->execute();
+
+            echo "<script>alert('Usuario: ". $_POST['user'] .'\n' . "Nome: ". $_POST['nome'] .'\n\n' . "Cadastrado!');</script>";
+            $url = '/';
+            echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
+
 
         }
 
@@ -57,6 +63,22 @@
             return $res;
 
         }
+
+        public function tipo($user){
+            global $pdo;
+            
+            $sql = "SELECT tipo FROM usuarios WHERE user = '$user'";
+            $stmt = $pdo->prepare( $sql );
+            $stmt->bindParam( ':user', $user );        
+            $stmt->execute();
+
+            $res = $stmt->fetchColumn();
+    
+        
+            return $res;
+
+        }
+
     }
 ?>
 

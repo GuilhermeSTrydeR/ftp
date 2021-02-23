@@ -1,8 +1,15 @@
 <center style="margin-left: 100px; margin-top: 100px !important;">
 
-    <h4>adm</h4>
+    
     <?php
 
+        if(!isset($_SESSION['logado']) || $_SESSION['permissao'] != '3'){
+        
+            header("Location: /");
+        
+        }
+        
+        echo "<h4>adm</h4>";
 
         echo "<br>";
         echo "Permissão: " . $_SESSION['permissao'];
