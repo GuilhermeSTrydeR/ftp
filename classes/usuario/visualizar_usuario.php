@@ -21,17 +21,28 @@
     
         while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
             
-            if($linha['tipo'] == 1){
-                $linha['tipo'] = "Ativo";
-             }
-            elseif($linha['tipo'] == 2){
-                $linha['tipo'] = "Temporario";
+            switch ($linha['tipo']) {
+                case 1:
+                    $linha['tipo'] = 'Ativo';
+                    break;
+                case 2:
+                    $linha['tipo'] = 'Temporario';
+                    break;
+                case 3:
+                    $linha['tipo'] = 'Desativado';
+                    break;
             }
-            elseif($linha['tipo'] == 3){
-                $linha['tipo'] = "Desativado";
-            }
-            else{
-                $linha['tipo'] == "Tipo Não cadastrado";
+            
+            switch ($linha['permissao']) {
+                case 1:
+                    $linha['permissao'] = 'Comum';
+                    break;
+                case 2:
+                    $linha['permissao'] = 'Supervisor';
+                    break;
+                case 3:
+                    $linha['permissao'] = 'Administrador';
+                    break;
             }
 
             echo "<tr>";
