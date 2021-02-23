@@ -24,17 +24,17 @@
         $user = $_POST['user'];
 
         $permissao = $u->permissao($user);
-        $tipo = $u->tipo($user);
+        $status = $u->status($user);
 
         $_SESSION['permissao'] = $permissao;
 
-        if($u->login($user, $pass) == true && $permissao == 1 && $tipo == 1 || $tipo == 2){
+        if($u->login($user, $pass) == true && $permissao == 1 && $status == 1 || $status == 2){
             
             $_SESSION['logado'] = 1;
             header("location: ../../paginas/comum/main.php");
             
         }
-        if($u->login($user, $pass) == true && $permissao == 1 && $tipo == 3){
+        if($u->login($user, $pass) == true && $permissao == 1 && $status == 3){
             
             echo "<script>alert('Conta Desativada, por favor entre em contato com o Administrador do sistema');</script>";
             $url = '../../index.php';
@@ -42,14 +42,14 @@
             
         }
 
-        if($u->login($user, $pass) == true && $permissao == 2 && $tipo == 1 || $tipo == 2){
+        if($u->login($user, $pass) == true && $permissao == 2 && $status == 1 || $status == 2){
 
             $_SESSION['logado'] = 1;
             header("location: ../../paginas/supervisor/main.php");
             
         }
 
-        if($u->login($user, $pass) == true && $permissao == 2 && $tipo == 3){
+        if($u->login($user, $pass) == true && $permissao == 2 && $status == 3){
             
             echo "<script>alert('Conta Desativada, por favor entre em contato com o Administrador do sistema');</script>";
             $url = '../../index.php';
@@ -57,14 +57,14 @@
             
         }
 
-        if($u->login($user, $pass) == true && $permissao == 3 && $tipo == 1 || $tipo == 2){
+        if($u->login($user, $pass) == true && $permissao == 3 && $status == 1 || $status == 2){
             
             $_SESSION['logado'] = 1;
             header("location: ../../paginas/admin/main.php");
             
         }
 
-        if($u->login($user, $pass) == true && $permissao == 3 && $tipo == 3){
+        if($u->login($user, $pass) == true && $permissao == 3 && $status == 3){
             
             echo "<script>alert('Conta Desativada, por favor entre em contato com o Administrador do sistema');</script>";
             $url = '../../index.php';

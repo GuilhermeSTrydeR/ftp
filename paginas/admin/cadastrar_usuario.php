@@ -21,7 +21,7 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] != '3'){
             
             <div class="form-group col-md-2">
             <label for="permissao">Permissão</label>
-            <select class="form-select" aria-label="tipo" name="permissao" required>
+            <select class="form-select" aria-label="Permissao" name="permissao" required>
                 <option selected></option>
                 <option value="1">Comum</option>
                 <option value="2">Supervisor</option>
@@ -30,8 +30,8 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] != '3'){
             </div>
         <div class="row">    
             <div class="form-group col-md-2">
-            <label for="tipo">Status</label>
-            <select class="form-select" aria-label="tipo" name="tipo" required>
+            <label for="status">Status</label>
+            <select class="form-select" aria-label="status" name="status" required>
                 <option selected></option>
                 <option value="1">Ativo</option>
                 <option value="2">Temporario</option>

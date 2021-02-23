@@ -10,11 +10,12 @@
         } -->
         <?php
             if(!isset($_SESSION['logado'])){
+                
                 echo "<h4>Preencha o formulario de contato abaixo:</h4>";
                 
+                
             }
-            echo "<br>";
-            echo "<br>";
+           
         ?>
     
         <form method="POST" action="/classes/contato/gravar_contato.php" class="needs-validation" novalidate>

@@ -14,25 +14,26 @@
         echo "<th scope='col'>Nome</th>";
         echo "<th scope='col'>Usuário</th>";
         echo "<th scope='col'>Permissão</th>";
-        echo "<th scope='col'>Tipo</th>";
+        echo "<th scope='col'>status</th>";
         echo "</div>";
         echo "</tr>";
         echo "</thead>";
     
         while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
-            
-            switch ($linha['tipo']) {
+            //estrutura 'switch case' para printar ao usuario se a conta esta ativa, desativada ou se eh temporaria
+            switch ($linha['status']) {
                 case 1:
-                    $linha['tipo'] = 'Ativo';
+                    $linha['status'] = 'Ativo';
                     break;
                 case 2:
-                    $linha['tipo'] = 'Temporario';
+                    $linha['status'] = 'Temporario';
                     break;
                 case 3:
-                    $linha['tipo'] = 'Desativado';
+                    $linha['status'] = 'Desativado';
                     break;
             }
-            
+
+            //estrutura 'switch case' para printar ao usuario se a conta eh comum, supervisor ou administrador
             switch ($linha['permissao']) {
                 case 1:
                     $linha['permissao'] = 'Comum';
@@ -46,7 +47,7 @@
             }
 
             echo "<tr>";
-            echo  " <td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> {$linha['user']} </td> <td> {$linha['permissao']} </td> <td>". $linha['tipo'] ."</td>";
+            echo  " <td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> {$linha['user']} </td> <td> {$linha['permissao']} </td> <td>". $linha['status'] ."</td>";
             echo "</tr>";
             
         }
