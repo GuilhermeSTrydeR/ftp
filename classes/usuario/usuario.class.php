@@ -15,9 +15,9 @@
             if($sql->rowCount() > 0){
 
                 $dado = $sql->fetch();
-                echo "ID: ".$dado['ID'];
-                echo "<br>";
-                echo "Usuario: ".$dado['user'];
+                // echo "ID: ".$dado['ID'];
+                // echo "<br>";
+                // echo "Usuario: ".$dado['user'];
                 return array($user, $pass);
             }
         

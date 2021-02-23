@@ -28,13 +28,13 @@
 
         $_SESSION['permissao'] = $permissao;
 
-        if($u->login($user, $pass) == true && $permissao == 1 && $tipo == 1){
+        if($u->login($user, $pass) == true && $permissao == 1 && $tipo == 1 || $tipo == 2){
             
             $_SESSION['logado'] = 1;
             header("location: ../../paginas/comum/main.php");
             
         }
-        if($u->login($user, $pass) == true && $permissao == 1 && $tipo != 1){
+        if($u->login($user, $pass) == true && $permissao == 1 && $tipo == 3){
             
             echo "<script>alert('Conta Desativada, por favor entre em contato com o Administrador do sistema');</script>";
             $url = '../../index.php';
@@ -42,14 +42,14 @@
             
         }
 
-        if($u->login($user, $pass) == true && $permissao == 2 && $tipo == 1){
+        if($u->login($user, $pass) == true && $permissao == 2 && $tipo == 1 || $tipo == 2){
 
             $_SESSION['logado'] = 1;
             header("location: ../../paginas/supervisor/main.php");
             
         }
 
-        if($u->login($user, $pass) == true && $permissao == 2 && $tipo != 1){
+        if($u->login($user, $pass) == true && $permissao == 2 && $tipo == 3){
             
             echo "<script>alert('Conta Desativada, por favor entre em contato com o Administrador do sistema');</script>";
             $url = '../../index.php';
@@ -57,14 +57,14 @@
             
         }
 
-        if($u->login($user, $pass) == true && $permissao == 3 && $tipo == 1){
+        if($u->login($user, $pass) == true && $permissao == 3 && $tipo == 1 || $tipo == 2){
             
             $_SESSION['logado'] = 1;
             header("location: ../../paginas/admin/main.php");
             
         }
 
-        if($u->login($user, $pass) == true && $permissao == 3 && $tipo != 1){
+        if($u->login($user, $pass) == true && $permissao == 3 && $tipo == 3){
             
             echo "<script>alert('Conta Desativada, por favor entre em contato com o Administrador do sistema');</script>";
             $url = '../../index.php';
