@@ -2,9 +2,8 @@
     
     //aqui sera gravado no banco a funcao gravar do contato.class que no caso eh referenciada abaixo no require
 
-    if(isset($_POST["nome"]) && !empty($_POST["nome"]) && isset($_POST["email"]) && !empty($_POST["email"]) && isset($_POST["user"]) && !empty($_POST["user"]) && isset($_POST["pass"]) && !empty($_POST["pass"]) && isset($_POST["permissao"]) && !empty($_POST["permissao"]) && isset($_POST["status"]) && !empty($_POST["status"])){
+    if(isset($_POST["nome"]) && !empty($_POST["nome"]) && isset($_POST["email"]) && !empty($_POST["email"]) && isset($_POST["user"]) && !empty($_POST["user"]) && isset($_POST["pass"]) && !empty($_POST["pass"]) && isset($_POST["permissao"]) && !empty($_POST["permissao"]) && isset($_POST["status"]) && !empty($_POST["status"]) && isset($_POST["tempo"]) && !empty($_POST["tempo"])){
         
-
         //requer classe de conexao do banco
         require("../conexao_bd.php");
 
@@ -22,9 +21,15 @@
         $pass = addslashes(md5($_POST["pass"]));
         $permissao = addslashes($_POST["permissao"]);
         $status = addslashes($_POST['status']);
+        $tempo = addslashes($_POST['tempo']);
+
+        $tempo = (($tempo * 3600) + time());
+
+        
+    
         
 
-        $u->gravar($nome, $email, $user, $pass, $permissao, $status);
+        $u->gravar($nome, $email, $user, $pass, $permissao, $status, $tempo);
 
     }
 

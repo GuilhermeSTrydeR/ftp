@@ -9,16 +9,15 @@
         
         }
         
-        echo "<h4>adm</h4>";
+       
+
+        echo time();
 
         echo "<br>";
-        echo "Permissão: " . $_SESSION['permissao'];
-        echo "<br>";
-        echo gettype($_SESSION['permissao']);
-        echo "<br>";
-        echo "status da sessão: " . session_status();
+        echo $_SESSION['tempo'];
 
-
+       
+ 
 ?>
 
 </center>

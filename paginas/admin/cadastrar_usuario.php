@@ -30,24 +30,19 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] != '3'){
         </div>
         <div class="row">    
             <div class="form-group col-md-2">
-            <label for="status">Status</label>
-            <select class="form-select" aria-label="status" name="status" required>
+                <label for="status">Status</label>
+             <select class="form-select" aria-label="status" name="status" required>
                 <option selected></option>
                 <option value="1">Ativo</option>
                 <option value="2">Temporario</option>
                 <option value="3">Desativado</option>
-            </select>
-        </div>
+                </select>
+             </div>
 
         <!-- ao selecionar a opcao de usuario temporario esse campo abaixo 'tempo' devera aparecer para colocar quantas horas esse usuario ficara ativo no sistema, a logica de se criar usuarios temporarios deve-se ao fato da possibilidade de usuarios que nao vao usar o sistema por muito tempo tais como: auditorias internas e externas, visitantes entre outros. -->
         <div class="form-group col-md-2"> <label for="campo2">Tempo em Horas</label> <input type="number" class="form-control" name="tempo" required autocomplete="off"> </div>
             </div>
         </div>
-
-
-        
-    
-
         <br>
         <br>
         <div id="actions" class="row">

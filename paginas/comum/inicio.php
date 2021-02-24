@@ -13,7 +13,7 @@
     echo "<br>";
     echo gettype($_SESSION['permissao']);
     echo "<br>";
-    echo "status da sessão: " . session_status();
+    echo $_SESSION['tempo'];
 
 ?>
 

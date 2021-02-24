@@ -29,15 +29,12 @@
         }
 
 
-        public function gravar($nome, $email, $user, $pass, $permissao, $status){
+        public function gravar($nome, $email, $user, $pass, $permissao, $status, $tempo){
 
-            $data_maxima = date('Y/m/d');
-            $data_maxima = str_replace("/", "", $data_maxima);
-
-            $status = $data_maxima;
+        
 
             global $pdo;
-            $sql = "INSERT INTO usuarios(nome, email, user, pass, permissao, status) VALUES(:nome, :email, :user, :pass, :permissao, :status)";
+            $sql = "INSERT INTO usuarios(nome, email, user, pass, permissao, status, tempo) VALUES(:nome, :email, :user, :pass, :permissao, :status, :tempo)";
             $sql = $pdo->prepare($sql);
             $sql->bindValue("nome", $nome);
             $sql->bindValue ("email", $email);
@@ -45,6 +42,7 @@
             $sql->bindValue ("pass", $pass);
             $sql->bindValue ("permissao", $permissao);
             $sql->bindValue("status", $status);
+            $sql->bindValue("tempo", $tempo);
             $sql->execute();
 
             echo "<script>alert('Usuario: ". $_POST['user'] .'\n' . "Nome: ". $_POST['nome'] .'\n\n' . "Cadastrado!');</script>";
@@ -73,6 +71,21 @@
             global $pdo;
             
             $sql = "SELECT status FROM usuarios WHERE user = '$user'";
+            $stmt = $pdo->prepare( $sql );
+            $stmt->bindParam( ':user', $user );        
+            $stmt->execute();
+
+            $res = $stmt->fetchColumn();
+    
+        
+            return $res;
+
+        }
+
+        public function tempo($user){
+            global $pdo;
+            
+            $sql = "SELECT tempo FROM usuarios WHERE user = '$user'";
             $stmt = $pdo->prepare( $sql );
             $stmt->bindParam( ':user', $user );        
             $stmt->execute();

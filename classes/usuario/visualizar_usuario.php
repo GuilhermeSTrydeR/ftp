@@ -15,11 +15,20 @@
         echo "<th scope='col'>Usuário</th>";
         echo "<th scope='col'>Permissão</th>";
         echo "<th scope='col'>Status</th>";
+        echo "<th scope='col'>Tempo</th>";
         echo "</div>";
         echo "</tr>";
         echo "</thead>";
     
         while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+            
+
+            if($linha['status'] != 2){
+
+                $linha['tempo'] = "Sem Limite";
+
+            }
+
             //estrutura 'switch case' para printar ao usuario se a conta esta ativa, desativada ou se eh temporaria
             switch ($linha['status']) {
                 case 1:
@@ -47,7 +56,7 @@
             }
 
             echo "<tr>";
-            echo  " <td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> {$linha['user']} </td> <td> {$linha['permissao']} </td> <td>". $linha['status'] ."</td>";
+            echo  " <td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> {$linha['user']} </td> <td> {$linha['permissao']} </td> <td>". $linha['status'] ."</td> <td>". $linha['tempo'] ."</td> ";
             echo "</tr>";
             
         }
