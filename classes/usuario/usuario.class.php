@@ -31,6 +31,11 @@
 
         public function gravar($nome, $email, $user, $pass, $permissao, $status){
 
+            $data_maxima = date('Y/m/d');
+            $data_maxima = str_replace("/", "", $data_maxima);
+
+            $status = $data_maxima;
+
             global $pdo;
             $sql = "INSERT INTO usuarios(nome, email, user, pass, permissao, status) VALUES(:nome, :email, :user, :pass, :permissao, :status)";
             $sql = $pdo->prepare($sql);

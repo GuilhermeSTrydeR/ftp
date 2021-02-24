@@ -14,7 +14,7 @@
         echo "<th scope='col'>Nome</th>";
         echo "<th scope='col'>Usuário</th>";
         echo "<th scope='col'>Permissão</th>";
-        echo "<th scope='col'>status</th>";
+        echo "<th scope='col'>Status</th>";
         echo "</div>";
         echo "</tr>";
         echo "</thead>";

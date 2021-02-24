@@ -72,6 +72,13 @@
             
         }
 
+        else{
+   
+            echo "<script>alert('Usuário ou senha invalidos! por favor digite novamente.');</script>";
+            $url = '../../index.php';
+            echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
+    
+        }
 
 
     }
