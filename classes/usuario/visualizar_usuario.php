@@ -41,7 +41,7 @@
                 $horas = intval($horas);
                 
                 //aqui sao retirados os minutos restantes e sao convertidos para inteiro
-                $minutos = ($linha['tempo'] / 60);
+                $minutos = ($horas / $linha['tempo']);
                 $minutos = intval($minutos);
 
                 //aqui sao retirados os restos da divisao por 60, ou seja, os segundos e convertido para inteiro
