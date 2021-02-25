@@ -37,11 +37,14 @@
                 //caso for temporario, eh somado o tempo atual ao tempo que foi registrado a ele no banco.
                 $linha['tempo'] = (($linha['tempo'] - time()));
 
-                $horas = ($linha['tempo'] / 3600);
-                $horas = intval($horas);
+                $dias = ($linha['tempo'] / 86400 % 86400);
+                $dias = intval($dias);
                 
+                $horas = ($linha['tempo'] / 3600 % 3600);
+                $horas = intval($horas);
+
                 //aqui sao retirados os minutos restantes e sao convertidos para inteiro
-                $minutos = ($horas / $linha['tempo']);
+                $minutos = ($linha['tempo'] /60 %60);
                 $minutos = intval($minutos);
 
                 //aqui sao retirados os restos da divisao por 60, ou seja, os segundos e convertido para inteiro
@@ -49,7 +52,7 @@
                 $segundos = intval($segundos);
 
                 $diaFinal = ($linha['tempo'] + time());
-                $diaFinal = gmdate("d/m/y á\s\ h:i:s", ($diaFinal + $fusoHorario));
+                $diaFinal = gmdate("d/m/y á\s\ H:i:s", ($diaFinal + $fusoHorario));
                 
                 //caso o tempo acabe, eh atrelado "tempo esgotado" mostrando que o usuario nao pode mais logar no sistema
                 if($linha['tempo'] <= 0){
@@ -60,7 +63,7 @@
                 //caso nao tenha acabado o tempo, eh mostrado na tela no formato (M:S) o tempo restante
                 else{
 
-                    $linha['tempo'] = ("Tempo restante: " . $horas . ":" . $minutos . ":" . $segundos . " Acesso Garantido até: " . $diaFinal);
+                    $linha['tempo'] = ("Tempo restante: " .$dias." dias, ". $horas . ":" . $minutos . ":" . $segundos . " Acesso Garantido até: " . $diaFinal);
 
                 }
             }
