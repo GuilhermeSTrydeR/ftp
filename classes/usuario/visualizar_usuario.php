@@ -37,9 +37,11 @@
                 //caso for temporario, eh somado o tempo atual ao tempo que foi registrado a ele no banco.
                 $linha['tempo'] = (($linha['tempo'] - time()));
 
+                //aqui sao retirados os dias restantes e sao convertidos para inteiro
                 $dias = ($linha['tempo'] / 86400 % 86400);
                 $dias = intval($dias);
-                
+
+                //aqui sao retirados as horas restantes e sao convertidos para inteiro
                 $horas = ($linha['tempo'] / 3600 % 3600);
                 $horas = intval($horas);
 

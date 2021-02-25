@@ -26,9 +26,20 @@
         //aqui pegamos o tempo em horas digitadas pelo usuario e convertemos em segundos(horas [vezes] 3600), depois somamos com os segundos atuais do sistema (unix timestamp) ambos em segundos pra que depois esse valor seja comparado na hora de logar.
         $tempo = (($tempo * 3600) + time());
         
-        
+        if($u->duplicidade($user) == true){
 
-        $u->gravar($nome, $email, $user, $pass, $permissao, $status, $tempo);
+            $u->gravar($nome, $email, $user, $pass, $permissao, $status, $tempo);
+
+        }
+        else{
+
+            echo "<script>alert('esse usuario ja consta cadastrado! por favor selecione outro login!');</script>";
+            $url = '../../paginas/admin/main.php?pagina=cadastrar_usuario';
+            echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
+
+        }
+
+        
 
     }
 

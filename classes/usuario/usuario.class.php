@@ -28,6 +28,27 @@
             }
         }
 
+        public function duplicidade($user){
+
+            global $pdo;
+            $sql = "SELECT user FROM usuarios where user = :user";
+            $sql = $pdo->prepare($sql);
+            $sql->bindValue("user", $user);
+
+            $sql->execute();
+
+            if($sql->rowCount() > 0){
+
+                return false;
+            }
+        
+            else{
+
+                return true;
+
+            }
+        }
+
 
         public function gravar($nome, $email, $user, $pass, $permissao, $status, $tempo){
 
