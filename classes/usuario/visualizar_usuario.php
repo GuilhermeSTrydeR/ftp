@@ -48,12 +48,9 @@
                 $segundos = ($linha['tempo'] % 60);
                 $segundos = intval($segundos);
 
-                
                 $diaFinal = ($linha['tempo'] + time());
                 $diaFinal = gmdate("d/m/y á\s\ h:i:s", ($diaFinal + $fusoHorario));
                 
-               
-
                 //caso o tempo acabe, eh atrelado "tempo esgotado" mostrando que o usuario nao pode mais logar no sistema
                 if($linha['tempo'] <= 0){
 
@@ -101,26 +98,6 @@
         }
         
         echo "</table>";
-  
-        
 
-        
-    
-    //   <tr>
-    //     <th scope="col">Nome</th>
-    //     <th scope="col">Data Vencimento</th>
-    //     <th scope="col">Valor</th>
-    //     <th scope="col">Situação</th>
-    //     <th scope="col">Boleto</th>
-    //   </tr>
-    // </thead>
-    // <tbody>
-    //   <tr>
-    //     <td>Guilherme Pereira de Mello Silva</td>
-    //     <td>31/01/2021</td>
-    //     <td>R$ 1258,75</td>
-    //     <td>Em dia</td>
-    //     <td>
-    
     ?>
 </center>
