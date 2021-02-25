@@ -15,7 +15,18 @@
 
         echo "<br>";
         echo $_SESSION['tempo'];
+        
 
+        if($_SESSION['tempo'] <= time()){
+
+            echo "<h4>NEGADO</H4>";
+
+        }
+        else{
+
+            echo "<h4>PERMITIDO</H4>";
+
+        }
        
  
 ?>

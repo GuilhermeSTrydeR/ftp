@@ -23,10 +23,9 @@
         $status = addslashes($_POST['status']);
         $tempo = addslashes($_POST['tempo']);
 
+        //aqui pegamos o tempo em horas digitadas pelo usuario e convertemos em segundos(horas [vezes] 3600), depois somamos com os segundos atuais do sistema (unix timestamp) ambos em segundos pra que depois esse valor seja comparado na hora de logar.
         $tempo = (($tempo * 3600) + time());
-
         
-    
         
 
         $u->gravar($nome, $email, $user, $pass, $permissao, $status, $tempo);

@@ -22,19 +22,32 @@
 
         $pass = addslashes($_POST["pass"]);
         $user = $_POST['user'];
+        
+        $_SESSION['tempo'] = $u->tempo($user);
+        $_SESSION['permissao'] = $u->permissao($user);
 
-        $permissao = $u->permissao($user);
-        $status = $u->status($user);
-
-        $_SESSION['permissao'] = $permissao;
-
-        if($u->login($user, $pass) == true && $permissao == 1 && $status == 1 || $status == 2){
+        if($u->login($user, $pass) == true && $u->permissao($user) == 1 && $u->status($user) == 1){
             
             $_SESSION['logado'] = 1;
             header("location: ../../paginas/comum/main.php");
             
         }
-        if($u->login($user, $pass) == true && $permissao == 1 && $status == 3){
+        elseif($u->login($user, $pass) == true && $u->permissao($user) == 1 && $u->status($user) == 2){
+
+            if($u->tempo($user) <= time()){
+
+                echo "<script>alert('Conta Expirada! por favor contate o adminsitrador do sistema.');</script>";
+                $url = '../../index.php';
+                echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
+
+            }
+            else{
+                $_SESSION['logado'] = 1;
+                header("location: ../../paginas/admin/main.php");
+            }
+
+        }
+        elseif($u->login($user, $pass) == true && $u->permissao($user) == 1 && $u->status($user) == 3){
             
             echo "<script>alert('Conta Desativada, por favor entre em contato com o Administrador do sistema');</script>";
             $url = '../../index.php';
@@ -42,14 +55,27 @@
             
         }
 
-        if($u->login($user, $pass) == true && $permissao == 2 && $status == 1 || $status == 2){
+        elseif($u->login($user, $pass) == true && $u->permissao($user) == 2 && $u->status($user) == 1){
 
             $_SESSION['logado'] = 1;
             header("location: ../../paginas/supervisor/main.php");
             
         }
+        elseif($u->login($user, $pass) == true && $u->permissao($user) == 2 && $u->status($user) == 2){
 
-        if($u->login($user, $pass) == true && $permissao == 2 && $status == 3){
+            if($u->tempo($user) <= time()){
+
+                echo "<script>alert('Conta Expirada! por favor contate o adminsitrador do sistema.');</script>";
+                $url = '../../index.php';
+                echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
+
+            }
+            else{
+                $_SESSION['logado'] = 1;
+                header("location: ../../paginas/admin/main.php");
+            }
+        }
+        elseif($u->login($user, $pass) == true && $u->permissao($user) == 2 && $u->status($user) == 3){
             
             echo "<script>alert('Conta Desativada, por favor entre em contato com o Administrador do sistema');</script>";
             $url = '../../index.php';
@@ -57,14 +83,29 @@
             
         }
 
-        if($u->login($user, $pass) == true && $permissao == 3 && $status == 1 || $status == 2){
+
+
+        elseif($u->login($user, $pass) == true && $u->permissao($user) == 3 && $u->status($user) == 1){
             
             $_SESSION['logado'] = 1;
             header("location: ../../paginas/admin/main.php");
             
         }
+        elseif($u->login($user, $pass) == true && $u->permissao($user) == 3 && $u->status($user) == 2){
 
-        if($u->login($user, $pass) == true && $permissao == 3 && $status == 3){
+            if($u->tempo($user) <= time()){
+
+                echo "<script>alert('Conta Expirada! por favor contate o adminsitrador do sistema.');</script>";
+                $url = '../../index.php';
+                echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
+
+            }
+            else{
+                $_SESSION['logado'] = 1;
+                header("location: ../../paginas/admin/main.php");
+            }
+        }
+        elseif($u->login($user, $pass) == true && $u->permissao($user) == 3 && $u->status($user) == 3){
             
             echo "<script>alert('Conta Desativada, por favor entre em contato com o Administrador do sistema');</script>";
             $url = '../../index.php';
