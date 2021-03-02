@@ -9,12 +9,19 @@
         
         }
         
-       
+        $dataCadastro = gmdate("YmdHis", time());
+
+        
 
         echo time();
 
         echo "<br>";
         echo $_SESSION['tempo'];
+        echo "<br>";
+        echo $_SESSION['nome'];
+        echo "<br>";
+        echo $dataCadastro;
+       
         
 
         if($_SESSION['tempo'] <= time()){

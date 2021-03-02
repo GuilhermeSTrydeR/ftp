@@ -9,15 +9,13 @@
 
     if(isset($_POST["user"]) && !empty($_POST["user"]) && isset($_POST["pass"]) && !empty($_POST["pass"])){
         
-        
-
         //requer classe de conexao do banco
         require("../conexao_bd.php");
 
-        //requer o Usuario.class onde o comando para buscar no banco
+        //requer o Usuario.class onde se encontra o comando para buscar no banco
         require("usuario.class.php");
 
-        //aqui instanciamos a classe
+        //aqui instanciamos a classe Usuario
         $u = new Usuario();
 
         $pass = addslashes($_POST["pass"]);
@@ -25,7 +23,10 @@
         
         $_SESSION['tempo'] = $u->tempo($user);
         $_SESSION['permissao'] = $u->permissao($user);
-
+        $_SESSION['nome'] = $u->nome($user);
+        $_SESSION['email'] = $u->email($user);
+        $_SESSION['telefone'] = $u->telefone($user);
+    
         if($u->login($user, $pass) == true && $u->permissao($user) == 1 && $u->status($user) == 1){
             
             $_SESSION['logado'] = 1;

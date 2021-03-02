@@ -39,23 +39,23 @@
 
             if($sql->rowCount() > 0){
 
-                return false;
+                return true;
             }
         
             else{
 
-                return true;
+                return false;
 
             }
         }
 
 
-        public function gravar($nome, $email, $user, $pass, $permissao, $status, $tempo){
+        public function gravar($nome, $email, $user, $pass, $permissao, $status, $tempo, $telefone, $dataCadastro, $dataCadastroUnix){
 
         
 
             global $pdo;
-            $sql = "INSERT INTO usuarios(nome, email, user, pass, permissao, status, tempo) VALUES(:nome, :email, :user, :pass, :permissao, :status, :tempo)";
+            $sql = "INSERT INTO usuarios(nome, email, user, pass, permissao, status, tempo, telefone, dataCadastro, dataCadastroUnix) VALUES(:nome, :email, :user, :pass, :permissao, :status, :tempo, :telefone, :dataCadastro, :dataCadastroUnix)";
             $sql = $pdo->prepare($sql);
             $sql->bindValue("nome", $nome);
             $sql->bindValue ("email", $email);
@@ -64,6 +64,9 @@
             $sql->bindValue ("permissao", $permissao);
             $sql->bindValue("status", $status);
             $sql->bindValue("tempo", $tempo);
+            $sql->bindValue("telefone", $telefone);
+            $sql->bindValue("dataCadastro", $dataCadastro);
+            $sql->bindValue("dataCadastroUnix", $dataCadastroUnix);
             $sql->execute();
 
             echo "<script>alert('Usuario: ". $_POST['user'] .'\n' . "Nome: ". $_POST['nome'] .'\n\n' . "Cadastrado!');</script>";
@@ -115,6 +118,57 @@
     
         
             return $res;
+
+        }
+
+        public function nome($user){
+
+            global $pdo;
+            
+            $sql = "SELECT nome FROM usuarios WHERE user = '$user'";
+            $stmt = $pdo->prepare( $sql );
+            $stmt->bindParam( ':user', $user );        
+            $stmt->execute();
+
+            $res = $stmt->fetchColumn();
+    
+        
+            return $res;
+
+
+        }
+
+        public function email($user){
+
+            global $pdo;
+            
+            $sql = "SELECT email FROM usuarios WHERE user = '$user'";
+            $stmt = $pdo->prepare( $sql );
+            $stmt->bindParam( ':user', $user );        
+            $stmt->execute();
+
+            $res = $stmt->fetchColumn();
+    
+        
+            return $res;
+
+
+        }
+
+        public function telefone($user){
+
+            global $pdo;
+            
+            $sql = "SELECT telefone FROM usuarios WHERE user = '$user'";
+            $stmt = $pdo->prepare( $sql );
+            $stmt->bindParam( ':user', $user );        
+            $stmt->execute();
+
+            $res = $stmt->fetchColumn();
+    
+        
+            return $res;
+
 
         }
 

@@ -1,3 +1,5 @@
+<!--essa tela sera exibida se o sistema nao conseguir executar/localizar o arquivo de conexao do banco de dados -->
+
 <body style="background-color: #dfe3ee;">
     <center style="border: 2px solid red; border-radius: 10px; background-color: #ffffcc;">
 

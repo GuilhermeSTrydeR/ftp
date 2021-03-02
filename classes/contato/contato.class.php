@@ -1,9 +1,7 @@
+<!-- classe responsavel pelo crud do formulario de contato -->
 <?php
-
-
     class Contato{
-
-
+        // metodo para gravar no banco de dados o contato preenchido no form
         public function gravar($nome, $email, $telefone, $texto){
 
             global $pdo;

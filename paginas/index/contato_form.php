@@ -10,15 +10,13 @@
         } -->
         <?php
             if(!isset($_SESSION['logado'])){
-                
-                echo "<h4>Preencha o formulario de contato abaixo:</h4>";
-                
-                
-            }
-           
         ?>
-    
-        <form method="POST" action="/classes/contato/gravar_contato.php" class="needs-validation" novalidate>
+                <br>
+                <br>
+                Preencha o formulario de contato abaixo:
+                <br>
+
+                <form method="POST" action="/classes/contato/gravar_contato.php" class="needs-validation" novalidate>
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                 <!-- <label for="validationCustom01">Nome</label> -->
@@ -40,6 +38,43 @@
         </div>
         <button class="btn btn-primary" type="submit">Enviar</button>
         </form>
+
+        <?php   
+            }
+
+            else{
+        ?>
+    
+    <form method="POST" action="/classes/contato/gravar_contato.php" class="needs-validation" novalidate>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                <!-- <label for="validationCustom01">Nome</label> -->
+                <input type="text" readonly class="form-control" id="" name="nome" placeholder="<?php echo $_SESSION['nome']; ?>" value="<?php echo $_SESSION['nome']; ?>" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                <!-- <label for="validationCustom02">E-mail</label> -->
+                <input type="email" readonly class="form-control" id="" name="email" placeholder="<?php echo $_SESSION['email']; ?>" value="<?php echo $_SESSION['email']; ?>" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                <!-- <label for="validationCustom04">telefone</label> -->
+                <input type="text" readonly class="form-control" id="" name="telefone" placeholder="<?php echo $_SESSION['telefone'];?>" value="<?php echo $_SESSION['telefone']; ?>" required>
+                </div>
+                <div class="col-md-3 mb-3">
+                <!-- <label for="validationCustom05">Mensagem</label> -->
+                <br>
+                <textarea name="texto" class="form-control" id="" cols="48" rows="4" placeholder="Sua mensagem" required style="margin-top: -25px; height: 200px; width: 450px; margin-left: -55px; resize: none;"></textarea>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Enviar</button>
+        </form>
+
+
+        <?php 
+        
+            }
+            
+        ?>
+      
         <script>
             (function() {
             'use strict';

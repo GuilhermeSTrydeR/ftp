@@ -1,12 +1,14 @@
 <?php
 
-    //definir o fuso-horario e apos definido o fuso horario o mesmo eh multiplicado por 3600 afim de conertelo para horas
-    $fusoHorario = (-3 * 3600);
+    // definir o fuso fuso horario local em horas
+    $gmt = -3;
 
-
-
-
-
-
+    // multiplicador para definir em horas o fuso horario(o mesmo eh recebido em segundos)
+    $fusoHorario = ($gmt * 3600);
 
 ?>
+
+
+
+
+
