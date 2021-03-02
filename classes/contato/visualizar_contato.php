@@ -14,10 +14,15 @@ obs: dar um jeito de implementar isso dentro de contato.class!!!
     <?php
 
         include("../../classes/conexao_bd.php");
+        include("contato.class.php");
+
+        $c = new Contato();
+
         
         // variavel global de conexao ao banco
         global $pdo;
-        
+    
+
         // aqui eh feito a consulta de todos os contatos
         $consulta = $pdo->query("SELECT * FROM contato;");
 

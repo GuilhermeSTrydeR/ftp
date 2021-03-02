@@ -6,6 +6,9 @@
     header("Location: /");
 
   }
+ 
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -28,6 +31,11 @@
       <a href="/">FTP</a>
   </div>
   <ul class="navbar-nav" id="navbar-main">
+    <center>
+        <a href="../../classes/contato/apagarTodosContatos.php" style="margin-left: -600px;">
+            <img src="/imagens/navbar/x.png" onclick="" width="40" height="40" class="hidden" alt="sair" style="margin-left: 30px !important;">
+        </a>
+      </center>
     <center>
       <a href="../usuarios/main.php"><?$_SESSION['nome']?></a>
       <img src="/imagens/navbar/printer.png" class="hidden" onClick="window.print()" width="40" height="40" class="d-inline-block align-top" alt="imprimir" style="margin-left: 30px !important;">

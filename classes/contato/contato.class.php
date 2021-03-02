@@ -15,10 +15,13 @@
             
         }
 
-        static function listar(){
+        public function apagarTodosContatos(){
 
+            global $pdo;
+            $sql = ("TRUNCATE TABLE contato");
+            $sql = $pdo->prepare($sql);
+            $sql->execute();
             
-
         }
 
            
