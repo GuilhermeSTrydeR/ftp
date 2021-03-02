@@ -1,14 +1,4 @@
-<script>
-
-function funcao1()
-{
-var x;
-var r=confirm("Escolha um valor!");
-if (r==true)
-  {
-    </script>
-
-    <?php   
+<?php   
         //requer classe de conexao do banco
         require("../conexao_bd.php");
 
@@ -23,14 +13,6 @@ if (r==true)
        
         $url = '/paginas/admin/main.php?pagina=../../classes/contato/visualizar_contato';
         echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
-
 ?>
-<script>
-  }
-
-
-</script>
-
-
 
     
