@@ -50,12 +50,12 @@
         }
 
 
-        public function gravar($nome, $email, $user, $pass, $permissao, $status, $tempo, $telefone, $dataCadastro, $dataCadastroUnix){
+        public function gravar($nome, $email, $user, $pass, $permissao, $status, $tempo, $telefone, $dataCadastro, $dataCadastroUnix, $idAdm){
 
         
 
             global $pdo;
-            $sql = "INSERT INTO usuarios(nome, email, user, pass, permissao, status, tempo, telefone, dataCadastro, dataCadastroUnix) VALUES(:nome, :email, :user, :pass, :permissao, :status, :tempo, :telefone, :dataCadastro, :dataCadastroUnix)";
+            $sql = "INSERT INTO usuarios(nome, email, user, pass, permissao, status, tempo, telefone, dataCadastro, dataCadastroUnix, idAdm) VALUES(:nome, :email, :user, :pass, :permissao, :status, :tempo, :telefone, :dataCadastro, :dataCadastroUnix, :idAdm)";
             $sql = $pdo->prepare($sql);
             $sql->bindValue("nome", $nome);
             $sql->bindValue ("email", $email);
@@ -67,6 +67,8 @@
             $sql->bindValue("telefone", $telefone);
             $sql->bindValue("dataCadastro", $dataCadastro);
             $sql->bindValue("dataCadastroUnix", $dataCadastroUnix);
+            $sql->bindValue("idAdm", $idAdm);
+
             $sql->execute();
 
             echo "<script>alert('Usuario: ". $_POST['user'] .'\n' . "Nome: ". $_POST['nome'] .'\n\n' . "Cadastrado!');</script>";
@@ -160,6 +162,23 @@
             global $pdo;
             
             $sql = "SELECT telefone FROM usuarios WHERE user = '$user'";
+            $stmt = $pdo->prepare( $sql );
+            $stmt->bindParam( ':user', $user );        
+            $stmt->execute();
+
+            $res = $stmt->fetchColumn();
+    
+        
+            return $res;
+
+
+        }
+
+        public function id($user){
+
+            global $pdo;
+            
+            $sql = "SELECT id FROM usuarios WHERE user = '$user'";
             $stmt = $pdo->prepare( $sql );
             $stmt->bindParam( ':user', $user );        
             $stmt->execute();

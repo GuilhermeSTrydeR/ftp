@@ -60,13 +60,13 @@
     </li>
     <li class="header">Fichas Tecnicas</li>
     <li>
-      <a href="#">
-        <i class="fa fa-users" aria-hidden="true"></i> Visualizar
+      <a href="?pagina=cadastrar_ficha">
+        <i class="fa fa-users" aria-hidden="true"></i> Cadastrar
       </a>
     </li>
     <li>
-    <a href="?pagina=inicio">
-        <i class="fa fa-users" aria-hidden="true"></i> Editar
+    <a href="?pagina=../../classes/fichas/visualizar_fichas">
+        <i class="fa fa-users" aria-hidden="true"></i> Visualizar/Editar
       </a>
     </li>
         <li class="header">FeedBack</li>
@@ -83,16 +83,12 @@
   </ul>
 </div>
 <div class="content-container">
-
   <div class="container-fluid">
-
     <!-- Main component for a primary marketing message or call to action -->
     <div class="jumbotron">
-   
     </div>
   </div>
 </div>
-
     <?php
         //esse include ira colocar na tela a pagina selecionada e que foi atribuida a variavel $pagina, assim sempre que uma pagina for atribuida a variavel $pagina, ela sera incluida abaixo
         // include("./paginas/main/$pagina.php");

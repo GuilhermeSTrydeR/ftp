@@ -26,8 +26,12 @@
         $_SESSION['nome'] = $u->nome($user);
         $_SESSION['email'] = $u->email($user);
         $_SESSION['telefone'] = $u->telefone($user);
+        $_SESSION['id'] = $u->id($user);
+        
+        
     
         if($u->login($user, $pass) == true && $u->permissao($user) == 1 && $u->status($user) == 1){
+            
             
             $_SESSION['logado'] = 1;
             header("location: ../../paginas/comum/main.php");

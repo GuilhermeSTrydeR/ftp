@@ -21,6 +21,8 @@
         echo $_SESSION['nome'];
         echo "<br>";
         echo $dataCadastro;
+        echo "<br>";
+        echo "ID: " . $_SESSION['id'];
        
         
 

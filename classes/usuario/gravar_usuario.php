@@ -1,5 +1,10 @@
 <?php
-    
+    session_start();
+    if(!isset($_POST['user']) && !isset($_POST['pass'])){
+
+        header("Location: /");
+
+    }
     //aqui sera gravado no banco a funcao gravar do contato.class que no caso eh referenciada abaixo no require
 
     if(isset($_POST["nome"]) && !empty($_POST["nome"]) && isset($_POST["email"]) && !empty($_POST["email"]) && isset($_POST["user"]) && !empty($_POST["user"]) && isset($_POST["pass"]) && !empty($_POST["pass"]) && isset($_POST["permissao"]) && !empty($_POST["permissao"]) && isset($_POST["status"]) && !empty($_POST["status"]) && isset($_POST["telefone"]) && !empty($_POST["telefone"]) ){
@@ -22,6 +27,10 @@
         //timestamp em segundos unix(unix timestamp)
         $dataCadastroUnix = time();
 
+        //essa variavel irá gravar o ID do responsavel por fazer o cadastro
+        $idAdm = $_SESSION['id'];
+
+
         //aqui adicionamos um nivel basico de seguranca
         $nome = addslashes($_POST["nome"]);
         $email = addslashes($_POST["email"]);
@@ -33,6 +42,12 @@
         $telefone = addslashes($_POST['telefone']);
         $dataCadastro = addslashes($dataCadastro);
         $dataCadastroUnix = addslashes($dataCadastroUnix);
+        $idAdm = addslashes($idAdm);
+
+        
+        
+
+
 
         if($tempo <= 0){
 
@@ -47,7 +62,7 @@
             //aqui pegamos o tempo em horas digitadas pelo usuario e convertemos em segundos(horas [vezes] 3600), depois somamos com os segundos atuais do sistema (unix timestamp) ambos em segundos pra que depois esse valor seja comparado na hora de logar.
             $tempo = (($tempo * 3600) + time());
 
-            $u->gravar($nome, $email, $user, $pass, $permissao, $status, $tempo, $telefone, $dataCadastro, $dataCadastroUnix);
+            $u->gravar($nome, $email, $user, $pass, $permissao, $status, $tempo, $telefone, $dataCadastro, $dataCadastroUnix, $idAdm);
 
         }
 

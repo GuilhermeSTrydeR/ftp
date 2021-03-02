@@ -104,9 +104,7 @@
       </body>
       <footer>
         
-        <p>Mesa Preta Sistemas</p>
+        <p>Mesa Preta Sistemas - Versão 0.1</p>
 
       </footer>
-
-
 </html>
