@@ -78,6 +78,34 @@
 
         }
 
+        public function gravarPosExcluirUsuarios($nome, $email, $user, $pass, $permissao, $status, $tempo, $telefone, $dataCadastro, $dataCadastroUnix, $idAdm){
+
+        
+
+            global $pdo;
+            $sql = "INSERT INTO usuarios(nome, email, user, pass, permissao, status, tempo, telefone, dataCadastro, dataCadastroUnix, idAdm) VALUES(:nome, :email, :user, :pass, :permissao, :status, :tempo, :telefone, :dataCadastro, :dataCadastroUnix, :idAdm)";
+            $sql = $pdo->prepare($sql);
+            $sql->bindValue("nome", $nome);
+            $sql->bindValue ("email", $email);
+            $sql->bindValue("user", $user);
+            $sql->bindValue ("pass", $pass);
+            $sql->bindValue ("permissao", $permissao);
+            $sql->bindValue("status", $status);
+            $sql->bindValue("tempo", $tempo);
+            $sql->bindValue("telefone", $telefone);
+            $sql->bindValue("dataCadastro", $dataCadastro);
+            $sql->bindValue("dataCadastroUnix", $dataCadastroUnix);
+            $sql->bindValue("idAdm", $idAdm);
+
+            $sql->execute();
+
+      
+            $url = '/paginas/admin/main.php?pagina=../../classes/usuario/visualizar_usuario';
+            echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
+
+
+        }
+
         public function permissao($user){
             global $pdo;
             
@@ -189,6 +217,15 @@
             return $res;
 
 
+        }
+
+        public function apagarTodosUsuarios(){
+
+            global $pdo;
+            $sql = ("TRUNCATE TABLE usuarios");
+            $sql = $pdo->prepare($sql);
+            $sql->execute();
+            
         }
 
     }

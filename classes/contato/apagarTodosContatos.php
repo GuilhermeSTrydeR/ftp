@@ -8,6 +8,7 @@
         //aqui instanciamos a classe
         $c = new Contato();
 
+        //aqui invocamos o metodo 
         $c->apagarTodosContatos();
 
        

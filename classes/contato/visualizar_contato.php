@@ -6,7 +6,7 @@ obs: dar um jeito de implementar isso dentro de contato.class!!!
 <center style=" margin-top: 100px !important; position: relative !important;">
     <style>
 
-        .hidden{
+        .hiddenBtnXContato{
             display: inline-block !important;
         }
 

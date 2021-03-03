@@ -289,6 +289,19 @@ img{
 
 }
 
+.hiddenBtnXContato{
+
+  display: none;
+
+}
+
+.hiddenBtnXUsuarios{
+
+  display: none;
+
+}
+
+
 table{
 
   max-width: 900px;

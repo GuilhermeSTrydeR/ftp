@@ -1,5 +1,19 @@
 <center style="margin-left: 100px; margin-top: 100px !important; position: relative !important;">
-    <?php
+        <style>
+
+        .hiddenBtnXUsuarios{
+            display: inline-block !important;
+        }
+
+        </style>
+
+
+        <?php
+
+        include("../../classes/conexao_bd.php");
+        include("usuario.class.php");
+
+        $c = new Usuario();
 
         //include para acessar o banco
         include("../../classes/conexao_bd.php");

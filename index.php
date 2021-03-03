@@ -2,7 +2,8 @@
     session_start();
     //se ja houver uma sessao ativa, sera redirecionado para a sua sessao correspondente dependendo do nivel de permissao
 
-    //caso permissoa for 1, sera redirecionado para pagina de usuarios comuns
+
+    //caso permissao for 1, sera redirecionado para pagina de usuarios comuns
     if (isset($_SESSION['logado']) && $_SESSION['permissao'] == '1'){
 
         header("Location: paginas/comum/main.php");

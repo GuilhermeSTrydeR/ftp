@@ -31,9 +31,14 @@
       <a href="/">FTP</a>
   </div>
   <ul class="navbar-nav" id="navbar-main">
+  <center>
+        <a href="../../classes/usuario/apagarTodosUsuarios.php" style="margin-left: -600px;">
+            <img src="/imagens/navbar/x.png" onclick="" width="40" height="40" class="hiddenBtnXUsuarios" alt="sair" style="margin-left: 30px !important;">
+        </a>
+      </center>
     <center>
         <a href="../../classes/contato/apagarTodosContatos.php" style="margin-left: -600px;">
-            <img src="/imagens/navbar/x.png" onclick="" width="40" height="40" class="hidden" alt="sair" style="margin-left: 30px !important;">
+            <img src="/imagens/navbar/x.png" onclick="" width="40" height="40" class="hiddenBtnXContato" alt="sair" style="margin-left: 30px !important;">
         </a>
       </center>
     <center>
