@@ -59,7 +59,7 @@
                 $dias = intval($dias);
 
                 //aqui sao retirados as horas restantes e sao convertidos para inteiro
-                $horas = ($linha['tempo'] / 3600 % 3600);
+                $horas = ($linha['tempo'] / 3600 % 24);
                 $horas = intval($horas);
 
                 //aqui sao retirados os minutos restantes e sao convertidos para inteiro
