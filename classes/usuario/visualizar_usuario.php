@@ -4,6 +4,9 @@
         .hiddenBtnXUsuarios{
             display: inline-block !important;
         }
+        .hidden{
+            display: inline-block !important;
+        }
 
         </style>
 

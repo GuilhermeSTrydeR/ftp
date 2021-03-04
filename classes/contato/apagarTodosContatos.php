@@ -8,12 +8,9 @@
         //aqui instanciamos a classe
         $c = new Contato();
 
-        //aqui invocamos o metodo 
+        //aqui invocamos o metodo para marcar os contatos na coluna 'excluido' com o valor '1'
         $c->desativarContato();
 
-       
         $url = '/paginas/admin/main.php?pagina=../../classes/contato/visualizar_contato';
         echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
 ?>
-
-    

@@ -7,7 +7,10 @@
 
             texto aparece;
 
-        } -->
+        } 
+        
+        tambem caso ja haja o login efetuado, nao sera necessario preencher os campo nome, email, e telefone, pois serao utilizados os mesmos do cadastro.
+        -->
         <?php
             if(!isset($_SESSION['logado'])){
         ?>
@@ -44,7 +47,7 @@
 
             else{
         ?>
-    
+    <!-- abaixo foram inseridas algumas variaveis $_SESSION para retornar, nome, email e telefone, essas variaveis foram preenchidas na classe usuario/logar-->
     <form method="POST" action="/classes/contato/gravar_contato.php" class="needs-validation" novalidate>
             <div class="form-row">
                 <div class="col-md-4 mb-3">

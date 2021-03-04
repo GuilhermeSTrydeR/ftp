@@ -9,6 +9,9 @@ obs: dar um jeito de implementar isso dentro de contato.class!!!
         .hiddenBtnXContato{
             display: inline-block !important;
         }
+        .hidden{
+            display: inline-block !important;
+        }
 
     </style>
     <?php
