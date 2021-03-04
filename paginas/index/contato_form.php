@@ -65,7 +65,7 @@
                 <div class="col-md-3 mb-3">
                 <!-- <label for="validationCustom05">Mensagem</label> -->
                 <br>
-                <textarea name="texto" class="form-control" id="" cols="48" rows="4" placeholder="Sua mensagem" required style="margin-top: -25px; height: 200px; width: 450px; margin-left: -55px; resize: none;"></textarea>
+                <textarea name="texto" class="form-control" id="" cols="48" rows="4" placeholder="Sua mensagem" required style="margin-top: -25px; height: 200px; width: 457px; margin-left: -57px; resize: none;"></textarea>
             </div>
         </div>
         <button class="btn btn-primary" type="submit">Enviar</button>
