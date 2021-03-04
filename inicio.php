@@ -41,16 +41,16 @@
 <!DOCTYPE html>
   <html lang="pt-br">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sistema FTP</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Sistema FTP</title>
 
-        <!--  bootstrap -->
-        <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
-        <link rel="stylesheet" href="css/ftp.css">
+      <!--  bootstrap -->
+      <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+      <link rel="stylesheet" href="css/ftp.css">
     </head>
     <body>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: 	#3b5998;">
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: 	#3b5998;">
         <div id="logo">
             <a href="/">FTP</a>
         </div>
@@ -89,18 +89,15 @@
           </ul>
         </div>
       </nav>
-
-    
-    <?php
+      <?php
         //esse include ira colocar na tela a pagina selecionada e que foi atribuida a variavel $pagina, assim sempre que uma pagina for atribuida a variavel $pagina, ela sera incluida abaixo
         include("paginas/$pagina.php");
-    ?>
-        
+      ?>
+      <script src="../../js/bootstrap/popper/popper.min.js"></script>
+      <script src="../../js/jquery/jquery.js"></script>
+      <script src="js/bootstrap/bootstrap.js"></script>
+      <script src="js/script.js"></script>
 
-  <script src="../../js/bootstrap/popper/popper.min.js"></script>
-  <script src="../../js/jquery/jquery.js"></script>
-  <script src="js/bootstrap/bootstrap.js"></script>
-  <script src="js/script.js"></script>
       </body>
       <footer>
         

@@ -43,9 +43,11 @@ obs: dar um jeito de implementar isso dentro de contato.class!!!
         
             // nesse loop eh mostrado na tela os resultados retirados do banco
             while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
-                echo "<tr>";
-                echo  "<td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> {$linha['email']} </td> <td> {$linha['telefone']} </td> <td> {$linha['texto']} </td>";
-                echo "</tr>";
+                if($linha['excluido'] == 0){
+                    echo "<tr>";
+                    echo  "<td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> {$linha['email']} </td> <td> {$linha['telefone']} </td> <td> {$linha['texto']} </td>";
+                    echo "</tr>";
+                }
             }
         
             echo "</table>";

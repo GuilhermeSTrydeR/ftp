@@ -13,15 +13,18 @@
 
         //aqui instanciamos a classe
         $c = new Contato();
+
+        $excluido = 0;
         
         //aqui adicionamos um nivel basico de seguranca
         $nome = addslashes($_POST["nome"]);
         $email = addslashes($_POST["email"]);
         $telefone = addslashes($_POST["telefone"]);
         $texto = addslashes($_POST["texto"]);
+        $excluido = addslashes($excluido);
 
         //se a funcao da classe tiver as variaveis, sera gravado no banco, se nao 
-        if($c->gravar($nome, $email, $telefone, $texto) == true){
+        if($c->gravar($nome, $email, $telefone, $texto, $excluido) == true){
 
             echo "<h4>grvaou</h4>";
             // header("location: ../paginas/main/main.php");

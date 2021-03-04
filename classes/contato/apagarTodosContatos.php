@@ -9,7 +9,7 @@
         $c = new Contato();
 
         //aqui invocamos o metodo 
-        $c->apagarTodosContatos();
+        $c->desativarContato();
 
        
         $url = '/paginas/admin/main.php?pagina=../../classes/contato/visualizar_contato';

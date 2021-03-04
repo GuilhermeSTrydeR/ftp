@@ -110,10 +110,11 @@
                     break;
             }
 
-            echo "<tr>";
-            echo  " <td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> {$linha['user']} </td> <td> {$linha['permissao']} </td> <td>". $linha['status'] ."</td> <td>". $linha['tempo'] ."</td> ";
-            echo "</tr>";
-            
+            if($linha['excluido'] == 0){
+                echo "<tr>";
+                echo  " <td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> {$linha['user']} </td> <td> {$linha['permissao']} </td> <td>". $linha['status'] ."</td> <td>". $linha['tempo'] ."</td> ";
+                echo "</tr>";
+            }
         }
         
         echo "</table>";

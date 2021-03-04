@@ -9,7 +9,6 @@
             $sql->bindValue("user", $user);
             $sql->bindValue("pass", md5($pass));
 
-
             $sql->execute();
 
             if($sql->rowCount() > 0){
@@ -50,12 +49,12 @@
         }
 
 
-        public function gravar($nome, $email, $user, $pass, $permissao, $status, $tempo, $telefone, $dataCadastro, $dataCadastroUnix, $idAdm){
+        public function gravar($nome, $email, $user, $pass, $permissao, $status, $tempo, $telefone, $dataCadastro, $dataCadastroUnix, $idAdm, $excluido){
 
         
 
             global $pdo;
-            $sql = "INSERT INTO usuarios(nome, email, user, pass, permissao, status, tempo, telefone, dataCadastro, dataCadastroUnix, idAdm) VALUES(:nome, :email, :user, :pass, :permissao, :status, :tempo, :telefone, :dataCadastro, :dataCadastroUnix, :idAdm)";
+            $sql = "INSERT INTO usuarios(nome, email, user, pass, permissao, status, tempo, telefone, dataCadastro, dataCadastroUnix, idAdm, excluido) VALUES(:nome, :email, :user, :pass, :permissao, :status, :tempo, :telefone, :dataCadastro, :dataCadastroUnix, :idAdm, :excluido)";
             $sql = $pdo->prepare($sql);
             $sql->bindValue("nome", $nome);
             $sql->bindValue ("email", $email);
@@ -68,6 +67,7 @@
             $sql->bindValue("dataCadastro", $dataCadastro);
             $sql->bindValue("dataCadastroUnix", $dataCadastroUnix);
             $sql->bindValue("idAdm", $idAdm);
+            $sql->bindValue("excluido", $excluido);
 
             $sql->execute();
 
@@ -227,6 +227,35 @@
             $sql->execute();
             
         }
+
+        public function desativarUsuarios(){
+
+            global $pdo;
+            $sql = "UPDATE usuarios SET excluido = '1'";
+            $sql = $pdo->prepare($sql);
+            $sql->execute();
+
+            $url = '/paginas/admin/main.php?pagina=../../classes/usuario/visualizar_usuario';
+            echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
+
+
+        }
+
+        public function verificaExclusao($user){
+            global $pdo;
+            
+            $sql = "SELECT excluido FROM usuarios WHERE user = '$user'";
+            $stmt = $pdo->prepare( $sql );
+            $stmt->bindParam( ':user', $user );        
+            $stmt->execute();
+
+            $res = $stmt->fetchColumn();
+    
+        
+            return $res;
+
+        }
+
 
     }
 ?>

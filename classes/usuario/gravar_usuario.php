@@ -18,8 +18,12 @@
         //configuracoes basicas, nesse caso, configuracoes de fuso horario
         require("../../config/config.php");
 
+
         //aqui instanciamos a classe
         $u = new Usuario();
+
+
+
 
         //data em gmt da hora do cadastro
         $dataCadastro = gmdate("YmdHis", time() + $fusoHorario);
@@ -30,6 +34,8 @@
         //essa variavel irá gravar o ID do responsavel por fazer o cadastro
         $idAdm = $_SESSION['id'];
 
+        //essa variavel vai controlar se o usuario foi excluido, no caso '0' ele não está excluido
+        $excluido = 0;
 
         //aqui adicionamos um nivel basico de seguranca
         $nome = addslashes($_POST["nome"]);
@@ -43,11 +49,8 @@
         $dataCadastro = addslashes($dataCadastro);
         $dataCadastroUnix = addslashes($dataCadastroUnix);
         $idAdm = addslashes($idAdm);
-
+        $excluido = addslashes($excluido);
         
-        
-
-
 
         if($tempo <= 0){
 
@@ -55,14 +58,15 @@
             $url = '../../paginas/admin/main.php?pagina=cadastrar_usuario';
             echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
 
-
         }
         elseif($u->duplicidade($user) == false){
 
             //aqui pegamos o tempo em horas digitadas pelo usuario e convertemos em segundos(horas [vezes] 3600), depois somamos com os segundos atuais do sistema (unix timestamp) ambos em segundos pra que depois esse valor seja comparado na hora de logar.
             $tempo = (($tempo * 3600) + time());
 
-            $u->gravar($nome, $email, $user, $pass, $permissao, $status, $tempo, $telefone, $dataCadastro, $dataCadastroUnix, $idAdm);
+            $u->gravar($nome, $email, $user, $pass, $permissao, $status, $tempo, $telefone, $dataCadastro, $dataCadastroUnix, $idAdm, $excluido);
+
+        
 
         }
 

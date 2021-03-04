@@ -1,4 +1,6 @@
 <?php 
+
+
     session_start();
     //se ja houver uma sessao ativa, sera redirecionado para a sua sessao correspondente dependendo do nivel de permissao
 

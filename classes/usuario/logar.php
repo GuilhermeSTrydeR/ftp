@@ -29,8 +29,8 @@
         $_SESSION['id'] = $u->id($user);
         
         
-    
-        if($u->login($user, $pass) == true && $u->permissao($user) == 1 && $u->status($user) == 1){
+        // BLOCO DE LOGIN USUARIO COMUM
+        if($u->login($user, $pass) == true && $u->permissao($user) == 1 && $u->status($user) == 1 && $u->verificaExclusao($user) == 0){
             
             
             $_SESSION['logado'] = 1;
@@ -60,7 +60,8 @@
             
         }
 
-        elseif($u->login($user, $pass) == true && $u->permissao($user) == 2 && $u->status($user) == 1){
+        // BLOCO DE LOGIN USUARIO SUPERVISOR
+        elseif($u->login($user, $pass) == true && $u->permissao($user) == 2 && $u->status($user) == 1 && $u->verificaExclusao($user) == 0){
 
             $_SESSION['logado'] = 1;
             header("location: ../../paginas/supervisor/main.php");
@@ -89,8 +90,8 @@
         }
 
 
-
-        elseif($u->login($user, $pass) == true && $u->permissao($user) == 3 && $u->status($user) == 1){
+        //BLOCO DE LOGIN USUARIO ADMINISTRADOR
+        elseif($u->login($user, $pass) == true && $u->permissao($user) == 3 && $u->status($user) == 1 && $u->verificaExclusao($user) == 0){
             
             $_SESSION['logado'] = 1;
             header("location: ../../paginas/admin/main.php");
@@ -105,6 +106,7 @@
                 echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
 
             }
+
             else{
                 $_SESSION['logado'] = 1;
                 header("location: ../../paginas/admin/main.php");
