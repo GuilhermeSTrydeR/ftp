@@ -48,7 +48,6 @@
     <center>
         <a href="?pagina=inicio">
           <img src="/imagens/navbar/home.png" onclick="" width="40" height="40" class="d-inline-block align-top" alt="home" style="margin-left: 30px !important;">
-        </a>
       </center>
       <center>
         <a href="/funcoes/destruir_sessao.php">
