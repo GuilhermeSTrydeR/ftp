@@ -109,7 +109,7 @@
         public function permissao($user){
             global $pdo;
             
-            $sql = "SELECT permissao FROM usuarios WHERE user = '$user'";
+            $sql = "SELECT permissao FROM usuarios WHERE :user = '$user'";
             $stmt = $pdo->prepare( $sql );
             $stmt->bindParam(':user', $user);        
             $stmt->execute();
@@ -124,7 +124,7 @@
         public function status($user){
             global $pdo;
             
-            $sql = "SELECT status FROM usuarios WHERE user = '$user'";
+            $sql = "SELECT status FROM usuarios WHERE :user = '$user'";
             $stmt = $pdo->prepare( $sql );
             $stmt->bindParam(':user', $user);        
             $stmt->execute();
@@ -139,7 +139,7 @@
         public function tempo($user){
             global $pdo;
             
-            $sql = "SELECT tempo FROM usuarios WHERE user = '$user'";
+            $sql = "SELECT tempo FROM usuarios WHERE :user = '$user'";
             $stmt = $pdo->prepare( $sql );
             $stmt->bindParam(':user', $user);        
             $stmt->execute();
@@ -155,7 +155,7 @@
 
             global $pdo;
             
-            $sql = "SELECT nome FROM usuarios WHERE user = '$user'";
+            $sql = "SELECT nome FROM usuarios WHERE :user = '$user'";
             $stmt = $pdo->prepare( $sql );
             $stmt->bindParam(':user', $user);        
             $stmt->execute();
@@ -172,7 +172,7 @@
 
             global $pdo;
             
-            $sql = "SELECT email FROM usuarios WHERE user = '$user'";
+            $sql = "SELECT email FROM usuarios WHERE :user = '$user'";
             $stmt = $pdo->prepare( $sql );
             $stmt->bindParam(':user', $user);        
             $stmt->execute();
@@ -189,7 +189,7 @@
 
             global $pdo;
             
-            $sql = "SELECT telefone FROM usuarios WHERE user = '$user'";
+            $sql = "SELECT telefone FROM usuarios WHERE :user = '$user'";
             $stmt = $pdo->prepare( $sql );
             $stmt->bindParam(':user', $user);        
             $stmt->execute();
@@ -206,7 +206,7 @@
 
             global $pdo;
             
-            $sql = "SELECT id FROM usuarios WHERE user = '$user'";
+            $sql = "SELECT id FROM usuarios WHERE :user = '$user'";
             $stmt = $pdo->prepare( $sql );
             $stmt->bindParam(':user', $user);        
             $stmt->execute();
@@ -244,7 +244,7 @@
         public function verificaExclusao($user){
             global $pdo;
             
-            $sql = "SELECT excluido FROM usuarios WHERE user = '$user'";
+            $sql = "SELECT excluido FROM usuarios WHERE :user = '$user'";
             $stmt = $pdo->prepare( $sql );
             $stmt->bindParam(':user', $user);        
             $stmt->execute();
