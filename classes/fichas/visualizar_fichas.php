@@ -11,8 +11,6 @@
         
         $dataCadastro = gmdate("YmdHis", time());
 
-       
-        
     ?>
 
     <h4>AQUI DEVERAO APARECER AS FICHAS TECNICAS</h4>
