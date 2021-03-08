@@ -6,8 +6,8 @@
             global $pdo;
             $sql = "SELECT * FROM usuarios where user = :user AND pass = :pass";
             $sql = $pdo->prepare($sql);
-            $sql->bindValue("user", $user);
-            $sql->bindValue("pass", md5($pass));
+            $sql->bindValue(":user", $user);
+            $sql->bindValue(":pass", md5($pass));
 
             $sql->execute();
 
@@ -32,7 +32,7 @@
             global $pdo;
             $sql = "SELECT user FROM usuarios where user = :user";
             $sql = $pdo->prepare($sql);
-            $sql->bindValue("user", $user);
+            $sql->bindValue(":user", $user);
 
             $sql->execute();
 
@@ -56,18 +56,18 @@
             global $pdo;
             $sql = "INSERT INTO usuarios(nome, email, user, pass, permissao, status, tempo, telefone, dataCadastro, dataCadastroUnix, idAdm, excluido) VALUES(:nome, :email, :user, :pass, :permissao, :status, :tempo, :telefone, :dataCadastro, :dataCadastroUnix, :idAdm, :excluido)";
             $sql = $pdo->prepare($sql);
-            $sql->bindValue("nome", $nome);
-            $sql->bindValue ("email", $email);
-            $sql->bindValue("user", $user);
-            $sql->bindValue ("pass", $pass);
-            $sql->bindValue ("permissao", $permissao);
-            $sql->bindValue("status", $status);
-            $sql->bindValue("tempo", $tempo);
-            $sql->bindValue("telefone", $telefone);
-            $sql->bindValue("dataCadastro", $dataCadastro);
-            $sql->bindValue("dataCadastroUnix", $dataCadastroUnix);
-            $sql->bindValue("idAdm", $idAdm);
-            $sql->bindValue("excluido", $excluido);
+            $sql->bindValue(":nome", $nome);
+            $sql->bindValue (":email", $email);
+            $sql->bindValue(":user", $user);
+            $sql->bindValue (":pass", $pass);
+            $sql->bindValue (":permissao", $permissao);
+            $sql->bindValue(":status", $status);
+            $sql->bindValue(":tempo", $tempo);
+            $sql->bindValue(":telefone", $telefone);
+            $sql->bindValue(":dataCadastro", $dataCadastro);
+            $sql->bindValue(":dataCadastroUnix", $dataCadastroUnix);
+            $sql->bindValue(":idAdm", $idAdm);
+            $sql->bindValue(":excluido", $excluido);
 
             $sql->execute();
 
@@ -85,17 +85,17 @@
             global $pdo;
             $sql = "INSERT INTO usuarios(nome, email, user, pass, permissao, status, tempo, telefone, dataCadastro, dataCadastroUnix, idAdm) VALUES(:nome, :email, :user, :pass, :permissao, :status, :tempo, :telefone, :dataCadastro, :dataCadastroUnix, :idAdm)";
             $sql = $pdo->prepare($sql);
-            $sql->bindValue("nome", $nome);
-            $sql->bindValue ("email", $email);
-            $sql->bindValue("user", $user);
-            $sql->bindValue ("pass", $pass);
-            $sql->bindValue ("permissao", $permissao);
-            $sql->bindValue("status", $status);
-            $sql->bindValue("tempo", $tempo);
-            $sql->bindValue("telefone", $telefone);
-            $sql->bindValue("dataCadastro", $dataCadastro);
-            $sql->bindValue("dataCadastroUnix", $dataCadastroUnix);
-            $sql->bindValue("idAdm", $idAdm);
+            $sql->bindValue(":nome", $nome);
+            $sql->bindValue (":email", $email);
+            $sql->bindValue(":user", $user);
+            $sql->bindValue (":pass", $pass);
+            $sql->bindValue (":permissao", $permissao);
+            $sql->bindValue(":status", $status);
+            $sql->bindValue(":tempo", $tempo);
+            $sql->bindValue(":telefone", $telefone);
+            $sql->bindValue(":dataCadastro", $dataCadastro);
+            $sql->bindValue(":dataCadastroUnix", $dataCadastroUnix);
+            $sql->bindValue(":idAdm", $idAdm);
 
             $sql->execute();
 
@@ -111,7 +111,7 @@
             
             $sql = "SELECT permissao FROM usuarios WHERE user = '$user'";
             $stmt = $pdo->prepare( $sql );
-            $stmt->bindParam( ':user', $user );        
+            $stmt->bindParam(':user', $user);        
             $stmt->execute();
 
             $res = $stmt->fetchColumn();
@@ -126,7 +126,7 @@
             
             $sql = "SELECT status FROM usuarios WHERE user = '$user'";
             $stmt = $pdo->prepare( $sql );
-            $stmt->bindParam( ':user', $user );        
+            $stmt->bindParam(':user', $user);        
             $stmt->execute();
 
             $res = $stmt->fetchColumn();
@@ -141,7 +141,7 @@
             
             $sql = "SELECT tempo FROM usuarios WHERE user = '$user'";
             $stmt = $pdo->prepare( $sql );
-            $stmt->bindParam( ':user', $user );        
+            $stmt->bindParam(':user', $user);        
             $stmt->execute();
 
             $res = $stmt->fetchColumn();
@@ -157,7 +157,7 @@
             
             $sql = "SELECT nome FROM usuarios WHERE user = '$user'";
             $stmt = $pdo->prepare( $sql );
-            $stmt->bindParam( ':user', $user );        
+            $stmt->bindParam(':user', $user);        
             $stmt->execute();
 
             $res = $stmt->fetchColumn();
@@ -174,7 +174,7 @@
             
             $sql = "SELECT email FROM usuarios WHERE user = '$user'";
             $stmt = $pdo->prepare( $sql );
-            $stmt->bindParam( ':user', $user );        
+            $stmt->bindParam(':user', $user);        
             $stmt->execute();
 
             $res = $stmt->fetchColumn();
@@ -191,7 +191,7 @@
             
             $sql = "SELECT telefone FROM usuarios WHERE user = '$user'";
             $stmt = $pdo->prepare( $sql );
-            $stmt->bindParam( ':user', $user );        
+            $stmt->bindParam(':user', $user);        
             $stmt->execute();
 
             $res = $stmt->fetchColumn();
@@ -208,7 +208,7 @@
             
             $sql = "SELECT id FROM usuarios WHERE user = '$user'";
             $stmt = $pdo->prepare( $sql );
-            $stmt->bindParam( ':user', $user );        
+            $stmt->bindParam(':user', $user);        
             $stmt->execute();
 
             $res = $stmt->fetchColumn();
@@ -246,7 +246,7 @@
             
             $sql = "SELECT excluido FROM usuarios WHERE user = '$user'";
             $stmt = $pdo->prepare( $sql );
-            $stmt->bindParam( ':user', $user );        
+            $stmt->bindParam(':user', $user);        
             $stmt->execute();
 
             $res = $stmt->fetchColumn();
