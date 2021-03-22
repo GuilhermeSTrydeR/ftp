@@ -54,6 +54,11 @@
                         <td>ao clicar em logar (independente do usuario inserido) é retornado o erro: "Erro PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number"</td>
                         <td>foi inserido o caractere: ':' antes das variaveis dos metodos do: "$sql->bindValue("user", $user); note que antes de 'user' não tem o caractere, agora possui e ficou assim: $sql->bindValue(":user", $user); "</td>
                     </tr>
+                    <tr>
+                        <td>TODOS OS LOGINS ESTÃO INDO PARA O ADM</td>
+                        <td>ao clicar em logar (independente do usuario inserido) é entrado na area de administrador</td>
+                        <td>debugar e se virar</td>
+                    </tr>
                 </thead>
                 
             </table>
