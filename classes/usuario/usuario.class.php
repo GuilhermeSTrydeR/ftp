@@ -256,6 +256,22 @@
 
         }
 
+        public function alterarSenha($pass){
+            
+            $user = $_SESSION['user'];
+
+            global $pdo;
+            $sql = "UPDATE usuarios SET pass = '$pass' WHERE user = '$user'";
+            $sql = $pdo->prepare($sql);
+            $sql->execute();
+
+            $url = '/paginas/admin/main.php?pagina=../../classes/usuario/visualizar_usuario';
+            echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
+
+        }
+
+        
+
 
     }
 ?>

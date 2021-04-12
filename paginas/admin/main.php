@@ -80,13 +80,13 @@
       echo 'Nivel de Permissão: ' . $_SESSION['permissao'] . $permissao;
     ?>
     <hr>
-    <a href="/" style='border: 2px solid black; background-color: #3b5998; padding: 5px;'>Alterar Senha</a>
+    <a href="?pagina=../../paginas/cadastros/alterarSenha" style='border: 2px solid black; background-color: #3b5998; padding: 5px;'>Alterar Senha</a>
 
   </p>
   <ul class="sidebar-navigation">
     <li class="header"><img src="../../imagens/sidebar/user.png" class="d-inline-block align-top" alt="sair" style="margin-right: 30px !important;"><b>Usuarios</b></li>
     <li>
-      <a href="?pagina=cadastrar_usuario">
+      <a href="?pagina=../cadastros/cadastrar_usuario">
         <i class="fa fa-home" aria-hidden="true"></i><img src="../../imagens/sidebar/register.png" class="d-inline-block align-top" alt="sair" style="margin-right: 30px !important;"><b>Cadastrar</b> 
       </a>
     </li>
@@ -97,7 +97,7 @@
     </li>
     <li class="header"><img src="../../imagens/sidebar/file.png" class="d-inline-block align-top" alt="sair" style="margin-right: 30px !important;"><b>Fichas Tecnicas</b></li>
     <li>
-      <a href="?pagina=cadastrar_ficha">
+      <a href="?pagina=../cadastros/cadastrar_ficha">
         <i class="fa fa-users" aria-hidden="true"></i> <img src="../../imagens/sidebar/registerForm.png" class="d-inline-block align-top" alt="sair" style="margin-right: 30px !important;"><b>Cadastrar</b>
       </a>
     </li>
