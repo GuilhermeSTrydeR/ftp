@@ -21,6 +21,7 @@
         $pass = addslashes($_POST["pass"]);
         $user = $_POST['user'];
         
+        $_SESSION['user'] = $user;
         $_SESSION['tempo'] = $u->tempo($user);
         $_SESSION['permissao'] = $u->permissao($user);
         $_SESSION['nome'] = $u->nome($user);

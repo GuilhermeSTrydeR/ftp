@@ -30,16 +30,20 @@
   <div id="logo">
       <a href="/">FTP</a>
   </div>
-  <ul class="navbar-nav" id="navbar-main">
+  <ul class="navbar-nav" id="navbar-main" style="margin-left: 700px !important;">
   <center>
-        <a href="../../classes/usuario/apagarTodosUsuarios.php" style="margin-left: -600px;">
-            <img src="/imagens/navbar/x.png" onclick="" width="40" height="40" class="hiddenBtnXUsuarios" alt="sair" style="margin-left: 30px !important;">
+        <a href="../../classes/usuario/apagarTodosUsuarios.php" style="margin-left: -150px;">
+            <img src="/imagens/navbar/x.png" onclick="" width="40" height="40" class="hiddenBtnXUsuarios" alt="sair">
         </a>
       </center>
     <center>
-        <a href="../../classes/contato/apagarTodosContatos.php" style="margin-left: -600px;">
-            <img src="/imagens/navbar/x.png" onclick="" width="40" height="40" class="hiddenBtnXContato" alt="sair" style="margin-left: 30px !important;">
+        <a href="../../classes/contato/apagarTodosContatos.php">
+            <img src="/imagens/navbar/x.png" onclick="" width="40" height="40" class="hiddenBtnXContato" alt="sair" style="margin-left: -150px !important;">
         </a>
+      </center>
+      <center>
+        <a href="?pagina=../../paginas/configs/configUser">
+          <img src="/imagens/navbar/engrenagem.png" onclick="" width="40" height="40" alt="config">
       </center>
     <center>
       <a href="../usuarios/main.php"><?$_SESSION['nome']?></a>
@@ -57,11 +61,38 @@
   </ul>
 </nav>
 <div class="sidebar-container">
+  <p>
+    <!-- nessa parte sera transformado o nome do usuario todo em maiusculo -->
+    <div style="text-transform: uppercase; font-weight: 500;">
+      <?php
+        echo $_SESSION['nome'];
+      ?>
+      <br>
+    </div>
+  </p>
+  <p>
+    <?php
+      if($_SESSION['permissao'] == 1){
+        $permissao = ' Comum';
+      }
+      elseif($_SESSION['permissao'] == 2){
+        $permissao = ' Supervisor';
+      }
+      elseif($_SESSION['permissao'] == 3){
+        $permissao = ' Administrador';
+      }
+      
+      echo 'Nivel de Permissão: ' . $_SESSION['permissao'] . $permissao;
+    ?>
+
+    <!-- <a href="?pagina=../../paginas/cadastros/alterarSenha" style='border: 2px solid black; background-color: #3b5998; padding: 5px;'>Alterar Senha</a> -->
+
+  </p>
   <ul class="sidebar-navigation">
     <li class="header"><img src="../../imagens/sidebar/user.png" class="d-inline-block align-top" alt="sair" style="margin-right: 30px !important;"><b>Usuarios</b></li>
     <li>
-      <a href="?pagina=cadastrar_usuario">
-        <i class="fa fa-home" aria-hidden="true"></i><img src="../../imagens/sidebar/register.png" class="d-inline-block align-top" alt="sair" style="margin-right: 30px !important;"> <b>Cadastrar</b> 
+      <a href="?pagina=../cadastros/cadastrar_usuario">
+        <i class="fa fa-home" aria-hidden="true"></i><img src="../../imagens/sidebar/register.png" class="d-inline-block align-top" alt="sair" style="margin-right: 30px !important;"><b>Cadastrar</b> 
       </a>
     </li>
     <li>
@@ -71,7 +102,7 @@
     </li>
     <li class="header"><img src="../../imagens/sidebar/file.png" class="d-inline-block align-top" alt="sair" style="margin-right: 30px !important;"><b>Fichas Tecnicas</b></li>
     <li>
-      <a href="?pagina=cadastrar_ficha">
+      <a href="?pagina=../cadastros/cadastrar_ficha">
         <i class="fa fa-users" aria-hidden="true"></i> <img src="../../imagens/sidebar/registerForm.png" class="d-inline-block align-top" alt="sair" style="margin-right: 30px !important;"><b>Cadastrar</b>
       </a>
     </li>

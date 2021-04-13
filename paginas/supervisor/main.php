@@ -39,6 +39,32 @@
         </ul>
 </nav>
 <div class="sidebar-container">
+<p>
+    <!-- nessa parte sera transformado o nome do usuario todo em maiusculo -->
+    <div style="text-transform: uppercase; font-weight: 500;">
+      <?php
+        echo $_SESSION['nome'];
+      ?>
+    </div>
+  </p>
+  <p>
+    <?php
+      if($_SESSION['permissao'] == 1){
+        $permissao = ' Comum';
+      }
+      elseif($_SESSION['permissao'] == 2){
+        $permissao = ' Supervisor';
+      }
+      elseif($_SESSION['permissao'] == 3){
+        $permissao = ' Administrador';
+      }
+      
+      echo 'Nivel de Permissão: ' . $_SESSION['permissao'] . $permissao;
+    ?>
+    <hr>
+    <a href="?pagina=../../paginas/cadastros/alterarSenha" style='border: 2px solid black; background-color: #3b5998; padding: 5px;'>Alterar Senha</a>
+
+  </p>
   <ul class="sidebar-navigation">
     <!-- <li class="header">Usuarios</li> -->
     <!-- <li> -->
