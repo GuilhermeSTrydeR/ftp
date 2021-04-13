@@ -30,16 +30,20 @@
   <div id="logo">
       <a href="/">FTP</a>
   </div>
-  <ul class="navbar-nav" id="navbar-main">
+  <ul class="navbar-nav" id="navbar-main" style="margin-left: 700px !important;">
   <center>
-        <a href="../../classes/usuario/apagarTodosUsuarios.php" style="margin-left: -600px;">
-            <img src="/imagens/navbar/x.png" onclick="" width="40" height="40" class="hiddenBtnXUsuarios" alt="sair" style="margin-left: 30px !important;">
+        <a href="../../classes/usuario/apagarTodosUsuarios.php" style="margin-left: -150px;">
+            <img src="/imagens/navbar/x.png" onclick="" width="40" height="40" class="hiddenBtnXUsuarios" alt="sair">
         </a>
       </center>
     <center>
-        <a href="../../classes/contato/apagarTodosContatos.php" style="margin-left: -600px;">
-            <img src="/imagens/navbar/x.png" onclick="" width="40" height="40" class="hiddenBtnXContato" alt="sair" style="margin-left: 30px !important;">
+        <a href="../../classes/contato/apagarTodosContatos.php">
+            <img src="/imagens/navbar/x.png" onclick="" width="40" height="40" class="hiddenBtnXContato" alt="sair" style="margin-left: -150px !important;">
         </a>
+      </center>
+      <center>
+        <a href="?pagina=../../paginas/configs/configUser">
+          <img src="/imagens/navbar/engrenagem.png" onclick="" width="40" height="40" alt="config">
       </center>
     <center>
       <a href="../usuarios/main.php"><?$_SESSION['nome']?></a>
@@ -63,6 +67,7 @@
       <?php
         echo $_SESSION['nome'];
       ?>
+      <br>
     </div>
   </p>
   <p>
@@ -79,8 +84,8 @@
       
       echo 'Nivel de Permissão: ' . $_SESSION['permissao'] . $permissao;
     ?>
-    <hr>
-    <a href="?pagina=../../paginas/cadastros/alterarSenha" style='border: 2px solid black; background-color: #3b5998; padding: 5px;'>Alterar Senha</a>
+
+    <!-- <a href="?pagina=../../paginas/cadastros/alterarSenha" style='border: 2px solid black; background-color: #3b5998; padding: 5px;'>Alterar Senha</a> -->
 
   </p>
   <ul class="sidebar-navigation">
