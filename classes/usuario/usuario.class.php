@@ -109,7 +109,7 @@
         public function permissao($user){
             global $pdo;
             
-            $sql = "SELECT permissao FROM usuarios WHERE :user = '$user'";
+            $sql = "SELECT permissao FROM usuarios WHERE user = :user";
             $stmt = $pdo->prepare( $sql );
             $stmt->bindParam(':user', $user);        
             $stmt->execute();
