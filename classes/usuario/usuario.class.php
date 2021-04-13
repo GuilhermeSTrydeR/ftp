@@ -265,6 +265,7 @@
             $sql = $pdo->prepare($sql);
             $sql->execute();
 
+            echo "<script>alert('Senha alterada com sucesso!');</script>";
             $url = '/paginas/admin/main.php?pagina=../../classes/usuario/visualizar_usuario';
             echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
 
