@@ -24,6 +24,17 @@
             <a href="?pagina=inicio" class="btn btn-danger">Cancelar</a> </div>
         </div>
     </form>
-   
+<hr />
+<br><br>
+<h2>Alterar seu nome de exibição</h2>
+    <form action="../../classes/usuario/alterarNome.php" autocomplete="off" method="POST">
+        <div class="row">    
+            <div class="form-group col-md-3"> <label for="user">Novo nome</label> <input type="text" class="form-control" name="nome" required autocomplete="off"> 
+        </div>
+        <div id="actions" class="row">
+            <div class="col-md-12"> <button type="submit" class="btn btn-primary">Salvar</button> 
+            <a href="?pagina=inicio" class="btn btn-danger">Cancelar</a> </div>
+        </div>
+    </form>
 <hr />
 </center>

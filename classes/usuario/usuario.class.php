@@ -1,4 +1,5 @@
 <?php
+
     class Usuario{
 
         public function login($user, $pass){
@@ -270,6 +271,23 @@
             echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
 
         }
+
+        public function alterarNome($nome){
+            
+            $user = $_SESSION['user'];
+
+            global $pdo;
+            $sql = "UPDATE usuarios SET nome = '$nome' WHERE user = '$user'";
+            $sql = $pdo->prepare($sql);
+            $sql->execute();
+
+            echo "<script>alert('Nome alterado com sucesso!');</script>";
+            $url = '/paginas/admin/main.php?pagina=../../classes/usuario/visualizar_usuario';
+            echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
+
+        }
+
+  
 
         
 
