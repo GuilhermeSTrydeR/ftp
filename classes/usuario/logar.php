@@ -38,7 +38,7 @@
             header("location: ../../paginas/comum/main.php");
             
         }
-        elseif($u->login($user, $pass) == true && $u->permissao($user) == 1 && $u->status($user) == 2){
+        if($u->login($user, $pass) == true && $u->permissao($user) == 1 && $u->status($user) == 2){
 
             if($u->tempo($user) <= time()){
 
@@ -53,7 +53,7 @@
             }
 
         }
-        elseif($u->login($user, $pass) == true && $u->permissao($user) == 1 && $u->status($user) == 3){
+        if($u->login($user, $pass) == true && $u->permissao($user) == 1 && $u->status($user) == 3){
             
             echo "<script>alert('Conta Desativada, por favor entre em contato com o Administrador do sistema');</script>";
             $url = '../../index.php';
@@ -62,13 +62,13 @@
         }
 
         // BLOCO DE LOGIN USUARIO SUPERVISOR
-        elseif($u->login($user, $pass) == true && $u->permissao($user) == 2 && $u->status($user) == 1 && $u->verificaExclusao($user) == 0){
+        if($u->login($user, $pass) == true && $u->permissao($user) == 2 && $u->status($user) == 1 && $u->verificaExclusao($user) == 0){
 
             $_SESSION['logado'] = 1;
             header("location: ../../paginas/supervisor/main.php");
             
         }
-        elseif($u->login($user, $pass) == true && $u->permissao($user) == 2 && $u->status($user) == 2){
+        if($u->login($user, $pass) == true && $u->permissao($user) == 2 && $u->status($user) == 2){
 
             if($u->tempo($user) <= time()){
 
@@ -82,7 +82,7 @@
                 header("location: ../../paginas/admin/main.php");
             }
         }
-        elseif($u->login($user, $pass) == true && $u->permissao($user) == 2 && $u->status($user) == 3){
+        if($u->login($user, $pass) == true && $u->permissao($user) == 2 && $u->status($user) == 3){
             
             echo "<script>alert('Conta Desativada, por favor entre em contato com o Administrador do sistema');</script>";
             $url = '../../index.php';
@@ -92,13 +92,13 @@
 
 
         //BLOCO DE LOGIN USUARIO ADMINISTRADOR
-        elseif($u->login($user, $pass) == true && $u->permissao($user) == 3 && $u->status($user) == 1 && $u->verificaExclusao($user) == 0){
+        if($u->login($user, $pass) == true && $u->permissao($user) == 3 && $u->status($user) == 1 && $u->verificaExclusao($user) == 0){
             
             $_SESSION['logado'] = 1;
             header("location: ../../paginas/admin/main.php");
             
         }
-        elseif($u->login($user, $pass) == true && $u->permissao($user) == 3 && $u->status($user) == 2){
+        if($u->login($user, $pass) == true && $u->permissao($user) == 3 && $u->status($user) == 2){
 
             if($u->tempo($user) <= time()){
 
@@ -113,7 +113,7 @@
                 header("location: ../../paginas/admin/main.php");
             }
         }
-        elseif($u->login($user, $pass) == true && $u->permissao($user) == 3 && $u->status($user) == 3){
+        if($u->login($user, $pass) == true && $u->permissao($user) == 3 && $u->status($user) == 3){
             
             echo "<script>alert('Conta Desativada, por favor entre em contato com o Administrador do sistema');</script>";
             $url = '../../index.php';

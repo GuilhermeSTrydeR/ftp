@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  web:
+    image: mattrayner/lamp:latest-1804
+    ports:
+      - 8000:80
+    volumes:
+      - ".:/app"
