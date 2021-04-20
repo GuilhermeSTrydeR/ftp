@@ -163,6 +163,12 @@ p a{
 
 }
 
+h1, h2{
+
+  color: #3b5998 !important;
+
+}
+
 #navbar-main{
 
     margin-left: 1000px;

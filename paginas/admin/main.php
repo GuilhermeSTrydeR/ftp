@@ -27,10 +27,24 @@
 
 ?>
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: 	#3b5998;">
+
+
   <div id="logo">
       <a href="/">FTP</a>
   </div>
+  <div style='text-transform: uppercase; font-weight: 500; color: white; margin: 10px;'>
+  
+  <!-- nessa parte sera transformado o nome do usuario todo em maiusculo -->
+  <?php
+    echo $_SESSION['nome'];
+  ?>
+  </div>
+    <a href="?pagina=../../paginas/configs/configUser">
+      <img src="/imagens/navbar/engrenagem_azul.png" onclick="" width="20" height="20" alt="config">
+
+
   <ul class="navbar-nav" id="navbar-main" style="margin-left: 700px !important;">
+  
   <center>
         <a href="../../classes/usuario/apagarTodosUsuarios.php" style="margin-left: -150px;">
             <img src="/imagens/navbar/x.png" onclick="" width="40" height="40" class="hiddenBtnXUsuarios" alt="sair">
@@ -40,10 +54,6 @@
         <a href="../../classes/contato/apagarTodosContatos.php">
             <img src="/imagens/navbar/x.png" onclick="" width="40" height="40" class="hiddenBtnXContato" alt="sair" style="margin-left: -150px !important;">
         </a>
-      </center>
-      <center>
-        <a href="?pagina=../../paginas/configs/configUser">
-          <img src="/imagens/navbar/engrenagem.png" onclick="" width="40" height="40" alt="config">
       </center>
     <center>
       <a href="../usuarios/main.php"><?$_SESSION['nome']?></a>
@@ -61,17 +71,9 @@
   </ul>
 </nav>
 <div class="sidebar-container">
+
   <p>
-    <!-- nessa parte sera transformado o nome do usuario todo em maiusculo -->
-    <div style="text-transform: uppercase; font-weight: 500;">
-      <?php
-        echo $_SESSION['nome'];
-      ?>
-      <br>
-    </div>
-  </p>
-  <p>
-    <?php
+    <!-- <?php
       if($_SESSION['permissao'] == 1){
         $permissao = ' Comum';
       }
@@ -83,7 +85,7 @@
       }
       
       echo 'Nivel de Permissão: ' . $_SESSION['permissao'] . $permissao;
-    ?>
+    ?> -->
 
     <!-- <a href="?pagina=../../paginas/cadastros/alterarSenha" style='border: 2px solid black; background-color: #3b5998; padding: 5px;'>Alterar Senha</a> -->
 
