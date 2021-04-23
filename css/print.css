@@ -15,7 +15,8 @@
     .table{
 
         position: absolute !important;
-        max-width: 900px !important;
+        margin-left: -1px !important;
+        width: 750px !important;
         
 
     }
