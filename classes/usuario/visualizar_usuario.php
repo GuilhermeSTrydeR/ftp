@@ -27,15 +27,15 @@
         global $pdo;
         $consulta = $pdo->query("SELECT * FROM usuarios;");
 
-        echo "<table class='table table-striped table-bordered table-condensed table-hover'>";
+        echo "<table class='table table-striped table-bordered table-condensed table-hover' style='margin-left: 200px; table-layout:fixed; max-width: 900px; word-wrap: break-word; !important; position: absolute;'>";
         echo "<thead>";
         echo "<tr>";
         echo "<div class='thead'>";
-        echo "<th scope='col'>ID</th>";
-        echo "<th scope='col'>Nome</th>";
-        echo "<th scope='col'>Usuário</th>";
-        echo "<th scope='col'>Permissão</th>";
-        echo "<th scope='col'>Status</th>";
+        echo "<th scope='col' style='width: 70px;'>ID</th>";
+        echo "<th scope='col' style='width: 150px;'>Nome</th>";
+        echo "<th scope='col' style='width: 120px;'>Usuário</th>";
+        echo "<th scope='col' style='width: 120px;'>Permissão</th>";
+        echo "<th scope='col' style='width: 70px;'>Status</th>";
         echo "<th scope='col'>Tempo</th>";
         echo "</div>";
         echo "</tr>";

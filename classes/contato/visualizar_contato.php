@@ -29,16 +29,16 @@ obs: dar um jeito de implementar isso dentro de contato.class!!!
         // aqui eh feito a consulta de todos os contatos
         $consulta = $pdo->query("SELECT * FROM contato;");
 
-            echo "<center>";
-            echo "<table class='table table-hover' style='margin-left: 300px;'>";
+           
+            echo "<table class='table table-striped table-bordered table-condensed table-hover' style='margin-left: 300px; table-layout:fixed; max-width: 900px; word-wrap: break-word; !important; position: absolute;'>";           
             echo "<thead>";
             echo "<tr>";
             echo "<div class='thead'>";
-            echo "<th scope='col' style='width: 50px;'>ID</th>";
-            echo "<th scope='col' style='width: 150px;'>Nome</th>";
-            echo "<th scope='col'>email</th>";
-            echo "<th scope='col'>telefone</th>";
-            echo "<th scope='col' style='max-width: 500px !important;'>texto</th>";
+            echo "<th scope='col' style='width: 70px;'>ID</th>";
+            echo "<th scope='col' style='width: 150px;'>nome</th>";
+            echo "<th scope='col' style='width: 150px;'>email</th>";
+            echo "<th scope='col' style='width: 150px;'>telefone</th>";
+            echo "<th scope='col'>Texto</th>";
             echo "</div>";
             echo "</tr>";
             echo "</thead>";
@@ -54,7 +54,7 @@ obs: dar um jeito de implementar isso dentro de contato.class!!!
             }
         
             echo "</table>";
-            echo "</center>";
+       
     
     ?>
 </center>

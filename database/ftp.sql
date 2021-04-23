@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS `ftp`;
 
 USE `ftp`;
 
-CREATE TABLE `config` (
+CREATE TABLE IF NOT EXISTS `config` (
   `id` int(11) NOT NULL,
   `valor` int(11) DEFAULT NULL,
   `descConfig` varchar(255) DEFAULT NULL
