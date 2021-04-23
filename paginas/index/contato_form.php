@@ -14,33 +14,33 @@
         <?php
             if(!isset($_SESSION['logado'])){
         ?>
+        <center style='margin: 10px;'>
+          
+            <form action="../../classes/contato/gravar_contato.php" method="POST" style='max-width: 500px; margin-top: 50px;'>
+            <p>Preencha o formulario de contato abaixo:</p>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="nome" name="nome" required placeholder='Nome'>
+                </div>
                 <br>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email" name="email" required placeholder='E-Mail'>
+                </div>
                 <br>
-                Preencha o formulario de contato abaixo:
+                <div class="form-group">
+                    <input type="text" class="form-control" id="telefone" name="telefone" required placeholder='Telefone'>
+                </div>
                 <br>
+                <div class="form-group">
+                    <textarea maxlength ="1000" class="form-control" id="text" rows="6" name="texto" required ></textarea>
+                </div>
+                <br>
+                <div id="actions" class="row">
+                    <div class="col-md-12"> <button type="submit" class="btn btn-primary">Salvar</button> 
+                    <a style='color: white !important' href="?pagina=inicio" class="btn btn-danger">Cancelar</a> </div>
+                </div>
+            </form>
+        </center>
 
-                <form method="POST" action="/classes/contato/gravar_contato.php" class="needs-validation" novalidate>
-            <div class="form-row">
-                <div class="col-md-4 mb-3">
-                <!-- <label for="validationCustom01">Nome</label> -->
-                <input type="text" class="form-control" id="" name="nome" placeholder="Nome" value="" required>
-                </div>
-                <div class="col-md-4 mb-3">
-                <!-- <label for="validationCustom02">E-mail</label> -->
-                <input type="email" class="form-control" id="" name="email" placeholder="E-mail" value="" required>
-                </div>
-                <div class="col-md-4 mb-3">
-                <!-- <label for="validationCustom04">telefone</label> -->
-                <input type="text" class="form-control" id="" name="telefone" placeholder="Telefone" required>
-                </div>
-                <div class="col-md-3 mb-3">
-                <!-- <label for="validationCustom05">Mensagem</label> -->
-                <br>
-                <textarea name="texto" class="form-control" id="" cols="48" rows="4" placeholder="Sua mensagem" required style="margin-top: -25px; height: 200px; width: 450px; margin-left: -55px; resize: none;"></textarea>
-            </div>
-        </div>
-        <button class="btn btn-primary" type="submit">Enviar</button>
-        </form>
 
         <?php   
             }
@@ -49,6 +49,7 @@
         ?>
     <!-- abaixo foram inseridas algumas variaveis $_SESSION para retornar, nome, email e telefone, essas variaveis foram preenchidas na classe usuario/logar-->
     <form method="POST" action="/classes/contato/gravar_contato.php" class="needs-validation" novalidate>
+        <p>Preencha o formulario de contato abaixo:</p>
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                 <!-- <label for="validationCustom01">Nome</label> -->
@@ -68,7 +69,10 @@
                 <textarea name="texto" class="form-control" id="" cols="48" rows="4" placeholder="Sua mensagem" required style="margin-top: -25px; height: 200px; width: 457px; margin-left: -57px; resize: none;"></textarea>
             </div>
         </div>
-        <button class="btn btn-primary" type="submit">Enviar</button>
+        <div id="actions" class="row">
+            <div class="col-md-12"> <button type="submit" class="btn btn-primary">Salvar</button> 
+                <a style='color: white !important' href="?pagina=inicio" class="btn btn-danger">Cancelar</a> </div>
+            </div>
         </form>
 
 

@@ -35,9 +35,9 @@ obs: dar um jeito de implementar isso dentro de contato.class!!!
             echo "<tr>";
             echo "<div class='thead'>";
             echo "<th scope='col' style='width: 70px;'>ID</th>";
-            echo "<th scope='col' style='width: 150px;'>nome</th>";
-            echo "<th scope='col' style='width: 150px;'>email</th>";
-            echo "<th scope='col' style='width: 150px;'>telefone</th>";
+            echo "<th scope='col' style='width: 150px;'>Nome</th>";
+            echo "<th scope='col' style='width: 150px;'>Email</th>";
+            echo "<th scope='col' style='width: 150px;'>Telefone</th>";
             echo "<th scope='col'>Texto</th>";
             echo "</div>";
             echo "</tr>";
