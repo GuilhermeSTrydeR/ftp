@@ -11,6 +11,7 @@ body{
     background-color: #3b5998;
     width: 10%;
     z-index: 2;
+    max-height: 60px;
 
 }
 
@@ -181,7 +182,7 @@ h1, h2{
 }
 
 .sidebar-container {
-    margin-top: 62px;
+    margin-top: 60px;
     position: fixed;
     width: 220px;
     height: 100%;

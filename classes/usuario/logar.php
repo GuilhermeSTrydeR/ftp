@@ -121,7 +121,7 @@
             
         }
 
-        else{
+        elseif($u->login($user, $pass) == false){
    
             echo "<script>alert('Usuário ou senha invalidos! por favor digite novamente.');</script>";
             $url = '../../index.php';

@@ -72,6 +72,7 @@
                     <a style='color: white !important' href="?pagina=inicio" class="btn btn-danger">Cancelar</a> </div>
                 </div>
             </form>
+            
         <?php 
         
             }
