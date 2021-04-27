@@ -34,10 +34,12 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] != '3'){
             <div class="form-group col-md-3"> <label for="campo2">Senha</label> <input type="password" class="form-control" name="pass" required autocomplete="off"> </div>
                 <div class="form-group col-md-2">
                     <label for="status">Status</label>
+
+                <!-- nesse select nao ha a opcao de value 2, pois value 2 é de usuarios temporarios e so sera atribuido o valor 2 ao status quando for digitado um tempo maior que zero no campo tempo    -->
                 <select class="form-select" aria-label="status" name="status" required>
                     <option selected></option>
-                    <option value="1">Ativo</option>
-                    <option value="2">Temporario</option>
+                    <option value="1">Ativado</option>
+                    <!-- <option value="2">Temporario</option> -->
                     <option value="3">Desativado</option>
                     </select>
                 </div>

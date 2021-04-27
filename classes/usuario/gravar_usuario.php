@@ -55,18 +55,22 @@
         if($tempo < 0){
 
             echo "<script>alert('por favor digite um tempo válido!');</script>";
-            $url = '../../paginas/admin/main.php?pagina=cadastrar_usuario';
+            $url = '../../paginas/admin/main.php?pagina=../cadastros/cadastrar_usuario';
             echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
 
         }
+
         elseif($u->duplicidade($user) == false){
 
             //aqui pegamos o tempo em horas digitadas pelo usuario e convertemos em segundos(horas [vezes] 3600), depois somamos com os segundos atuais do sistema (unix timestamp) ambos em segundos pra que depois esse valor seja comparado na hora de logar.
             $tempo = (($tempo * 3600) + time());
 
+            if($tempo > time()){
+                $status = 2;
+            }
+
             $u->gravar($nome, $email, $user, $pass, $permissao, $status, $tempo, $telefone, $dataCadastro, $dataCadastroUnix, $idAdm, $excluido);
 
-        
 
         }
 
