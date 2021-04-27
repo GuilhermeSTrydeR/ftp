@@ -52,7 +52,7 @@
         $excluido = addslashes($excluido);
         
 
-        if($tempo <= 0){
+        if($tempo < 0){
 
             echo "<script>alert('por favor digite um tempo válido!');</script>";
             $url = '../../paginas/admin/main.php?pagina=cadastrar_usuario';
