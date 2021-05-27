@@ -184,7 +184,7 @@ h1, h2{
 .sidebar-container {
     margin-top: 60px;
     position: fixed;
-    width: 220px;
+    width: 100px;
     height: 100%;
     left: 0;
     overflow-x: hidden;

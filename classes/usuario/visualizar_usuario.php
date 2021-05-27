@@ -36,11 +36,17 @@
         echo "<th scope='col' style='width: 120px;'>Usuário</th>";
         echo "<th scope='col' style='width: 120px;'>Permissão</th>";
         echo "<th scope='col' style='width: 70px;'>Status</th>";
-        echo "<th scope='col'>Tempo</th>";
+        echo "<th scope='col' style='width: 70px;'>Tempo</th>";
+        echo "<th scope='col' style='width: 90px;'>Opções</th>";
         echo "</div>";
         echo "</tr>";
         echo "</thead>";
-    
+        
+
+        echo "<a href='?pagina=../../paginas/cadastros/cadastrar_usuario'>";
+        echo "<img src='../../imagens/navbar/plus.png' alt='botao-ativar-informativo' width='50' title='Novo Usuario'>";
+        echo "</a>";
+        echo "<br><br>";
         while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
             
             //nessa parte verificamos se o status do usuario é diferente de 2, ou seja ele não é temporario
@@ -116,7 +122,17 @@
             if($linha['excluido'] == 0){
                 echo "<tr>";
                 echo  " <td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> {$linha['user']} </td> <td> {$linha['permissao']} </td> <td>". $linha['status'] ."</td> <td>". $linha['tempo'] ."</td> ";
+
+                echo "<td>";
+
+                echo "<a href='/paginas/admin/main.php?pagina=../cadastros/editar_usuario&id=" . $linha['id'] . "'><button type='button' class='btn btn-success' style='width: 100px;'>Editar</button></a>";
+        
+                echo "</td>";
+
+
                 echo "</tr>";
+
+                
             }
         }
         

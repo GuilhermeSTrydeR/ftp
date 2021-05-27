@@ -27,18 +27,19 @@
         $_SESSION['nome'] = $u->nome($user);
         $_SESSION['email'] = $u->email($user);
         $_SESSION['telefone'] = $u->telefone($user);
-        $_SESSION['id'] = $u->id($user);
+        $id = $u->id($user);
+        $_SESSION['id'] = $id;
         
         
         // BLOCO DE LOGIN USUARIO COMUM
-        if($u->login($user, $pass) == true && $u->permissao($user) == 1 && $u->status($user) == 1 && $u->verificaExclusao($user) == 0){
+        if($u->login($user, $pass) == true && $u->permissao($user) == 1 && $u->status($user) == 1 && $u->verificaExclusao($user) == 0 && $u->verificaAtivo($id) == 1){
             
             
             $_SESSION['logado'] = 1;
             header("location: ../../paginas/comum/main.php");
             
         }
-        if($u->login($user, $pass) == true && $u->permissao($user) == 1 && $u->status($user) == 2){
+        elseif($u->login($user, $pass) == true && $u->permissao($user) == 1 && $u->status($user) == 2 && $u->verificaAtivo($id) == 1){
 
             if($u->tempo($user) <= time()){
 
@@ -53,7 +54,7 @@
             }
 
         }
-        if($u->login($user, $pass) == true && $u->permissao($user) == 1 && $u->status($user) == 3){
+        elseif($u->login($user, $pass) == true && $u->permissao($user) == 1 && $u->status($user) == 3 && $u->verificaAtivo($id) == 1){
             
             echo "<script>alert('Conta Desativada, por favor entre em contato com o Administrador do sistema');</script>";
             $url = '../../index.php';
@@ -62,13 +63,13 @@
         }
 
         // BLOCO DE LOGIN USUARIO SUPERVISOR
-        if($u->login($user, $pass) == true && $u->permissao($user) == 2 && $u->status($user) == 1 && $u->verificaExclusao($user) == 0){
+        elseif($u->login($user, $pass) == true && $u->permissao($user) == 2 && $u->status($user) == 1 && $u->verificaExclusao($user) == 0 && $u->verificaAtivo($id) == 1){
 
             $_SESSION['logado'] = 1;
             header("location: ../../paginas/supervisor/main.php");
             
         }
-        if($u->login($user, $pass) == true && $u->permissao($user) == 2 && $u->status($user) == 2){
+        elseif($u->login($user, $pass) == true && $u->permissao($user) == 2 && $u->status($user) == 2 && $u->verificaAtivo($id) == 1){
 
             if($u->tempo($user) <= time()){
 
@@ -82,7 +83,7 @@
                 header("location: ../../paginas/admin/main.php");
             }
         }
-        if($u->login($user, $pass) == true && $u->permissao($user) == 2 && $u->status($user) == 3){
+        elseif($u->login($user, $pass) == true && $u->permissao($user) == 2 && $u->status($user) == 3 && $u->verificaAtivo($id) == 1){
             
             echo "<script>alert('Conta Desativada, por favor entre em contato com o Administrador do sistema');</script>";
             $url = '../../index.php';
@@ -92,13 +93,19 @@
 
 
         //BLOCO DE LOGIN USUARIO ADMINISTRADOR
-        if($u->login($user, $pass) == true && $u->permissao($user) == 3 && $u->status($user) == 1 && $u->verificaExclusao($user) == 0){
+        if($u->login($user, $pass) == true && $u->permissao($user) == 3 && $u->status($user) == 1 && $u->verificaExclusao($user) == 0 && $u->verificaAtivo($id) == 1){
             
             $_SESSION['logado'] = 1;
             header("location: ../../paginas/admin/main.php");
             
         }
-        if($u->login($user, $pass) == true && $u->permissao($user) == 3 && $u->status($user) == 2){
+        else{
+            echo "<script>alert('Usuário ou senha invalidos! por favor digite novamente.');</script>";
+            $url = '../../index.php';
+            echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
+
+        }
+        if($u->login($user, $pass) == true && $u->permissao($user) == 3 && $u->status($user) == 2 && $u->verificaAtivo($id) == 1){
 
             if($u->tempo($user) <= time()){
 
@@ -113,7 +120,7 @@
                 header("location: ../../paginas/admin/main.php");
             }
         }
-        if($u->login($user, $pass) == true && $u->permissao($user) == 3 && $u->status($user) == 3){
+        elseif($u->login($user, $pass) == true && $u->permissao($user) == 3 && $u->status($user) == 3 && $u->verificaAtivo($id) == 1){
             
             echo "<script>alert('Conta Desativada, por favor entre em contato com o Administrador do sistema');</script>";
             $url = '../../index.php';
