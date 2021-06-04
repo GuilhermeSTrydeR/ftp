@@ -57,7 +57,7 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
 ?>
 <center style=" margin-top: 100px !important;">
     <h2>CADASTRAR FICHA</h2>
-    <form action="../../classes/usuario/editar_usuario.php" method="POST" style="margin-left: 220px;">
+    <form action="../../classes/fichas/gravar_ficha.php" method="POST" style="margin-left: 220px;">
         <!-- area de campos do form -->
         <hr />
 
@@ -68,7 +68,7 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
             
             <div class="form-group col-md-4">
                 <label for="produto">Produto</label>
-                    <select class="form-select" aria-label="Produto" name="produto">
+                    <select class="form-select" aria-label="Produto" name="codProduto">
                         <?php
                             
                             $consulta = $pdo->query("SELECT * FROM produto");
@@ -110,8 +110,8 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
             </div> -->
 
                 <div class="form-group col-md-2">
-                <label for="produto">Tipo de Venda</label>
-                    <select class="form-select" aria-label="Produto" name="produto">
+                <label for="venda">Tipo de Venda</label>
+                    <select class="form-select" aria-label="venda" name="tipoVenda">
                         <option value="1">Nacional</option>
                         <option value="2">Exportação</option>
                     </select>
@@ -123,7 +123,6 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
                     <select class="form-select" aria-label="Ramo" name="ramo">
                         <option value="1">PET</option>
                         <option value="2">Agronegocio</option>
-                   
                     </select>
             
                 </div>
@@ -151,8 +150,13 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
             <div class="form-group col-md-3"> <label for="nome">Tempo Secador(minutos.)</label> <input type="number" class="form-control" name="secador" value="<?php echo $nome ?>"  size="60"> </div>
         
         </div>
+
+        <br><br>
            
-  
+        <div id="actions" class="row">
+            <div class="col-md-12"> <button type="submit" class="btn btn-primary">Salvar</button> 
+            <a href="?pagina=../../classes/fichas/visualizar_fichas" class="btn btn-danger">Cancelar</a> </div>
+        </div>
 
       
     
@@ -166,7 +170,7 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
     </form>
 
     <!-- mascara para o telefone, nesse caso ele pega o id telefone e aplica essa mascara -->
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         $("#telefone").mask("(00) 0000-0000");
-    </script>   
+    </script>    -->
 </center>

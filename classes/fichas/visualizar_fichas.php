@@ -47,7 +47,6 @@
             echo "<th scope='col' style='width: 150px;'>Nome</th>";
             echo "<th scope='col' style='width: 150px;'>Codigo do Produto</th>";
             echo "<th scope='col' style='width: 170px;'>Data de Criação</th>";
-            echo "<th scope='col' style='width: 170px;'>Data de Atualização</th>";
             echo "<th scope='col' style='width: 120px;'>Opções</th>";
             echo "</div>";
             echo "</tr>";
@@ -63,7 +62,7 @@
             while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
                 if($linha['excluido'] == 0){
                     echo "<tr>";
-                    echo  "<td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> {$linha['codProduto']} </td> <td> {$linha['dataCriacao']} </td> <td> {$linha['dataAtualizacao']} </td>";
+                    echo  "<td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> {$linha['codProduto']} </td> <td> {$linha['dataCriacao']} </td> ";
                     
                     echo "<td>";
 

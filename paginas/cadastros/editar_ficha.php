@@ -22,79 +22,153 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
 
   global $pdo;
 
-  $sql = "SELECT * FROM ficha WHERE id = '$id';";
-
+  $sql = "SELECT * FROM ficha WHERE id = '$id'";
   $consulta = $pdo->query($sql);
-  
-  //   essa variavel recebendo '0' indica que o post veio do 'editar_usuario'
-  $_SESSION['configOuEdit'] = 0;
-
   while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
 
 
     $nome = $linha['nome'];
     $codProduto = $linha['codProduto'];
-    $tipo = $linha['tipo']; 
     $dataCriacao = $linha['dataCriacao'];
     $dataAtualizacao = $linha['dataAtualizacao'];
+
+    if($dataAtualizacao == null || $dataAtualizacao == '0000-00-00'){
+
+        $dataAtualizacao = $dataCriacao;
+
+    }
+
+
+    $tipoVenda = $linha['tipoVenda'];
+    $ramo = $linha['ramo'];
+    $umidadeMinima = $linha['umidadeMinima'];
+    $umidadeMaxima = $linha['umidadeMaxima'];
+    $secador =  $linha['secador'];
     
-
-
-    // if($ativo == 0){
-    //     $ativo = "Não";
-    //     $corBG = "Red";
-    //     $corFonte = "white";
-     
-    // }
-
-    // elseif($ativo == 1){
-    //     $ativo = "Sim";
-    //     $corBG = "Green";
-    //     $corFonte = "white";
-     
-    // }
-
-    // else{
-    //     $ativo = 'Erro';
-    //     $corBG = "Yellow";
-    //     $corFonte = "black";
-      
-    // }
-
+    
   }
+
+
+
+
+
+
 ?>
 <center style=" margin-top: 100px !important;">
-    <h2>Editar / Visualizar Ficha</h2>
-    <form action="../../classes/usuario/editar_usuario.php" method="POST" style="margin-left: 220px;">
+    <h2>EDITAR FICHA</h2>
+    <form action="../../classes/fichas/editar_ficha.php" method="POST" style="margin-left: 220px;">
         <!-- area de campos do form -->
         <hr />
 
   
         <div class="row">
-            <div class="form-group col-md-1"> <label for="nome">ID</label> <input READONLY type="text" class="form-control" name="id"  value="<?php echo $id ?>"  size="60"> </div>
+        <div class="form-group col-md-1"> <label for="nome">ID</label> <input type="text" class="form-control" name="id" value="<?php echo $id ?>" disabled  size="60"> </div>
 
-      
+        <div class="form-group col-md-2"> <label for="dataCriacao">Data de Criação</label> <input type="text" class="form-control" name="dataCriacao" value="<?php echo $dataCriacao ?>"  disabled size="60"> </div>
 
-            <div class="form-group col-md-4"> <label for="nome">Nome</label> <input type="text" class="form-control" name="nome" value="<?php echo $nome ?>"  size="60"> </div>
+        <div class="form-group col-md-2"> <label for="dataCriacao">Ultima Atualização</label> <input type="text" class="form-control" name="dataCriacao" value="<?php echo $dataAtualizacao ?>"  disabled size="60"> </div>
+            
+        <div class="form-group col-md-5"> <label for="nome">Nome da ficha</label> <input type="text" class="form-control" name="nome" value="<?php echo $nome ?>"  size="60"> </div>
+            
 
-            <div class="form-group col-md-2"> <label for="campo2">Tipo</label> <input type="text" class="form-control" name="user" value="<?php echo $tipo ?>"  autocomplete="off"> </div>
-
-
-            <div class="form-group col-md-2"> <label for="campo2">Data de Criação</label> <input type="text" class="form-control" name="user" value="<?php echo $dataCriacao ?>"  autocomplete="off"> </div>
-
-            <div class="form-group col-md-2"> <label for="campo2">data de Atualização</label> <input type="text" class="form-control" name="user" value="<?php echo $dataAtualizacao ?>"  autocomplete="off"> </div>
-    
+            
         </div>
-  <br>
+
+
+        <br>
+
         <div class="row">
 
+        
+
+
+
+                <div class="form-group col-md-2">
+                <label for="venda">Tipo de Venda</label>
+                    <select class="form-select" aria-label="venda" name="tipoVenda">
+                        <option value="1">Nacional</option>
+                        <option value="2">Exportação</option>
+                    </select>
+            
+                </div>
+
+                <div class="form-group col-md-2">
+                <label for="produto">Ramo</label>
+                    <select class="form-select" aria-label="Ramo" name="ramo">
+                  
+                  
+                  <?php 
+                    switch ($ramo) {
+                       
+                        case 1:
+                            $ramoString = 'PET';
+                            break;
+
+                        case 2:
+                            $ramoString = 'Agronegocio';
+                            break;
+                    }
+                  
+                  ?>
+                        
+                        <option selected value="<?php echo $ramo;?>">Atual: <?php echo $ramoString;?></option>
+                        <option value="1">PET</option>
+                        <option value="2">Agronegocio</option>
+                    </select>
+
+                    
+            
+                </div>
+
+                <div class="form-group col-md-6">
+                <label for="produto">Produto</label>
+                    <select class="form-select" aria-label="Produto" name="codProduto">
+                        <?php
+                            
+                            $consulta = $pdo->query("SELECT * FROM produto");
+                            while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+
+                                $linha['categoria'] = ($linha['categoria'] . " | Cod.: " . $linha['codProduto']);
+          
+                                echo "<option value=" . $linha['id'] . ">" . $linha['categoria'] .  "</option>";
+                                
+                            }
+                                
+                        ?>
+                    </select>
+                </div>
+            </div>
+
+
+
+
+            </div>
+
+          
+
+
+            
+        </div>
+        
+        <br><br>
+
+        <div class="row">
+            <div class="form-group col-md-2"> <label for="nome">Umidade Minima(%)</label> <input type="number" class="form-control" name="umidadeMinima" value="<?php echo $umidadeMinima ?>" PLACEHOLDER=<?php echo $umidadeMinima;?>  ></div>
+
+            <div class="form-group col-md-2"> <label for="nome">Umidade Maxima(%)</label> <input type="number" class="form-control" name="umidadeMaxima" value="<?php echo $umidadeMaxima ?>"  PLACEHOLDER=<?php echo $umidadeMaxima;?>> </div>
+
+            <div class="form-group col-md-3"> <label for="nome">Tempo Secador(minutos.)</label> <input type="number" class="form-control" name="secador" value="<?php echo $ecador ?>" PLACEHOLDER=<?php echo $secador;?> > </div>
+        
         </div>
 
         <br><br>
-
-  
-
+           
+        <div id="actions" class="row">
+            <div class="col-md-12"> <button type="submit" class="btn btn-primary">Salvar</button> 
+            <a href="?pagina=../../classes/fichas/visualizar_fichas" class="btn btn-danger">Cancelar</a> </div>
         </div>
+
+      
     
 </div>
      
@@ -102,42 +176,11 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
         </div>
         <br>
         <br>
-        <div id="actions" class="row">
 
-                
-
-                <!-- <div class="col">
-                <a href="?pagina=../../classes/usuario/apagarUsuario&id=<?php echo $id; ?>"><button type='button' class='btn btn-danger' style='float: left;'>Excluir</button></a> 
-
-
-                    <?php
-                        if($u->retornaAtivo($id) == 1){
-                    ?>
-                         <a href="../../classes/usuario/desabilitarUsuario.php?id=<?php echo $id; ?>"><button type='button' class='btn btn-danger' style='width: 100px;'>Desativar</button></a>
-                    <?php
-                        }
-                        else{
-                    ?>
-                        <a href="../../classes/usuario/habilitarUsuario.php?id=<?php echo $id; ?>"><button type='button' class='btn btn-success' style='width: 100px;'>Ativar</button></a>
-                     <?php
-                        }
-                    ?>
-
-              
-
-                </div> -->
-               
-    
-
-                <div class="col"> <button type="submit" class="btn btn-success">Salvar</button> 
-                <a style='color: white !important' href="/paginas/admin/main.php?pagina=../../classes/usuario/visualizar_usuario" class="btn btn-danger">Cancelar</a> </div>
-
-
-        </div>
     </form>
 
     <!-- mascara para o telefone, nesse caso ele pega o id telefone e aplica essa mascara -->
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         $("#telefone").mask("(00) 0000-0000");
-    </script>   
+    </script>    -->
 </center>
