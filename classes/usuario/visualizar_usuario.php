@@ -9,6 +9,8 @@
         }
 
         </style>
+            <h4>USUARIOS</h4>
+<br><br>
 
 
         <?php
@@ -27,7 +29,7 @@
         global $pdo;
         $consulta = $pdo->query("SELECT * FROM usuarios;");
 
-        echo "<table class='table table-striped table-bordered table-condensed table-hover' style='margin-left: 200px; table-layout:fixed; max-width: 900px; word-wrap: break-word; !important; position: absolute;'>";
+        echo "<table class='table table-striped table-bordered table-condensed table-hover' style='margin-left: 100px; table-layout:fixed; max-width: 900px; word-wrap: break-word; !important; position: absolute;'>";
         echo "<thead>";
         echo "<tr>";
         echo "<div class='thead'>";

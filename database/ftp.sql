@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04-Jun-2021 às 15:25
+-- Tempo de geração: 04-Jun-2021 às 18:02
 -- Versão do servidor: 10.4.18-MariaDB
 -- versão do PHP: 7.3.27
 
@@ -77,6 +77,28 @@ INSERT INTO `contato` (`id`, `nome`, `email`, `telefone`, `texto`, `excluido`) V
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `ficha`
+--
+
+CREATE TABLE `ficha` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `codProduto` int(11) DEFAULT NULL,
+  `tipo` varchar(255) DEFAULT NULL,
+  `dataCriacao` date DEFAULT NULL,
+  `dataAtualizacao` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `ficha`
+--
+
+INSERT INTO `ficha` (`id`, `nome`, `codProduto`, `tipo`, `dataCriacao`, `dataAtualizacao`) VALUES
+(1, 'Teste', 0, 'Teste', '0000-00-00', '0000-00-00');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `produto`
 --
 
@@ -89,20 +111,21 @@ CREATE TABLE `produto` (
   `pesoPacote` varchar(32) DEFAULT NULL,
   `unidadePeso` varchar(16) DEFAULT NULL,
   `linha` varchar(255) DEFAULT NULL,
-  `canal` varchar(255) DEFAULT NULL
+  `canal` varchar(255) DEFAULT NULL,
+  `embalagem` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `produto`
 --
 
-INSERT INTO `produto` (`id`, `nome`, `categoria`, `codProduto`, `pesoUnitario`, `pesoPacote`, `unidadePeso`, `linha`, `canal`) VALUES
-(1, 'TE/HILLS.S', 'FBRH95040 CAN AD LIGHT 15KG', '52742950402', '15,3', '33,37', 'KG', 'SC', '12'),
-(2, 'MAX/BUFF.M', 'MAX BUFFET 15 KG\r\n', '7896588901739\r\n', '15,141\r\n', '68,9\r\n', 'KG', 'M.2', '55'),
-(3, 'LID/CHIPS', 'LIDER CHIPS 15KG', '7896588901791', '15,125', '46,23', 'KG', 'L.2', '32'),
-(4, 'LID/CHIPS', 'LIDER CHIPS 25KG', '7896588902538', '25,161', '68,5', 'KG', 'L.2', '22'),
-(5, 'TE/HILLS.S', 'FBRH95001 CAN AD LIGHT 50X100G', '7896588915446', '5,6', '14,02', 'KG', 'SC', '75'),
-(6, 'TE/HILLS.S', 'FBRH94921-K9 AD M A LON50X100G', '7896588915453', '5,6', '14,02', 'KG', 'SC', '22');
+INSERT INTO `produto` (`id`, `nome`, `categoria`, `codProduto`, `pesoUnitario`, `pesoPacote`, `unidadePeso`, `linha`, `canal`, `embalagem`) VALUES
+(1, 'TE/HILLS.S', 'FBRH95040 CAN AD LIGHT 15KG', '52742950402', '15,3', '33,37', 'KG', 'SC', '12', 23),
+(2, 'MAX/BUFF.M', 'MAX BUFFET 15 KG\r\n', '7896588901739\r\n', '15,141\r\n', '68,9\r\n', 'KG', 'M.2', '55', 244),
+(3, 'LID/CHIPS', 'LIDER CHIPS 15KG', '7896588901791', '15,125', '46,23', 'KG', 'L.2', '32', 7),
+(4, 'LID/CHIPS', 'LIDER CHIPS 25KG', '7896588902538', '25,161', '68,5', 'KG', 'L.2', '22', 1355),
+(5, 'TE/HILLS.S', 'FBRH95001 CAN AD LIGHT 50X100G', '7896588915446', '5,6', '14,02', 'KG', 'SC', '75', 344),
+(6, 'TE/HILLS.S', 'FBRH94921-K9 AD M A LON50X100G', '7896588915453', '5,6', '14,02', 'KG', 'SC', '22', 443);
 
 -- --------------------------------------------------------
 
@@ -157,6 +180,12 @@ ALTER TABLE `contato`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `ficha`
+--
+ALTER TABLE `ficha`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `produto`
 --
 ALTER TABLE `produto`
@@ -183,6 +212,12 @@ ALTER TABLE `config`
 --
 ALTER TABLE `contato`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de tabela `ficha`
+--
+ALTER TABLE `ficha`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `produto`

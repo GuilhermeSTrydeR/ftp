@@ -14,6 +14,10 @@ obs: dar um jeito de implementar isso dentro de contato.class!!!
         }
 
     </style>
+
+
+<h4>CONTATOS DE FEEDBACK</h4>
+<br><br>
     <?php
 
         include("../../classes/conexao_bd.php");
@@ -30,7 +34,7 @@ obs: dar um jeito de implementar isso dentro de contato.class!!!
         $consulta = $pdo->query("SELECT * FROM contato;");
 
            
-            echo "<table class='table table-striped table-bordered table-condensed table-hover' style='margin-left: 300px; table-layout:fixed; max-width: 900px; word-wrap: break-word; !important; position: absolute;'>";           
+            echo "<table class='table table-striped table-bordered table-condensed table-hover' style='margin-left: 200px; table-layout:fixed; max-width: 900px; word-wrap: break-word; !important; position: absolute;'>";           
             echo "<thead>";
             echo "<tr>";
             echo "<div class='thead'>";
