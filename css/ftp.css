@@ -15,6 +15,12 @@ body{
 
 }
 
+nav{
+
+  height: 45px;
+
+}
+
 .sidebar{
 
   z-index: 1;
@@ -24,7 +30,7 @@ body{
 #logo{
 
     border: 5px solid #8b9dc3;
-    padding: 2px;
+    /* padding: 2px; */
     border-radius: 10px;
 
 }
@@ -182,14 +188,14 @@ h1, h2{
 }
 
 .sidebar-container {
-    margin-top: 60px;
+    margin-top: 40px;
     position: fixed;
-    width: 100px;
+    width: 80px;
     height: 100%;
     left: 0;
     overflow-x: hidden;
     overflow-y: auto;
-    background: #8b9dc3;
+    background: #aab3c7	;
     color: black;
     z-index: 1;
     
@@ -200,6 +206,8 @@ h1, h2{
     text-decoration: none;
     
   }
+
+
   
   .content-container {
     padding-top: 20px;
@@ -232,19 +240,23 @@ h1, h2{
     display: block;
     color: #fff;
   }
-  
+
+
   .sidebar-navigation li .fa {
     margin-right: 10px;
+    
   }
   
   .sidebar-navigation li a:active,
   .sidebar-navigation li a:hover,
   .sidebar-navigation li a:focus {
     text-decoration: none;
+    
     outline: none;
   }
-  
+
   .sidebar-navigation li::before {
+    
     background-color: #2574A9;
     position: absolute;
     content: '';
@@ -259,6 +271,7 @@ h1, h2{
   
   .sidebar-navigation li:hover::before {
     width: 100%;
+    
   }
   
   .sidebar-navigation .header {
@@ -267,6 +280,7 @@ h1, h2{
     background-color: #000000;
     padding: 10px 15px 10px 30px;
     color: white;
+
   }
   
   .sidebar-navigation .header::before {
@@ -280,7 +294,8 @@ h1, h2{
 
 .sidebar-navigation li::before{
 
-  background-color: #3b5998;
+  background-color: #6a94ee;
+
 
 }
 

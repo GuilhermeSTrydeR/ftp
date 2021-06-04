@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 03-Jun-2021 às 19:41
--- Versão do servidor: 10.4.19-MariaDB
--- versão do PHP: 7.3.28
+-- Tempo de geração: 04-Jun-2021 às 15:25
+-- Versão do servidor: 10.4.18-MariaDB
+-- versão do PHP: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -77,6 +77,36 @@ INSERT INTO `contato` (`id`, `nome`, `email`, `telefone`, `texto`, `excluido`) V
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `produto`
+--
+
+CREATE TABLE `produto` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `categoria` varchar(255) DEFAULT NULL,
+  `codProduto` varchar(255) DEFAULT NULL,
+  `pesoUnitario` varchar(32) DEFAULT NULL,
+  `pesoPacote` varchar(32) DEFAULT NULL,
+  `unidadePeso` varchar(16) DEFAULT NULL,
+  `linha` varchar(255) DEFAULT NULL,
+  `canal` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `produto`
+--
+
+INSERT INTO `produto` (`id`, `nome`, `categoria`, `codProduto`, `pesoUnitario`, `pesoPacote`, `unidadePeso`, `linha`, `canal`) VALUES
+(1, 'TE/HILLS.S', 'FBRH95040 CAN AD LIGHT 15KG', '52742950402', '15,3', '33,37', 'KG', 'SC', '12'),
+(2, 'MAX/BUFF.M', 'MAX BUFFET 15 KG\r\n', '7896588901739\r\n', '15,141\r\n', '68,9\r\n', 'KG', 'M.2', '55'),
+(3, 'LID/CHIPS', 'LIDER CHIPS 15KG', '7896588901791', '15,125', '46,23', 'KG', 'L.2', '32'),
+(4, 'LID/CHIPS', 'LIDER CHIPS 25KG', '7896588902538', '25,161', '68,5', 'KG', 'L.2', '22'),
+(5, 'TE/HILLS.S', 'FBRH95001 CAN AD LIGHT 50X100G', '7896588915446', '5,6', '14,02', 'KG', 'SC', '75'),
+(6, 'TE/HILLS.S', 'FBRH94921-K9 AD M A LON50X100G', '7896588915453', '5,6', '14,02', 'KG', 'SC', '22');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `usuarios`
 --
 
@@ -127,6 +157,12 @@ ALTER TABLE `contato`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `produto`
+--
+ALTER TABLE `produto`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -147,6 +183,12 @@ ALTER TABLE `config`
 --
 ALTER TABLE `contato`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de tabela `produto`
+--
+ALTER TABLE `produto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`

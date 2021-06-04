@@ -40,7 +40,7 @@
   ?>
   </div>
     <a href="?pagina=../../paginas/configs/configUser">
-      <img src="/imagens/navbar/engrenagem_azul.png" onclick="" width="20" height="20" alt="config">
+      <img src="/imagens/navbar/engrenagem.png" onclick="" width="35" height="35" alt="config">
 
 
   <ul class="navbar-nav" id="navbar-main" style="margin-left: 700px !important;">
@@ -90,7 +90,7 @@
     <!-- <a href="?pagina=../../paginas/cadastros/alterarSenha" style='border: 2px solid black; background-color: #3b5998; padding: 5px;'>Alterar Senha</a> -->
 
   </p>
-  <ul class="sidebar-navigation">
+  <ul class="sidebar-navigation" style='float: left !important; margin-left: -20px;'>
     <!-- <li class="header"><img src="../../imagens/sidebar/user.png" class="d-inline-block align-top" alt="sair" style="margin-right: 30px !important;"><b>Usuarios</b></li>
     <li>
       <a href="?pagina=../cadastros/cadastrar_usuario">
@@ -99,7 +99,7 @@
     </li> -->
     <li>
       <a href="?pagina=../../classes/usuario/visualizar_usuario">
-        <i class="fa fa-tachometer" aria-hidden="true"></i> <img src="../../imagens/sidebar/toview.png" class="d-inline-block align-top" alt="sair" style="margin-right: 30px !important;"><b>Usuarios</b>
+        <i class="fa fa-tachometer" aria-hidden="true"></i> <img src="../../imagens/sidebar/userBlack.png" class="d-inline-block align-top" alt="sair" style="margin-right: 30px !important;" width='40'><b>Usuarios</b>
       </a>
     </li>
     <!-- <li class="header"><img src="../../imagens/sidebar/file.png" class="d-inline-block align-top" alt="sair" style="margin-right: 30px !important;"><b>Fichas Tecnicas</b></li>
@@ -110,7 +110,7 @@
     </li> -->
     <li>
     <a href="?pagina=../../classes/fichas/visualizar_fichas">
-        <i class="fa fa-users" aria-hidden="true"></i> <img src="../../imagens/sidebar/listForm.png" class="d-inline-block align-top" alt="sair" style="margin-right: 30px !important;"><b>Fichas<br>tecnicas</b>
+        <i class="fa fa-users" aria-hidden="true"></i> <img src="../../imagens/sidebar/view.png" class="d-inline-block align-top"  width='40' alt="sair" style="margin-right: 30px !important;"><b>Fichas<br>tecnicas</b>
       </a>
     </li>
         <!-- <li class="header"><img src="../../imagens/sidebar/feedback.png" class="d-inline-block align-top" alt="sair" style="margin-right: 30px !important;"><b>FeedBack</b></li>
@@ -121,7 +121,7 @@
     </li> -->
     <li>
       <a href="?pagina=../../classes/contato/visualizar_contato">
-        <i class="fa fa-cog" aria-hidden="true"></i><img src="../../imagens/sidebar/listFeedback.png" class="d-inline-block align-top" alt="sair" style="margin-right: 30px !important;"> <b>Contato</b>
+        <i class="fa fa-cog" aria-hidden="true"></i><img src="../../imagens/sidebar/feedblack.png" class="d-inline-block align-top"  width='40' alt="sair" style="margin-right: 30px !important;"> <b>Contato</b>
       </a>
     </li>
     </li>
