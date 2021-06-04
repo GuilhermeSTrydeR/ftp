@@ -66,7 +66,12 @@
                     
                     echo "<td>";
 
-                        echo "<a href='/paginas/admin/main.php?pagina=../cadastros/editar_ficha&id=" . $linha['id'] . "'><button type='button' class='btn btn-success' style='width: 100px;'>Visualizar</button></a>";
+                        echo "<a href='/paginas/admin/main.php?pagina=../cadastros/editar_ficha&id=" . $linha['id'] . "'><button type='button' class='btn btn-success' style='width: 100px;'>Editar</button></a>";
+            
+                        echo "<br>";
+                        echo "<br>";
+
+                        echo "<a href='/paginas/admin/main.php?pagina=../cadastros/visualizar_ficha&id=" . $linha['id'] . "'><button type='button' class='btn btn-primary' style='width: 100px;'>Visualizar</button></a>";
             
                     echo "</td>";
 

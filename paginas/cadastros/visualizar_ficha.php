@@ -54,7 +54,7 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
 
 ?>
 <center style=" margin-top: 100px !important;">
-    <h2>EDITAR FICHA</h2>
+    <h2>VISUALIZAR FICHA</h2>
     <form action="../../classes/fichas/editar_ficha.php" method="POST" style="margin-left: 220px;">
         <!-- area de campos do form -->
         <hr />
@@ -65,7 +65,7 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
 
         <div class="form-group col-md-2"> <label for="dataCriacao">Ultima Atualização</label> <input type="text" class="form-control" name="dataAtualizacao" value="<?php echo $dataAtualizacao ?>"  disabled size="60"> </div>
             
-        <div class="form-group col-md-5"> <label for="nome">Nome da ficha</label> <input type="text" class="form-control" name="nome" value="<?php echo $nome ?>"  size="60"> </div>
+        <div class="form-group col-md-5"> <label for="nome">Nome da ficha</label> <input type="text" class="form-control" name="nome" value="<?php echo $nome ?>" disabled  size="60"> </div>
             
 
             
@@ -76,22 +76,25 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
 
         <div class="row">
 
+        <?php 
+                    switch ($tipoVenda) {
+                       
+                        case 1:
+                            $vendaString = 'Nacional';
+                            break;
+
+                        case 2:
+                            $vendaString = 'Exportação';
+                            break;
+                    }
+                  
+                  ?>
+
         
-
-
-
-                <div class="form-group col-md-2">
-                <label for="venda">Tipo de Venda</label>
-                    <select class="form-select" aria-label="venda" name="tipoVenda">
-                        <option value="1">Nacional</option>
-                        <option value="2">Exportação</option>
-                    </select>
-            
-                </div>
+        <div class="form-group col-md-2"> <label for="nome">Tipo de Venda</label> <input type="text" class="form-control" name="nome" value="<?php echo $vendaString ?>" disabled  size="60"> </div>
 
                 <div class="form-group col-md-2">
-                <label for="produto">Ramo</label>
-                    <select class="form-select" aria-label="Ramo" name="ramo">
+       
                   
                   
                   <?php 
@@ -108,10 +111,7 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
                   
                   ?>
                         
-                        <option selected value="<?php echo $ramo;?>">Atual: <?php echo $ramoString;?></option>
-                        <option value="1">PET</option>
-                        <option value="2">Agronegocio</option>
-                    </select>
+                        <div class="form-group col-md-5"> <label for="nome">Ramo</label> <input type="text" class="form-control" name="nome" value="<?php echo $ramoString ?>" disabled  size="60"> </div>
 
                     
             
@@ -119,7 +119,7 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
 
                 <div class="form-group col-md-6">
                 <label for="produto">Produto</label>
-                    <select class="form-select" aria-label="Produto" name="codProduto">
+                    <select class="form-select" disabled aria-label="Produto" name="codProduto">
                         <?php
                             
                             $consulta = $pdo->query("SELECT * FROM produto");
@@ -150,11 +150,11 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
         <br><br>
 
         <div class="row">
-            <div class="form-group col-md-2"> <label for="nome">Umidade Minima(%)</label> <input type="number" class="form-control" name="umidadeMinima" value="<?php echo $umidadeMinima ?>" PLACEHOLDER=<?php echo $umidadeMinima;?>  ></div>
+            <div class="form-group col-md-2"> <label for="nome">Umidade Minima(%)</label> <input type="number" class="form-control" disabled name="umidadeMinima" value="<?php echo $umidadeMinima ?>" PLACEHOLDER=<?php echo $umidadeMinima;?>  ></div>
 
-            <div class="form-group col-md-2"> <label for="nome">Umidade Maxima(%)</label> <input type="number" class="form-control" name="umidadeMaxima" value="<?php echo $umidadeMaxima ?>"  PLACEHOLDER=<?php echo $umidadeMaxima;?>> </div>
+            <div class="form-group col-md-2"> <label for="nome">Umidade Maxima(%)</label> <input type="number" class="form-control" disabled name="umidadeMaxima" value="<?php echo $umidadeMaxima ?>"  PLACEHOLDER=<?php echo $umidadeMaxima;?>> </div>
 
-            <div class="form-group col-md-3"> <label for="nome">Tempo Secador(minutos.)</label> <input type="number" class="form-control" name="secador" value="<?php echo $ecador ?>" PLACEHOLDER=<?php echo $secador;?> > </div>
+            <div class="form-group col-md-3"> <label for="nome">Tempo Secador(minutos.)</label> <input type="number" class="form-control" disabled name="secador" value="<?php echo $secador ?>" PLACEHOLDER=<?php echo $secador;?> > </div>
         
         </div>
 

@@ -21,14 +21,13 @@
         $id = $_POST["id"]; 
         $nome = $_POST["nome"]; 
         $codProduto = $_POST["codProduto"];
-        $dataCriacao = $_POST["dataCriacao"];
         $dataAtualizacao = date('y/m/d');
         $tipoVenda = $_POST["tipoVenda"];
         $ramo = $_POST["ramo"];
         $umidadeMinima = $_POST['umidadeMinima'];
         $umidadeMaxima = $_POST['umidadeMaxima'];
         $secador = $_POST['secador'];
-           
+      
 
         $codProduto = $f->codProduto($codProduto);
 
