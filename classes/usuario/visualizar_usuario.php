@@ -33,13 +33,13 @@
         echo "<thead>";
         echo "<tr>";
         echo "<div class='thead'>";
-        echo "<th scope='col' style='width: 70px;'>ID</th>";
+        echo "<th scope='col' style='width: 30px;'>ID</th>";
         echo "<th scope='col' style='width: 150px;'>Nome</th>";
         echo "<th scope='col' style='width: 120px;'>Usuário</th>";
         echo "<th scope='col' style='width: 120px;'>Permissão</th>";
         echo "<th scope='col' style='width: 70px;'>Status</th>";
-        echo "<th scope='col' style='width: 70px;'>Tempo</th>";
-        echo "<th class='noPrint' scope='col' style='width: 90px;'>Opções</th>";
+        echo "<th scope='col' style='width: 150px;'>Tempo</th>";
+        echo "<th class='noPrint' scope='col' style='width: 100px;'>Opções</th>";
         echo "</div>";
         echo "</tr>";
         echo "</thead>";

@@ -84,7 +84,6 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
 
             <div class="form-group col-md-2"> <label for="campo2">Tempo de Acesso</label> <input type="number" class="form-control" name="tempo" autocomplete="off" placeholder='Sem Limite'> </div>
        
-
             <div class="form-group col-md-5"> <label for="nome">Nome Completo</label> <input type="text" class="form-control" name="nome" value="<?php echo $nome ?>"  size="60"> </div>
 
             <div class="form-group col-md-3"> <label for="campo2">Usuário</label> <input READONLY type="text" class="form-control" name="user" value="<?php echo $user ?>"  autocomplete="off"> </div>
