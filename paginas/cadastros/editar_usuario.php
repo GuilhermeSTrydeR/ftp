@@ -82,7 +82,10 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
 
             <div class="form-group col-md-1"> <label for="nome">Ativo?</label> <input READONLY type="text" class="form-control" name="ativo" style='color: <?php echo $corFonte; ?>; background-color: <?php echo $corBG; ?>' value="<?php echo $ativo ?>"  size="60"> </div>
 
-            <div class="form-group col-md-6"> <label for="nome">Nome Completo</label> <input type="text" class="form-control" name="nome" value="<?php echo $nome ?>"  size="60"> </div>
+            <div class="form-group col-md-2"> <label for="campo2">Tempo de Acesso</label> <input type="number" class="form-control" name="tempo" autocomplete="off" placeholder='Sem Limite'> </div>
+       
+
+            <div class="form-group col-md-5"> <label for="nome">Nome Completo</label> <input type="text" class="form-control" name="nome" value="<?php echo $nome ?>"  size="60"> </div>
 
             <div class="form-group col-md-3"> <label for="campo2">Usuário</label> <input READONLY type="text" class="form-control" name="user" value="<?php echo $user ?>"  autocomplete="off"> </div>
         </div>
@@ -121,8 +124,8 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
         <br>
         <div class="row"> 
         <div class="form-group col-md-4">
-        <label for="setor">Setor</label>
-        <select class="form-select" aria-label="setor" name="setor" >
+            <label for="setor">Setor</label>
+            <select class="form-select" aria-label="setor" name="setor" >
 
             <?php
                 switch ($setor) {
@@ -191,25 +194,20 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
 </div>
         <div class="form-group col-md-3"> 
             <label for="campo2">Data de Nascimento</label> <input value=<?php echo $nasc;?> type="date" class="form-control" name="nasc" required autocomplete="off"> 
+
+            
+
+
         </div>
+
+        
 
             <div class="form-group col-md-3"> <label for="campo2">Senha</label> <input type="password" class="form-control" name="pass" placeholder="••••••••••••••••••••••••••" autocomplete="off"> 
         </div>
         <br><br>
-                <!-- <div class="form-group col-md-2">
-                    <label for="status">Status</label>
-                <select class="form-select" aria-label="status" name="status" required>
-                    <option selected></option>
-                    <option value="1">Ativo</option>
-                    <option value="2">Temporario</option>
-                    <option value="3">Desativado</option>
-                    </select>
-                </div> -->
+               
 
-        <!-- ao selecionar a opcao de usuario temporario esse campo abaixo 'tempo' devera aparecer para colocar quantas horas esse usuario ficara ativo no sistema, a logica de se criar usuarios temporarios deve-se ao fato da possibilidade de usuarios que nao vao usar o sistema por muito tempo tais como: auditorias internas e externas, visitantes entre outros. -->
-        <!-- <div class="form-group col-md-2"> <label for="campo2">Tempo em Horas</label> <input type="number" class="form-control" name="tempo" required autocomplete="off"> </div>
-            </div>
-        </div> -->
+
         <br>
         <br>
         <div id="actions" class="row">
@@ -241,6 +239,21 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
 
                 <div class="col"> <button type="submit" class="btn btn-success">Salvar</button> 
                 <a style='color: white !important' href="/paginas/admin/main.php?pagina=../../classes/usuario/visualizar_usuario" class="btn btn-danger">Cancelar</a> </div>
+
+
+                <!-- inputs fixos com valores retornados do banco para que sejam substituidos pelos mesmo (estou alguns problemas de nao gravar esses valores no banco por isso estao sendo repetidos) -->
+
+                <!-- <input value="<?php echo $u->retornaAtivo($id);?>" class='hidden' type="text" class="form-control" name="ativo" readonly autocomplete="off">  -->
+
+                <!-- <input value="<?php echo $dataCadastro;?>" class='hidden' type="text" class="form-control" name="ativo" readonly autocomplete="off"> 
+
+                <input value="<?php echo $u->$dataCadastroUnix;?>" class='hidden' type="text" class="form-control" name="ativo" readonly autocomplete="off">  --> 
+
+
+            
+
+
+
 
 
         </div>

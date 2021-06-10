@@ -221,22 +221,29 @@
             
         }
 
-        public function editar($id, $nome, $email, $pass, $permissao, $telefone, $setor){
-
-
+        public function editar($id, $nome, $email, $pass, $permissao, $status, $tempo, $telefone, $idAdm, $excluido, $setor, $nasc){
+            
             global $pdo;
-            $sql = "UPDATE usuarios SET nome = :nome, email = :email, pass = :pass, permissao = :permissao, telefone = :telefone, setor = :setor WHERE id = '$id'";
+            $sql = "UPDATE usuarios SET nome = :nome, email = :email, pass = :pass, permissao = :permissao, status = :status, tempo = :tempo, telefone = :telefone, idadm = :idAdm, excluido = :excluido, setor = :setor, nasc = :nasc WHERE id = '$id'";
             $sql = $pdo->prepare($sql);
  
             $sql->bindValue("nome", $nome);
             $sql->bindValue("email", $email);
             $sql->bindValue("pass", md5($pass));
             $sql->bindValue("permissao", $permissao);
+            $sql->bindValue("status", $status);
+            $sql->bindValue("tempo", $tempo);
             $sql->bindValue("telefone", $telefone);
+            $sql->bindValue("idAdm", $idAdm);
+            $sql->bindValue("excluido", $excluido);
             $sql->bindValue("setor", $setor);
+            $sql->bindValue("nasc", $nasc);
+          
             
             $sql->execute();
             echo "<script>alert('Usuario alterado com sucesso!');</script>";
+            $url = '/paginas/admin/main.php?pagina=../../classes/usuario/visualizar_usuario';
+            echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
             
         }
 
