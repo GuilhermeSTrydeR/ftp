@@ -55,13 +55,15 @@
         
 
             global $pdo;
-            $sql = "INSERT INTO usuarios(nome, email, user, pass, permissao, telefone, dataCadastro, dataCadastroUnix, idAdm, excluido, setor, nasc) VALUES(:nome, :email, :user, :pass, :permissao, :telefone, :dataCadastro, :dataCadastroUnix, :idAdm, :excluido, :setor, :nasc)";
+            $sql = "INSERT INTO usuarios(nome, email, user, pass, permissao, status, tempo, telefone, dataCadastro, dataCadastroUnix, idAdm, excluido, setor, nasc) VALUES(:nome, :email, :user, :pass, :permissao, :status, :tempo, :telefone, :dataCadastro, :dataCadastroUnix, :idAdm, :excluido, :setor, :nasc)";
             $sql = $pdo->prepare($sql);
             $sql->bindValue("nome", $nome);
             $sql->bindValue ("email", $email);
             $sql->bindValue("user", $user);
             $sql->bindValue ("pass", $pass);
             $sql->bindValue ("permissao", $permissao);
+            $sql->bindValue ("status", $status);
+            $sql->bindValue ("tempo", $tempo);
             $sql->bindValue("telefone", $telefone);
             $sql->bindValue("dataCadastro", $dataCadastro);
             $sql->bindValue("dataCadastroUnix", $dataCadastroUnix);

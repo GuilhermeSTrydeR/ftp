@@ -46,10 +46,13 @@
         $status = addslashes($_POST['status']);
         $tempo = addslashes($_POST['tempo']);
         $telefone = addslashes($_POST['telefone']);
+        $setor = addslashes($_POST['setor']);
+        $nasc = addslashes($_POST['nasc']);
         $dataCadastro = addslashes($dataCadastro);
         $dataCadastroUnix = addslashes($dataCadastroUnix);
         $idAdm = addslashes($idAdm);
         $excluido = addslashes($excluido);
+
         
 
         if($tempo < 0){
@@ -69,7 +72,7 @@
                 $status = 2;
             }
 
-            $u->gravar($nome, $email, $user, $pass, $permissao, $status, $tempo, $telefone, $dataCadastro, $dataCadastroUnix, $idAdm, $excluido);
+            $u->gravar($nome, $email, $user, $pass, $permissao, $status, $tempo, $telefone, $dataCadastro, $dataCadastroUnix, $idAdm, $excluido, $setor, $nasc);
 
 
         }

@@ -4,7 +4,6 @@
     //aqui sera gravado no banco a funcao gravar do contato.class que no caso eh referenciada abaixo no require
 
     
-        
         //requer classe de conexao do banco
         require("../conexao_bd.php");
 
@@ -18,20 +17,26 @@
         //aqui instanciamos a classe
         $f = new Ficha();
 
-        $id = $_POST["id"]; 
-        $nome = $_POST["nome"]; 
-        $codProduto = $_POST["codProduto"];
-        $dataAtualizacao = date('y/m/d');
-        $tipoVenda = $_POST["tipoVenda"];
-        $ramo = $_POST["ramo"];
+        $id = $_POST['id'];
+        
+        // a data de atualizacao recebe a data e hora atual para gravar sua atualizacao
+       
+
+        $nome = $_POST['nome'];
+        $codProduto = $_POST['codProduto'];
+        $tipoVenda = $_POST['tipoVenda'];
+        $ramo = $_POST['ramo'];
         $umidadeMinima = $_POST['umidadeMinima'];
         $umidadeMaxima = $_POST['umidadeMaxima'];
         $secador = $_POST['secador'];
-      
+        $dataAtualizacao = $linha['$dataAtualizacao'];
 
-        $codProduto = $f->codProduto($codProduto);
+       
 
-        $f->editar($id, $nome, $codProduto, $dataCriacao, $dataAtualizacao, $tipoVenda, $ramo, $umidadeMinima, $umidadeMaxima, $secador);
+        $dataAtualizacao = date('d/m/y');
+
+
+        $f->editar($id, $dataAtualizacao, $nome, $codProduto, $tipoVenda, $ramo, $umidadeMinima, $umidadeMaxima, $secador);
 
 
   

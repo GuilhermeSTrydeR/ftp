@@ -7,17 +7,18 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
     header("Location: /");
 
 }
-        //requer classe de conexao do banco
-        require("../../classes/conexao_bd.php");
+//requer classe de conexao do banco
+require("../../classes/conexao_bd.php");
 
-        //requer o Usuario.class onde se encontra o comando para buscar no banco
-        require("../../classes/usuario/usuario.class.php");
+//requer o Usuario.class onde se encontra o comando para buscar no banco
+require("../../classes/fichas/ficha.class.php");
 
   // OBS: aqui vai ser recebido apenas o id do informativo por GET poi o texto nao pode ser recebido por esse meio, pois existe uma limiticao de caracteres enviados por GET
 
   // pega o id vindo por GET
   $id = $_GET['id'];
 
+  $f = new Ficha();
 
   global $pdo;
 
@@ -43,6 +44,8 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
     $umidadeMinima = $linha['umidadeMinima'];
     $umidadeMaxima = $linha['umidadeMaxima'];
     $secador =  $linha['secador'];
+    $codProduto = $linha['codProduto'];
+    $nomeProduto = $f->nomeProduto($codProduto);
     
     
   }
@@ -95,8 +98,6 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
 
                 <div class="form-group col-md-2">
        
-                  
-                  
                   <?php 
                     switch ($ramo) {
                        
@@ -117,23 +118,22 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
             
                 </div>
 
-                <div class="form-group col-md-6">
-                <label for="produto">Produto</label>
-                    <select class="form-select" disabled aria-label="Produto" name="codProduto">
-                        <?php
-                            
-                            $consulta = $pdo->query("SELECT * FROM produto");
-                            while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+        
+                    <?php 
+                    
+                        // aqui eh verificado se o produto existe no seu codigo
+                        if(!isset($nomeProduto) || empty($nomeProduto)){
+                            $produto = "Código de Produto não Registrado, Código: " . $codProduto;
+                        }
+                        else{
+                            $produto = $nomeProduto . " || Código: " . $codProduto;
+                        }
+                    
+                    ?>
+                    <div class="form-group col-md-5"> <label for="nome">Produto</label> <input type="text" class="form-control" name="nome" value="<?php echo $produto; ?>" disabled  size="60"> </div>
 
-                                $linha['categoria'] = ($linha['categoria'] . " | Cod.: " . $linha['codProduto']);
-          
-                                echo "<option value=" . $linha['id'] . ">" . $linha['categoria'] .  "</option>";
-                                
-                            }
-                                
-                        ?>
-                    </select>
-                </div>
+            
+           
             </div>
 
 

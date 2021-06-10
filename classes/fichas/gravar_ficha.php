@@ -19,8 +19,6 @@
         $f = new Ficha();
 
 
-
-
         $nome = $_POST["nome"];
         $codProduto = $_POST["codProduto"];
         $dataCriacao = $_POST["dataCriacao"];

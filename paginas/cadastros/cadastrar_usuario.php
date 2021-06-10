@@ -21,16 +21,37 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] != '3'){
             <div class="form-group col-md-3"> <label for="nome">Telefone</label> <input type="text" class="form-control" name="telefone" required size="15"> </div>
 
             <div class="form-group col-md-2">
-            <label for="permissao">Permissão</label>
-            <select class="form-select" aria-label="Permissao" name="permissao" required>
+                <label for="permissao">Permissão</label>
+                <select class="form-select" aria-label="Permissao" name="permissao" required>
                 <option selected></option>
                 <option value="1">Comum</option>
                 <option value="2">Supervisor</option>
                 <option value="3">Administrador</option>
-            </select>
-        </div>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="setor">Setor</label>
+                <select class="form-select" aria-label="setor" name="setor" >
+                    <option value="1">Comercial</option>
+                    <option value="2">Cadastro</option>
+                    <option value="3">Recepção</option>
+                    <option value="4">Faturamento</option>
+                    <option value="5">Tecnologia da Informação</option>
+                    <option value="6">Contabilidade</option>
+                    <option value="7">Interc./Audit.</option>
+                    <option value="8">Diretoria</option>
+                    <option value="9">Financeiro</option>
+                    <option value="10">Gerência</option>
+                    <option value="11">ANS</option>
+                    <option value="12">GED</option>
+                    <option selected value="13">Outros</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3"> 
+                <label for="campo2">Data de Nascimento</label> <input type="date" class="form-control" name="nasc" required autocomplete="off"> 
+            </div>
 
-        <div class="row">    
+            <div class="row">    
             <div class="form-group col-md-3"> <label for="campo2">Senha</label> <input type="password" class="form-control" name="pass" required autocomplete="off"> </div>
                 <div class="form-group col-md-2">
                     <label for="status">Status</label>

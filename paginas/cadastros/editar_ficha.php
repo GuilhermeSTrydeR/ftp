@@ -18,39 +18,44 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
   // pega o id vindo por GET
   $id = $_GET['id'];
 
-
   global $pdo;
 
-  $sql = "SELECT * FROM ficha WHERE id = '$id'";
+  $sql = "SELECT * FROM ficha WHERE id = '$id';";
   $consulta = $pdo->query($sql);
   while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
 
-
     $nome = $linha['nome'];
     $codProduto = $linha['codProduto'];
+    $tipo = $linha['tipo']; 
     $dataCriacao = $linha['dataCriacao'];
-    $dataAtualizacao = $linha['dataAtualizacao'];
-
-    if($dataAtualizacao == null || $dataAtualizacao == '0000-00-00'){
-
-        $dataAtualizacao = $dataCriacao;
-
-    }
-
-
-    $tipoVenda = $linha['tipoVenda'];
-    $ramo = $linha['ramo'];
     $umidadeMinima = $linha['umidadeMinima'];
     $umidadeMaxima = $linha['umidadeMaxima'];
-    $secador =  $linha['secador'];
-    
+    $secador = $linha['secador'];
+
+    // aqui convertemos a data padrao yyyy/mm/dd para BR dd/mm/yyyy
+    $dataCriacao = date('d/m/Y', strtotime($dataCriacao));
+    $dataAtualizacao = date('d/m/Y', strtotime($dataAtualizacao));
+
+   
     
   }
 
-
-
-
-
+//   $sql = "SELECT * FROM produto";
+//   $consulta = $pdo->query($sql);
+//   while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                        
+//     $idProduto = $linha['id'];
+//     $nomeProduto = $linha['nome'];
+//     $categoriaProduto = $linha['categoria'];
+//     $codigoProduto = $linha['codProduto'];
+//     $pesoUnitarioProduto = $linha['pesoUnitario'];
+//     $pesoPacoteProduto = $linha['pesoPacote'];
+//     $unidadePesoProduto = $linha['unidadePeso'];
+//     $linhaProduto = $linha['linha'];
+//     $canalProduto = $linha['canal'];
+//     $embalagemProduto = $linha['embalagem'];
+            
+//     }
 
 ?>
 <center style=" margin-top: 100px !important;">
@@ -58,66 +63,20 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
     <form action="../../classes/fichas/editar_ficha.php" method="POST" style="margin-left: 220px;">
         <!-- area de campos do form -->
         <hr />
-        <div class="row">
-        <div class="form-group col-md-1"> <label for="nome">ID</label> <input type="text" class="form-control" name="id" value="<?php echo $id ?>" disabled  size="60"> </div>
-
-        <div class="form-group col-md-2"> <label for="dataCriacao">Data de Criação</label> <input type="text" class="form-control" name="dataCriacao" value="<?php echo $dataCriacao ?>"  disabled size="60"> </div>
-
-        <div class="form-group col-md-2"> <label for="dataCriacao">Ultima Atualização</label> <input type="text" class="form-control" name="dataAtualizacao" value="<?php echo $dataAtualizacao ?>"  disabled size="60"> </div>
-            
-        <div class="form-group col-md-5"> <label for="nome">Nome da ficha</label> <input type="text" class="form-control" name="nome" value="<?php echo $nome ?>"  size="60"> </div>
-            
-
-            
-        </div>
-
-
-        <br>
 
         <div class="row">
+
+        <div class="form-group col-md-1"> <label for="nome">ID</label> <input type="text" class="form-control" name="id" value="<?php echo $id ?>" READONLY  size="60"> </div>
+
+        <div class="form-group col-md-2"> <label for="nome">Data de Criação</label> <input type="text" class="form-control" name="dataCriacao" value="<?php echo $dataCriacao ?>" READONLY  size="60"> </div>
+
+        <div class="form-group col-md-2"> <label for="nome">Ultima Atualização</label> <input type="text" class="form-control" name="dataAtualizacao" value="<?php echo $dataAtualizacao ?>" READONLY  size="60"> </div>
 
         
-
-
-
-                <div class="form-group col-md-2">
-                <label for="venda">Tipo de Venda</label>
-                    <select class="form-select" aria-label="venda" name="tipoVenda">
-                        <option value="1">Nacional</option>
-                        <option value="2">Exportação</option>
-                    </select>
             
-                </div>
-
-                <div class="form-group col-md-2">
-                <label for="produto">Ramo</label>
-                    <select class="form-select" aria-label="Ramo" name="ramo">
-                  
-                  
-                  <?php 
-                    switch ($ramo) {
-                       
-                        case 1:
-                            $ramoString = 'PET';
-                            break;
-
-                        case 2:
-                            $ramoString = 'Agronegocio';
-                            break;
-                    }
-                  
-                  ?>
-                        
-                        <option selected value="<?php echo $ramo;?>">Atual: <?php echo $ramoString;?></option>
-                        <option value="1">PET</option>
-                        <option value="2">Agronegocio</option>
-                    </select>
-
-                    
+        <div class="form-group col-md-4"> <label for="nome">Nome da ficha</label> <input type="text" class="form-control" name="nome" value="<?php echo $nome ?>"  size="60"> </div>
             
-                </div>
-
-                <div class="form-group col-md-6">
+            <div class="form-group col-md-4">
                 <label for="produto">Produto</label>
                     <select class="form-select" aria-label="Produto" name="codProduto">
                         <?php
@@ -134,29 +93,35 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
                         ?>
                     </select>
                 </div>
-            </div>
 
-
-
-
-            </div>
-
-          
-
-
+                <div class="form-group col-md-2">
+                <label for="venda">Tipo de Venda</label>
+                    <select class="form-select" aria-label="venda" name="tipoVenda">
+                        <option value="1">Nacional</option>
+                        <option value="2">Exportação</option>
+                    </select>
             
-        </div>
-        
-        <br><br>
+                </div>
 
+                <div class="form-group col-md-2">
+                <label for="produto">Ramo</label>
+                    <select class="form-select" aria-label="Ramo" name="ramo">
+                        <option value="1">PET</option>
+                        <option value="2">Agronegocio</option>
+                    </select>
+                </div>
+            </div>
+        </div>
         <div class="row">
-            <div class="form-group col-md-2"> <label for="nome">Umidade Minima(%)</label> <input type="number" class="form-control" name="umidadeMinima" value="<?php echo $umidadeMinima ?>" PLACEHOLDER=<?php echo $umidadeMinima;?>  ></div>
+            <div class="form-group col-md-2"> <label for="nome">Umidade Minima(%)</label> <input type="number" class="form-control" name="umidadeMinima" value="<?php echo $umidadeMinima ?>"  size="60"> </div>
 
-            <div class="form-group col-md-2"> <label for="nome">Umidade Maxima(%)</label> <input type="number" class="form-control" name="umidadeMaxima" value="<?php echo $umidadeMaxima ?>"  PLACEHOLDER=<?php echo $umidadeMaxima;?>> </div>
+            <div class="form-group col-md-2"> <label for="nome">Umidade Maxima(%)</label> <input type="number" class="form-control" name="umidadeMaxima" value="<?php echo $umidadeMaxima ?>"  size="60"> </div>
 
-            <div class="form-group col-md-3"> <label for="nome">Tempo Secador(minutos.)</label> <input type="number" class="form-control" name="secador" value="<?php echo $ecador ?>" PLACEHOLDER=<?php echo $secador;?> > </div>
+            <div class="form-group col-md-3"> <label for="nome">Tempo Secador(minutos.)</label> <input type="number" class="form-control" name="secador" value="<?php echo $secador ?>"  size="60"> </div>
         
         </div>
+
+      
 
         <br><br>
            

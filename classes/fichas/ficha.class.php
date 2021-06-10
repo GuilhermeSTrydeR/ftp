@@ -23,6 +23,27 @@
             
         }
 
+        public function editar($id, $dataAtualizacao, $nome, $codProduto, $tipoVenda, $ramo, $umidadeMinima, $umidadeMaxima, $secador){
+
+
+            global $pdo;
+            $sql = "UPDATE ficha SET nome = :nome, dataAtualizacao = :dataAtualizacao, codProduto = :codProduto, tipoVenda = :tipoVenda, ramo = :ramo, umidadeMinima = :umidadeMinima, umidadeMaxima = :umidadeMaxima, secador = :secador WHERE id = '$id'";
+            $sql = $pdo->prepare($sql);
+            $sql->bindValue("dataAtualizacao", $dataAtualizacao);
+            $sql->bindValue("nome", $nome);
+            $sql->bindValue("codProduto", $codProduto);
+            $sql->bindValue("tipoVenda", $tipoVenda);
+            $sql->bindValue("ramo", $ramo);
+            $sql->bindValue("umidadeMinima", $umidadeMinima);
+            $sql->bindValue("umidadeMaxima", $umidadeMaxima);
+            $sql->bindValue("secador", $secador);
+            
+            $sql->execute();
+            echo "<script>alert('Usuario alterado com sucesso!');</script>";
+            
+        }
+
+
         public function codProduto($id){
             global $pdo;
             
@@ -37,26 +58,20 @@
 
         }
 
-        public function editar($id, $nome, $codProduto, $dataAtualizacao, $tipoVenda, $ramo, $umidadeMinima, $umidadeMaxima, $secador){
-
+        public function nomeProduto($codProduto){
             global $pdo;
-            $sql = "UPDATE ficha SET nome = :nome, codProduto = :codProduto, dataAtualizacao = :dataAtualizacao, tipoVenda = :tipoVenda, ramo = :ramo, umidadeMinima = :umidadeMinima, umidadeMaxima = :umidadeMaxima, secador = :secador WHERE id = '$id'";
-            $sql = $pdo->prepare($sql);
-  
-            $sql->bindValue("nome", $nome);
-            $sql->bindValue("codProduto", $codProduto);
-            $sql->bindValue("dataAtualizacao", $dataAtualizacao);
-            $sql->bindValue("tipoVenda", $tipoVenda);
-            $sql->bindValue("ramo", $ramo);
-            $sql->bindValue("umidadeMinima", $umidadeMinima);
-            $sql->bindValue("umidadeMaxima", $umidadeMaxima);
-            $sql->bindValue("secador", $secador);
             
-            $sql->execute();
+            $sql = "SELECT nome FROM produto WHERE codProduto = '$codProduto'";
+            $stmt = $pdo->prepare( $sql );
+            $stmt->bindParam( ':id', $id );        
+            $stmt->execute();
 
-            echo "<script>alert('Ficha Alterada com sucesso!');</script>";
-            
+            $res = $stmt->fetchColumn();
+
+            return $res;
+
         }
+
 
         
     }

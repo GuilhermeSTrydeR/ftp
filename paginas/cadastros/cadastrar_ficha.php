@@ -16,7 +16,7 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
   // OBS: aqui vai ser recebido apenas o id do informativo por GET poi o texto nao pode ser recebido por esse meio, pois existe uma limiticao de caracteres enviados por GET
 
   // pega o id vindo por GET
-  $id = $_GET['id'];
+//   $id = $_GET['id'];
 
 
 
@@ -64,7 +64,7 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
   
         <div class="row">
             
-            <div class="form-group col-md-5"> <label for="nome">Nome da ficha</label> <input type="text" class="form-control" name="nome" value="<?php echo $nome ?>"  size="60"> </div>
+            <div class="form-group col-md-5"> <label for="nome">Nome da ficha</label> <input type="text" class="form-control" name="nome"  size="60"> </div>
             
             <div class="form-group col-md-4">
                 <label for="produto">Produto</label>
@@ -143,11 +143,11 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
         <br><br>
 
         <div class="row">
-            <div class="form-group col-md-2"> <label for="nome">Umidade Minima(%)</label> <input type="number" class="form-control" name="umidadeMinima" value="<?php echo $nome ?>"  size="60"> </div>
+            <div class="form-group col-md-2"> <label for="nome">Umidade Minima(%)</label> <input type="number" class="form-control" name="umidadeMinima" size="60"> </div>
 
-            <div class="form-group col-md-2"> <label for="nome">Umidade Maxima(%)</label> <input type="number" class="form-control" name="umidadeMaxima" value="<?php echo $nome ?>"  size="60"> </div>
+            <div class="form-group col-md-2"> <label for="nome">Umidade Maxima(%)</label> <input type="number" class="form-control" name="umidadeMaxima" size="60"> </div>
 
-            <div class="form-group col-md-3"> <label for="nome">Tempo Secador(minutos.)</label> <input type="number" class="form-control" name="secador" value="<?php echo $nome ?>"  size="60"> </div>
+            <div class="form-group col-md-3"> <label for="nome">Tempo Secador(minutos.)</label> <input type="number" class="form-control" name="secador"   size="60"> </div>
         
         </div>
 

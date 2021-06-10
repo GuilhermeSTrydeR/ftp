@@ -22,6 +22,21 @@
 
     }
 
+    .noPrint{
+
+        display: none !important;
+
+    }
+
+    .onlyPrint{
+
+        display: block !important;
+    }
+
+    th, td, table{
+        border: none !important;
+    }
+
 
 
 }
