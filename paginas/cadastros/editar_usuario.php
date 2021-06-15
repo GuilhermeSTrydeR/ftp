@@ -7,18 +7,14 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
     header("Location: /");
 
 }
-        //requer classe de conexao do banco
-        require("../../classes/conexao_bd.php");
 
-        //requer o Usuario.class onde se encontra o comando para buscar no banco
-        require("../../classes/usuario/usuario.class.php");
 
   // OBS: aqui vai ser recebido apenas o id do informativo por GET poi o texto nao pode ser recebido por esse meio, pois existe uma limiticao de caracteres enviados por GET
 
   // pega o id vindo por GET
   $id = $_GET['id'];
 
-  $u = new Usuario();
+
 
   global $pdo;
 

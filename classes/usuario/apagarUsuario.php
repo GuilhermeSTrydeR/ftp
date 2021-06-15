@@ -1,19 +1,10 @@
 <?php   
        
 
-        //requer o contato.class onde o comando para gravar no banco ja esta pronto
-        require("usuario.class.php");
 
-    //requer o contato.class onde o comando para gravar no banco ja esta pronto
-    require("../../classes/conexao_bd.php");
 
         $id = $_GET['id'];
         
-
-        //aqui instanciamos a classe
-        $u = new Usuario();
-        
-
         //aqui invocamos o metodo para marcar a coluna 'excluido' com '1' informando que esse usuario foi excluido
         $u->desativarUsuario($id);
        

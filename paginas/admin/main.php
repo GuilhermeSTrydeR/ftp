@@ -6,6 +6,10 @@
     header("Location: /");
 
   }
+
+      include("../../classes/usuario/usuario.class.php");
+      include("../../classes/conexao_bd.php");
+      $u = new Usuario();
  
 
 
@@ -35,9 +39,28 @@
   <div style='text-transform: uppercase; font-weight: 500; color: white; margin: 10px;'>
   
   <!-- nessa parte sera transformado o nome do usuario todo em maiusculo -->
-  <?php
-    echo $_SESSION['nome'];
-  ?>
+
+
+    <?php
+
+      // funcao para exibir apenas o primeiro e o ultimo nome, o nome eh buscado do banco em tempo real
+      
+      // o nome que esta no banco
+      $nome = $u->retornaNome($_SESSION['id']);
+      
+      //aqui excluimos os espacos em branco
+      $arr = explode(' ',trim($nome));
+
+      //aqui printamos o primeiro e o ultimo(array_pop) elemento
+      echo($arr[0] . " " . array_pop($arr));
+
+ 
+    ?>
+
+
+    
+
+ 
   </div>
     <a href="?pagina=../../paginas/configs/configUser">
       <img src="/imagens/navbar/engrenagem.png" onclick="" width="35" height="35" alt="config">

@@ -15,13 +15,7 @@
 
         <?php
 
-        include("../../classes/conexao_bd.php");
-        include("usuario.class.php");
-
-        $c = new Usuario();
-
-        //include para acessar o banco
-        include("../../classes/conexao_bd.php");
+ 
 
         //include para acessar as confguracoes definidas
         include("../../config/config.php");
@@ -33,7 +27,7 @@
         echo "<thead>";
         echo "<tr>";
         echo "<div class='thead'>";
-        echo "<th scope='col' style='width: 30px;'>ID</th>";
+        echo "<th scope='col' style='width: 40px;'>ID</th>";
         echo "<th scope='col' style='width: 150px;'>Nome</th>";
         echo "<th scope='col' style='width: 120px;'>Usuário</th>";
         echo "<th scope='col' style='width: 120px;'>Permissão</th>";

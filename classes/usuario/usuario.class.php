@@ -202,25 +202,6 @@
 
 
         
-        public function editarSemSenhaDigitada($id, $nome, $email, $permissao, $telefone, $setor, $nasc){
-
-
-            global $pdo;
-            $sql = "UPDATE usuarios SET nome = :nome, email = :email, permissao = :permissao, telefone = :telefone, setor = :setor, nasc = :nasc WHERE id = '$id'";
-            $sql = $pdo->prepare($sql);
- 
-            $sql->bindValue("nome", $nome);
-            $sql->bindValue("email", $email);
-            $sql->bindValue("permissao", $permissao);
-            $sql->bindValue("telefone", $telefone);
-            $sql->bindValue("setor", $setor);
-            $sql->bindValue("nasc", $nasc);
-            
-            $sql->execute();
-            echo "<script>alert('Usuario alterado com sucesso!');</script>";
-            
-        }
-
         public function editar($id, $nome, $email, $pass, $permissao, $status, $tempo, $telefone, $idAdm, $excluido, $setor, $nasc){
             
             global $pdo;
@@ -229,7 +210,32 @@
  
             $sql->bindValue("nome", $nome);
             $sql->bindValue("email", $email);
-            $sql->bindValue("pass", md5($pass));
+            $sql->bindValue("pass", $pass);
+            $sql->bindValue("permissao", $permissao);
+            $sql->bindValue("status", $status);
+            $sql->bindValue("tempo", $tempo);
+            $sql->bindValue("telefone", $telefone);
+            $sql->bindValue("idAdm", $idAdm);
+            $sql->bindValue("excluido", $excluido);
+            $sql->bindValue("setor", $setor);
+            $sql->bindValue("nasc", $nasc);
+          
+            
+            $sql->execute();
+            echo "<script>alert('Usuario alterado com sucesso!');</script>";
+            $url = '/paginas/admin/main.php?pagina=../../classes/usuario/visualizar_usuario';
+            echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
+            
+        }
+
+        public function editarSemSenhaDigitada($id, $nome, $email, $permissao, $status, $tempo, $telefone, $idAdm, $excluido, $setor, $nasc){
+            
+            global $pdo;
+            $sql = "UPDATE usuarios SET nome = :nome, email = :email, permissao = :permissao, status = :status, tempo = :tempo, telefone = :telefone, idadm = :idAdm, excluido = :excluido, setor = :setor, nasc = :nasc WHERE id = '$id'";
+            $sql = $pdo->prepare($sql);
+ 
+            $sql->bindValue("nome", $nome);
+            $sql->bindValue("email", $email);
             $sql->bindValue("permissao", $permissao);
             $sql->bindValue("status", $status);
             $sql->bindValue("tempo", $tempo);
@@ -303,7 +309,7 @@
     
             
             public function desativarUsuario($id){
-                $id = 1;
+           
                 global $pdo;
                 $sql = "UPDATE usuarios SET excluido = '1' WHERE id = '$id'";
                 $sql = $pdo->prepare($sql);
