@@ -63,7 +63,7 @@
  
   </div>
     <a href="?pagina=../../paginas/configs/configUser">
-      <img src="/imagens/navbar/engrenagem.png" onclick="" width="35" height="35" alt="config">
+      <img src="/imagens/navbar/engrenagem.png" onclick="" width="25" height="25" alt="config">
 
 
   <ul class="navbar-nav" id="navbar-main" style="margin-left: 700px !important;">

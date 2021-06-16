@@ -41,6 +41,7 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
     $ativo = $linha['ativo']; 
     $setor = $linha['setor']; 
     $nasc = $linha['nasc'];
+    $status = $linha['status'];
 
 
     if($ativo == 0){
@@ -82,7 +83,7 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
        
             <div class="form-group col-md-5"> <label for="nome">Nome Completo</label> <input type="text" class="form-control" name="nome" value="<?php echo $nome ?>"  size="60"> </div>
 
-            <div class="form-group col-md-3"> <label for="campo2">Usuário</label> <input READONLY type="text" class="form-control" name="user" value="<?php echo $user ?>"  autocomplete="off"> </div>
+            <div class="form-group col-md-2"> <label for="campo2">Usuário</label> <input READONLY type="text" class="form-control" name="user" value="<?php echo $user ?>"  autocomplete="off"> </div>
         </div>
 
         <div class="row">
@@ -118,7 +119,7 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
         </div>
         <br>
         <div class="row"> 
-        <div class="form-group col-md-4">
+            <div class="form-group col-md-4">
             <label for="setor">Setor</label>
             <select class="form-select" aria-label="setor" name="setor" >
 
@@ -185,30 +186,58 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
             <option value="11">ANS</option>
             <option value="12">GED</option>
             <option value="13">Outros</option>
-        </select>
-</div>
-        <div class="form-group col-md-3"> 
+            </select>
+            </div>
+            <div class="form-group col-md-3"> 
             <label for="campo2">Data de Nascimento</label> <input value=<?php echo $nasc;?> type="date" class="form-control" name="nasc" required autocomplete="off"> 
 
             
 
 
-        </div>
+            </div>
 
         
 
             <div class="form-group col-md-3"> <label for="campo2">Senha</label> <input type="password" class="form-control" name="pass" placeholder="••••••••••••••••••••••••••" autocomplete="off"> 
-        </div>
+            </div>
         <br><br>
                
+        <div class="row">
+
+        <!-- status -->
+        <!-- <div class="form-group col-md-3">
+            <label for="status">Status</label>
+            <select class="form-select" aria-label="Permissao" name="status" >
+
+            <?php
+                switch ($status) {
+                    case 1:
+                        $statusString = "Permanente";
+                        break;
+                    case 2:
+                        $statusString = "Temporario";
+                        break;
+                    case 3:
+                        $statusString = "Desativado";
+                        break;
+                }
+            
+            ?>
+
+                <option selected value="<?php echo $status;?>"> <?php echo "Atual: " . $statusString; ?> </option>
+                <option value="1">Permanente</option>
+                <option value="2">Temporario</option>
+                <option value="3">Desativado</option>
+            </select>
+        </div> -->
+        <!-- fim status -->
 
 
-        <br>
-        <br>
+              
         <div id="actions" class="row">
 
                 
-
+     
                 <div class="col">
                 <a href="?pagina=../../classes/usuario/apagarUsuario&id=<?php echo $id; ?>"><button type='button' class='btn btn-danger' style='float: left;'>Excluir</button></a> 
 

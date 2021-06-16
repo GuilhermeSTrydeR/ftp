@@ -36,7 +36,7 @@
                 <br>
                 <div id="actions" class="row">
                     <div class="col-md-12"> <button type="submit" class="btn btn-primary">Salvar</button> 
-                    <a style='color: white !important' href="?pagina=inicio" class="btn btn-danger">Cancelar</a> </div>
+                    <a style='color: white !important' href="?pagina=../paginas/index/inicio" class="btn btn-danger">Cancelar</a> </div>
                 </div>
             </form>
         </center>

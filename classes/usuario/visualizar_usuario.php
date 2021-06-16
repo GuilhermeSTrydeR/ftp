@@ -34,7 +34,7 @@
         echo "<th scope='col' style='width: 120px;'>Usuário</th>";
         echo "<th scope='col' style='width: 120px;'>Permissão</th>";
         echo "<th scope='col' style='width: 70px;'>Status</th>";
-        echo "<th scope='col' style='width: 150px;'>Tempo</th>";
+
         echo "<th class='noPrint' scope='col' style='width: 100px;'>Opções</th>";
         echo "</div>";
         echo "</tr>";
@@ -44,7 +44,7 @@
         echo "<img src='../../imagens/navbar/plus.png' alt='botao-ativar-informativo' width='50' title='Novo Usuario'>";
         echo "</a>";
       
-        echo "<img src='/imagens/navbar/printer.png' class='hidden' onClick='window.print()' width='40' height='40' class='d-inline-block align-top' title='Imprimir' alt='imprimir' style='margin-left: 150px !important;'>";
+        echo "<img src='/imagens/navbar/printer.png' onClick='window.print()' width='50' height='50' class='d-inline-block align-top' title='Imprimir' alt='imprimir' style='margin-left: 150px !important;'>";
 
         echo "<br><br>";
         while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
@@ -121,7 +121,7 @@
 
             if($linha['excluido'] == 0){
                 echo "<tr>";
-                echo  " <td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> {$linha['user']} </td> <td> {$linha['permissao']} </td> <td>". $linha['status'] ."</td> <td>". $linha['tempo'] ."</td> ";
+                echo  " <td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> {$linha['user']} </td> <td> {$linha['permissao']} </td> <td>". $linha['status'] ."</td>";
 
                 echo "<td class='noPrint'>";
 

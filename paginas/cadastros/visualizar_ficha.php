@@ -112,10 +112,8 @@ require("../../classes/fichas/ficha.class.php");
                   
                   ?>
                         
-                        <div class="form-group col-md-5"> <label for="nome">Ramo</label> <input type="text" class="form-control" name="nome" value="<?php echo $ramoString ?>" disabled  size="60"> </div>
+                         <label for="nome">Ramo</label> <input type="text" class="form-control" name="nome" value="<?php echo $ramoString ?>" disabled  size="60">
 
-                    
-            
                 </div>
 
         

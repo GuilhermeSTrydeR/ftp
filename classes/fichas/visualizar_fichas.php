@@ -51,10 +51,15 @@
             echo "</div>";
             echo "</tr>";
             echo "</thead>";
+
+            
     
             echo "<a href='?pagina=../../paginas/cadastros/cadastrar_ficha'>";
             echo "<img src='../../imagens/navbar/plus.png' alt='botao-ativar-informativo' width='50' title='Novo Usuario'>";
             echo "</a>";
+
+            echo "<img src='../../imagens/navbar/printer.png' onClick='window.print()' width='50' height='50' class='d-inline-block align-top' title='Imprimir' alt='imprimir' style='margin-left: 150px !important;'>";
+            
             echo "<br><br>";
 
 
