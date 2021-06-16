@@ -11,7 +11,7 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
         require("../../classes/conexao_bd.php");
 
         //requer o Usuario.class onde se encontra o comando para buscar no banco
-        require("../../classes/usuario/usuario.class.php");
+        // require("../../classes/usuario/usuario.class.php");
 
   // OBS: aqui vai ser recebido apenas o id do informativo por GET poi o texto nao pode ser recebido por esse meio, pois existe uma limiticao de caracteres enviados por GET
 
@@ -26,7 +26,7 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
 
     $nome = $linha['nome'];
     $codProduto = $linha['codProduto'];
-    $tipo = $linha['tipo']; 
+    // $tipo = $linha['tipo']; 
     $dataCriacao = $linha['dataCriacao'];
     $umidadeMinima = $linha['umidadeMinima'];
     $umidadeMaxima = $linha['umidadeMaxima'];
@@ -34,7 +34,7 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
 
     // aqui convertemos a data padrao yyyy/mm/dd para BR dd/mm/yyyy
     $dataCriacao = date('d/m/Y', strtotime($dataCriacao));
-    $dataAtualizacao = date('d/m/Y', strtotime($dataAtualizacao));
+    // $dataAtualizacao = date('d/m/Y', strtotime($dataAtualizacao));
 
    
     

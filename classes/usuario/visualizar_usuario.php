@@ -23,7 +23,9 @@
         global $pdo;
         $consulta = $pdo->query("SELECT * FROM usuarios;");
 
+     
         echo "<table class='table table-striped table-bordered table-condensed table-hover' style='margin-left: 100px; table-layout:fixed; max-width: 900px; word-wrap: break-word; !important; position: absolute;'>";
+        
         echo "<thead>";
         echo "<tr>";
         echo "<div class='thead'>";
@@ -41,6 +43,9 @@
         echo "<a href='?pagina=../../paginas/cadastros/cadastrar_usuario'>";
         echo "<img src='../../imagens/navbar/plus.png' alt='botao-ativar-informativo' width='50' title='Novo Usuario'>";
         echo "</a>";
+      
+        echo "<img src='/imagens/navbar/printer.png' class='hidden' onClick='window.print()' width='40' height='40' class='d-inline-block align-top' title='Imprimir' alt='imprimir' style='margin-left: 150px !important;'>";
+
         echo "<br><br>";
         while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
             
@@ -91,7 +96,7 @@
             //estrutura 'switch case' para printar ao usuario se a conta esta ativa, desativada ou se eh temporaria
             switch ($linha['status']) {
                 case 1:
-                    $linha['status'] = 'Ativo';
+                    $linha['status'] = 'Permanente';
                     break;
                 case 2:
                     $linha['status'] = 'Temporario';

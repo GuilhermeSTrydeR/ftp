@@ -68,20 +68,9 @@
 
   <ul class="navbar-nav" id="navbar-main" style="margin-left: 700px !important;">
   
-  <center>
-        <a href="../../classes/usuario/apagarTodosUsuarios.php" style="margin-left: -150px;">
-            <img src="/imagens/navbar/x.png" onclick="" width="40" height="40" class="hiddenBtnXUsuarios" alt="sair">
-        </a>
-      </center>
-    <center>
-        <a href="../../classes/contato/apagarTodosContatos.php">
-            <img src="/imagens/navbar/x.png" onclick="" width="40" height="40" class="hiddenBtnXContato" alt="sair" style="margin-left: -150px !important;">
-        </a>
-      </center>
-    <center>
-      <a href="../usuarios/main.php"><?$_SESSION['nome']?></a>
-      <img src="/imagens/navbar/printer.png" class="hidden" onClick="window.print()" width="40" height="40" class="d-inline-block align-top" alt="imprimir" style="margin-left: 30px !important;">
-    </center>
+
+
+
     <center>
         <a href="?pagina=inicio">
           <img src="/imagens/navbar/home.png" onclick="" width="40" height="40" class="d-inline-block align-top" alt="home" style="margin-left: 30px !important;">

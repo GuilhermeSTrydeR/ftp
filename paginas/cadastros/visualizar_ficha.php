@@ -161,8 +161,8 @@ require("../../classes/fichas/ficha.class.php");
         <br><br>
            
         <div id="actions" class="row">
-            <div class="col-md-12"> <button type="submit" class="btn btn-primary">Salvar</button> 
-            <a href="?pagina=../../classes/fichas/visualizar_fichas" class="btn btn-danger">Cancelar</a> </div>
+            <div class="col-md-12"> 
+            <a href="?pagina=../../classes/fichas/visualizar_fichas" class="btn btn-primary">Voltar</a> </div>
         </div>
 
       

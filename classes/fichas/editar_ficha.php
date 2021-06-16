@@ -29,7 +29,7 @@
         $umidadeMinima = $_POST['umidadeMinima'];
         $umidadeMaxima = $_POST['umidadeMaxima'];
         $secador = $_POST['secador'];
-        $dataAtualizacao = $linha['$dataAtualizacao'];
+        $dataAtualizacao = $_POST['dataAtualizacao'];
 
        
 
@@ -37,7 +37,8 @@
 
 
         $f->editar($id, $dataAtualizacao, $nome, $codProduto, $tipoVenda, $ramo, $umidadeMinima, $umidadeMaxima, $secador);
-
+        $url = '/paginas/admin/main.php?pagina=../../classes/fichas/visualizar_fichas';
+        echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
 
   
 
