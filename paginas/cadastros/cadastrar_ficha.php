@@ -11,7 +11,7 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
         require("../../classes/conexao_bd.php");
 
         //requer o Usuario.class onde se encontra o comando para buscar no banco
-        require("../../classes/usuario/usuario.class.php");
+        // require("../../classes/usuario/usuario.class.php");
 
   // OBS: aqui vai ser recebido apenas o id do informativo por GET poi o texto nao pode ser recebido por esse meio, pois existe uma limiticao de caracteres enviados por GET
 
@@ -20,20 +20,20 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
 
 
 
-  global $pdo;
+//   global $pdo;
 
-  $sql = "SELECT * FROM ficha WHERE id = '$id';";
-  $consulta = $pdo->query($sql);
-  while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+//   $sql = "SELECT * FROM ficha WHERE id = '$id';";
+//   $consulta = $pdo->query($sql);
+//   while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
 
 
-    $nome = $linha['nome'];
-    $codProduto = $linha['codProduto'];
-    $tipo = $linha['tipo']; 
-    $dataCriacao = $linha['dataCriacao'];
-    $dataAtualizacao = $linha['dataAtualizacao'];
+//     $nome = $linha['nome'];
+//     $codProduto = $linha['codProduto'];
+//     $tipo = $linha['tipo']; 
+//     $dataCriacao = $linha['dataCriacao'];
+//     $dataAtualizacao = $linha['dataAtualizacao'];
     
-  }
+//   }
 
 //   $sql = "SELECT * FROM produto";
 //   $consulta = $pdo->query($sql);
