@@ -86,6 +86,18 @@
 
         }
 
+        public function desativarFicha($id){
+           
+            global $pdo;
+            $sql = "UPDATE ficha SET excluido = '1' WHERE id = '$id'";
+            $sql = $pdo->prepare($sql);
+            $sql->execute();
+
+           
+           
+    
+        }
+
 
 
         

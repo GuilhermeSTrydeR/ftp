@@ -136,6 +136,7 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
       
 
         <br><br>
+        <a href="?pagina=../../classes/fichas/apagarFicha&id=<?php echo $id; ?>"><button type='button' class='btn btn-danger' style='float: left;'>Excluir</button></a> 
            
         <div id="actions" class="row">
             <div class="col-md-12"> <button type="submit" class="btn btn-primary">Salvar</button> 

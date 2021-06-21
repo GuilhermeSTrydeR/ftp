@@ -232,10 +232,11 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
         </div> -->
         <!-- fim status -->
 
-
-              
+                
+        <div style='margin-top: 50px;'>
+        </div>
         <div id="actions" class="row">
-
+        
                 
      
                 <div class="col">
