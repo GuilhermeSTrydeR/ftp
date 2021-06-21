@@ -16,8 +16,8 @@
         ?>
         <center style='margin: 10px;'>
           
-            <form action="../../classes/contato/gravar_contato.php" method="POST" style='max-width: 500px; margin-top: 50px;'>
-            <p>Preencha o formulario de contato abaixo:</p>
+            <form action="../../classes/contato/gravar_contato.php" method="POST" style='width: 400px; margin-top: 50px;'>
+
                 <div class="form-group">
                     <input type="text" class="form-control" id="nome" name="nome" required placeholder='Nome'>
                 </div>
