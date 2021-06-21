@@ -1,11 +1,14 @@
 
 <div class='row'>
-        <div class='col' style='margin-top: 100px; margin-left: 150px; max-width: 500px;'>
+        <div class='col' style='margin-top: 130px; margin-left: 150px; max-width: 500px;'>
         <center>
             <div class='row'>
                     <h4 style='color: #3b5998;'>Formas de Contato</h4>
                 </div>
                 </center>
+
+            <br><br>
+
             <p align="justify" >
                 
                 <div class='row'>
@@ -14,6 +17,7 @@
                 <div class='row'>
                     <p><img src="../../imagens/mphone.png" width=40 alt="mobile phone"> <b>(35) 9 9144-8362</b></p>
                 </div>
+                <br>
                 <div class='row'>
                     <p>Ou então preencha o formulario de contato ao lado:</p>
                 </div>
