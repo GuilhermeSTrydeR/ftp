@@ -79,11 +79,11 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
 
             <div class="form-group col-md-1"> <label for="nome">Ativo?</label> <input READONLY type="text" class="form-control" name="ativo" style='color: <?php echo $corFonte; ?>; background-color: <?php echo $corBG; ?>' value="<?php echo $ativo ?>"  size="60"> </div>
 
-            <div class="form-group col-md-2"> <label for="campo2">Tempo de Acesso</label> <input type="number" class="form-control" name="tempo" autocomplete="off" placeholder='Sem Limite'> </div>
+            <!-- <div class="form-group col-md-2"> <label for="campo2">Tempo de Acesso</label> <input type="number" class="form-control" name="tempo" autocomplete="off" placeholder='Sem Limite'> </div> -->
        
             <div class="form-group col-md-5"> <label for="nome">Nome Completo</label> <input type="text" class="form-control" name="nome" value="<?php echo $nome ?>"  size="60"> </div>
 
-            <div class="form-group col-md-2"> <label for="campo2">Usuário</label> <input READONLY type="text" class="form-control" name="user" value="<?php echo $user ?>"  autocomplete="off"> </div>
+            <div class="form-group col-md-3"> <label for="campo2">Usuário</label> <input READONLY type="text" class="form-control" name="user" value="<?php echo $user ?>"  autocomplete="off"> </div>
         </div>
 
         <div class="row">
@@ -91,7 +91,7 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
 
             <div class="form-group col-md-3"> <label for="nome">Telefone</label> <input type="text" class="form-control" id='telefone' name="telefone" value="<?php echo $telefone ?>"  size="15"> </div>
 
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-2">
             <label for="permissao">Permissão</label>
             <select class="form-select" aria-label="Permissao" name="permissao" >
 

@@ -1,12 +1,9 @@
 <?php
+
+    error_reporting(0);
+    
     session_start();
-    if(!isset($_POST['user']) && !isset($_POST['pass'])){
-
-        header("Location: /");
-
-    }
-
-        
+       
         //requer classe de conexao do banco
         require("../conexao_bd.php");
 
@@ -21,8 +18,8 @@
         $u = new Usuario();
 
 
-
-
+        if(isset($_POST["pass"]) && !empty($_POST["pass"])){
+            
         // //data em gmt da hora do cadastro
         // $dataCadastro = gmdate("YmdHis", time() + $fusoHorario);
 
@@ -79,6 +76,36 @@
             }
      
             $u->editar($id, $nome, $email, $pass, $permissao, $status, $tempo, $telefone, $idAdm, $excluido, $setor, $nasc);
+
+        }
+        else{
+
+            //aqui adicionamos um nivel basico de seguranca
+            $id = addslashes($_POST['id']);
+            $nome = addslashes($_POST["nome"]);
+            $email = addslashes($_POST["email"]);
+            $user = addslashes($_POST["user"]);
+
+            $permissao = addslashes($_POST["permissao"]);
+    
+            $telefone = addslashes($_POST['telefone']);
+            $setor = addslashes($_POST['setor']);
+            $nasc = addslashes($_POST['nasc']);
+            // $ativo = addslashes($_POST['ativo']);
+            // $dataCadastro = addslashes($dataCadastro);
+            // $dataCadastroUnix = addslashes($dataCadastroUnix);
+            // $idAdm = addslashes($idAdm);
+            // $excluido = addslashes($excluido);
+
+            $u->editarSemSenhaDigitada($id, $nome, $email, $permissao, $telefone, $setor, $nasc);
+
+        }
+
+
+            
+
+
+            
 
             
         
