@@ -26,7 +26,6 @@ require("../../classes/fichas/ficha.class.php");
   $consulta = $pdo->query($sql);
   while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
 
-
     $nome = $linha['nome'];
     $codProduto = $linha['codProduto'];
     $dataCriacao = $linha['dataCriacao'];
@@ -38,7 +37,6 @@ require("../../classes/fichas/ficha.class.php");
 
     }
 
-
     $tipoVenda = $linha['tipoVenda'];
     $ramo = $linha['ramo'];
     $umidadeMinima = $linha['umidadeMinima'];
@@ -46,18 +44,96 @@ require("../../classes/fichas/ficha.class.php");
     $secador =  $linha['secador'];
     $codProduto = $linha['codProduto'];
     $nomeProduto = $f->nomeProduto($codProduto);
+
+
+    switch ($tipoVenda) {
+       
+        case 1:
+            $vendaString = 'Nacional';
+            break;
+
+        case 2:
+            $vendaString = 'Exportação';
+            break;
+    }
     
+        // aqui eh verificado se o produto existe no seu codigo
+        if(!isset($nomeProduto) || empty($nomeProduto)){
+            $produto = "Código de Produto não Registrado, Código: " . $codProduto;
+        }
+        else{
+            $produto = $nomeProduto . " || Código: " . $codProduto;
+        }
+
+        switch ($ramo) {
+    
+            case 1:
+                $ramoString = 'PET';
+                break;
+
+            case 2:
+                $ramoString = 'Agronegocio';
+                break;
+        }
     
   }
 
-
-
-
-
-
 ?>
-<center style=" margin-top: 100px !important;">
-    <h2>VISUALIZAR FICHA</h2>
+
+<!-- essa parte aparecera apenas na impressao -->
+<div class="onlyPrint hidden" style='margin-top: -50px !important;'>
+  <p>
+    <div class='row'>
+        <center>
+            <h4>
+                <?php echo $produto; ?>
+            </h4>
+        </center>
+        <br>
+        <br>
+        <div class='col'>
+            Ficha Nº: <?php echo $id; ?>
+            <br>
+            Produto: <?php echo $nomeProduto; ?>
+            <br>
+            Nome da ficha: <?php echo $nome; ?>
+            <br>
+            Tipo de Negócio: <?php echo $vendaString; ?>
+        </div>
+        <div class='col'>
+            Data Criação: <?php echo $dataCriacao; ?>
+            <br>
+            Data Atualização: <?php echo $dataAtualizacao; ?>
+            <br>
+            Código: <?php echo $codProduto; ?>
+            <br>
+            Ramo: <?php echo $ramoString; ?>
+        </div>
+    </div>
+
+    
+    <hr />
+
+    <div class='row'>
+        <div class='col'>
+            Processo
+            <div style='border-bottom: 2px solid black;'></div>
+            Umidade Minima: <?php echo $umidadeMinima . '%'; ?>
+            <br>
+            Umidade Maxima: <?php echo $umidadeMaxima . '%'; ?>
+            <br>
+            Tempo no Secador: <?php echo $secador . ' Minutos'; ?>
+        </div>
+    </div>
+  
+  </p>
+</div>
+
+
+<center class='noPrint' style=" margin-top: 50px !important;">
+    <h2 class='noPrint'>VISUALIZAR FICHA</h2>
+    
+    <img src='/imagens/navbar/printer.png' onClick='window.print()' width='50' height='50' class='d-inline-block align-top noPrint' title='Imprimir' alt='imprimir' style='margin-left: 450px !important;'>
     <form action="../../classes/fichas/editar_ficha.php" method="POST" style="margin-left: 220px;">
         <!-- area de campos do form -->
         <hr />
@@ -79,70 +155,33 @@ require("../../classes/fichas/ficha.class.php");
 
         <div class="row">
 
-        <?php 
-                    switch ($tipoVenda) {
-                       
-                        case 1:
-                            $vendaString = 'Nacional';
-                            break;
 
-                        case 2:
-                            $vendaString = 'Exportação';
-                            break;
-                    }
-                  
-                  ?>
 
         
         <div class="form-group col-md-2"> <label for="nome">Tipo de Venda</label> <input type="text" class="form-control" name="nome" value="<?php echo $vendaString ?>" disabled  size="60"> </div>
 
                 <div class="form-group col-md-2">
        
-                  <?php 
-                    switch ($ramo) {
-                       
-                        case 1:
-                            $ramoString = 'PET';
-                            break;
-
-                        case 2:
-                            $ramoString = 'Agronegocio';
-                            break;
-                    }
+    
                   
-                  ?>
+                  
                         
                          <label for="nome">Ramo</label> <input type="text" class="form-control" name="nome" value="<?php echo $ramoString ?>" disabled  size="60">
 
                 </div>
 
         
-                    <?php 
+                  
                     
-                        // aqui eh verificado se o produto existe no seu codigo
-                        if(!isset($nomeProduto) || empty($nomeProduto)){
-                            $produto = "Código de Produto não Registrado, Código: " . $codProduto;
-                        }
-                        else{
-                            $produto = $nomeProduto . " || Código: " . $codProduto;
-                        }
+
                     
-                    ?>
+                    
                     <div class="form-group col-md-5"> <label for="nome">Produto</label> <input type="text" class="form-control" name="nome" value="<?php echo $produto; ?>" disabled  size="60"> </div>
 
-            
-           
             </div>
-
-
-
 
             </div>
 
-          
-
-
-            
         </div>
         
         <br><br>
