@@ -3,7 +3,7 @@
         <div class='col' style='margin-top: 100px; margin-left: 150px; max-width: 500px;'>
         <center>
             <div class='row'>
-                    <h4>Formas de Contato</h4>
+                    <h4 style='color: #3b5998;'>Formas de Contato</h4>
                 </div>
                 </center>
             <p align="justify" >

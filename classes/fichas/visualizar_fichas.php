@@ -40,7 +40,7 @@
         // aqui eh feito a consulta de todos os contatos
         $consulta = $pdo->query("SELECT * FROM ficha");
 
-            
+        echo "<center>";
            
             echo "<table class='table table-striped table-bordered table-condensed table-hover' style='margin-left: 200px; table-layout:fixed; max-width: 900px; word-wrap: break-word; !important; position: absolute;'>";           
             echo "<thead>";
@@ -50,14 +50,14 @@
             echo "<th scope='col' style='width: 150px;'>Nome</th>";
             echo "<th scope='col' style='width: 150px;'>Codigo do Produto</th>";
             echo "<th scope='col' style='width: 170px;'>Data de Criação</th>";
-            echo "<th scope='col' style='width: 120px;'>Opções</th>";
+            echo "<th scope='col' style='width: 120px;' class='noPrint'>Opções</th>";
             echo "</div>";
             echo "</tr>";
             echo "</thead>";
             
 
             
-    
+
             echo "<a href='?pagina=../../paginas/cadastros/cadastrar_ficha'>";
             echo "<img src='../../imagens/navbar/plus.png' alt='botao-ativar-informativo' width='50' title='Novo Usuario'>";
             echo "</a>";
@@ -75,9 +75,10 @@
 
                 if($linha['excluido'] == 0){
                     echo "<tr>";
+                    
                     echo  "<td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> $produto </td> <td> {$linha['dataCriacao']} </td> ";
                     
-                    echo "<td>";
+                    echo "<td class='noPrint'>";
 
                         echo "<a href='/paginas/admin/main.php?pagina=../cadastros/editar_ficha&id=" . $linha['id'] . "'><button type='button' class='btn btn-success' style='width: 100px;'>Editar</button></a>";
             
@@ -87,6 +88,7 @@
                         echo "<a href='/paginas/admin/main.php?pagina=../cadastros/visualizar_ficha&id=" . $linha['id'] . "'><button type='button' class='btn btn-primary' style='width: 100px;'>Visualizar</button></a>";
             
                     echo "</td>";
+                  
 
 
                     echo "</tr>";
@@ -94,7 +96,7 @@
             }
         
             echo "</table>";
-       
+            echo "</center>";
     
     ?>
 </center>
