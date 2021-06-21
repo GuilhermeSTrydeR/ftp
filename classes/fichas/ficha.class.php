@@ -44,10 +44,10 @@
         }
 
 
-        public function codProduto($id){
+        public function codProduto($codProduto){
             global $pdo;
             
-            $sql = "SELECT codProduto FROM produto WHERE id = '$id'";
+            $sql = "SELECT codProduto FROM produto WHERE id = '$codProduto'";
             $stmt = $pdo->prepare( $sql );
             $stmt->bindParam( ':id', $id );        
             $stmt->execute();
@@ -58,10 +58,10 @@
 
         }
 
-        public function nomeProduto($codProduto){
+        public function nomeProduto($id){
             global $pdo;
             
-            $sql = "SELECT nome FROM produto WHERE codProduto = '$codProduto'";
+            $sql = "SELECT nome FROM produto WHERE id = '$id'";
             $stmt = $pdo->prepare( $sql );
             $stmt->bindParam( ':id', $id );        
             $stmt->execute();

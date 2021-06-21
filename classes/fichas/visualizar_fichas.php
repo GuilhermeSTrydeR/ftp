@@ -12,6 +12,9 @@
         
         $dataCadastro = gmdate("YmdHis", time());
 
+        include("../../classes/fichas/ficha.class.php");
+        $f = new Ficha();
+
     ?>
 
     <h4>FICHAS TECNICAS</h4>
@@ -37,7 +40,7 @@
         // aqui eh feito a consulta de todos os contatos
         $consulta = $pdo->query("SELECT * FROM ficha");
 
-    
+            
            
             echo "<table class='table table-striped table-bordered table-condensed table-hover' style='margin-left: 200px; table-layout:fixed; max-width: 900px; word-wrap: break-word; !important; position: absolute;'>";           
             echo "<thead>";
@@ -66,9 +69,13 @@
 
             // nesse loop eh mostrado na tela os resultados retirados do banco
             while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+
+                $id = $linha['id'];
+                $produto = $f->codProduto($linha['codProduto']);
+
                 if($linha['excluido'] == 0){
                     echo "<tr>";
-                    echo  "<td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> {$linha['codProduto']} </td> <td> {$linha['dataCriacao']} </td> ";
+                    echo  "<td> {$linha['id']} </td>  <td> {$linha['nome']}  </td> <td> $produto </td> <td> {$linha['dataCriacao']} </td> ";
                     
                     echo "<td>";
 

@@ -43,8 +43,12 @@ require("../../classes/fichas/ficha.class.php");
     $umidadeMaxima = $linha['umidadeMaxima'];
     $secador =  $linha['secador'];
     $codProduto = $linha['codProduto'];
-    $nomeProduto = $f->nomeProduto($codProduto);
 
+        
+
+
+    $nomeProduto = $f->nomeProduto($codProduto);
+    
 
     switch ($tipoVenda) {
        
