@@ -86,7 +86,7 @@
             </script>
 
             <?php
-             $url = '../../paginas/admin/main.php?pagina=cadastrar_usuario';
+             $url = '../../paginas/admin/main.php?pagina=../../paginas/cadastros/cadastrar_usuario';
              echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
 
         }
