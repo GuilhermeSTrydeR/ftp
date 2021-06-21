@@ -72,6 +72,21 @@
 
         }
 
+        public function ultimaAtualizacao($id){
+            global $pdo;
+            
+            $sql = "SELECT dataAtualizacao FROM ficha WHERE id = '$id'";
+            $stmt = $pdo->prepare( $sql );
+            $stmt->bindParam( ':id', $id );        
+            $stmt->execute();
+
+            $res = $stmt->fetchColumn();
+
+            return $res;
+
+        }
+
+
 
         
     }

@@ -11,12 +11,14 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
         require("../../classes/conexao_bd.php");
 
         //requer o Usuario.class onde se encontra o comando para buscar no banco
-        // require("../../classes/usuario/usuario.class.php");
+        require("../../classes/fichas/ficha.class.php");
 
   // OBS: aqui vai ser recebido apenas o id do informativo por GET poi o texto nao pode ser recebido por esse meio, pois existe uma limiticao de caracteres enviados por GET
 
   // pega o id vindo por GET
   $id = $_GET['id'];
+
+  $f = new Ficha();
 
   global $pdo;
 
@@ -26,15 +28,25 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
 
     $nome = $linha['nome'];
     $codProduto = $linha['codProduto'];
-    // $tipo = $linha['tipo']; 
     $dataCriacao = $linha['dataCriacao'];
     $umidadeMinima = $linha['umidadeMinima'];
     $umidadeMaxima = $linha['umidadeMaxima'];
     $secador = $linha['secador'];
+    
+    if(!isset($linha['dataAtualizacao']) || empty($linha['dataAtualizacao'])){
+        $ultimaAtualizacao = $dataCriacao;
+    }
+
+    else{
+
+        $ultimaAtualizacao = $f->ultimaAtualizacao($id);
+        
+    }
+
 
     // aqui convertemos a data padrao yyyy/mm/dd para BR dd/mm/yyyy
     $dataCriacao = date('d/m/Y', strtotime($dataCriacao));
-    // $dataAtualizacao = date('d/m/Y', strtotime($dataAtualizacao));
+  
 
    
     
@@ -70,7 +82,7 @@ if(!isset($_SESSION['logado']) || $_SESSION['permissao'] == '1'){
 
         <div class="form-group col-md-2"> <label for="nome">Data de Criação</label> <input type="text" class="form-control" name="dataCriacao" value="<?php echo $dataCriacao ?>" READONLY  size="60"> </div>
 
-        <div class="form-group col-md-2"> <label for="nome">Ultima Atualização</label> <input type="text" class="form-control" name="dataAtualizacao" value="<?php echo $dataAtualizacao ?>" READONLY  size="60"> </div>
+        <div class="form-group col-md-2"> <label for="nome">Ultima Atualização</label> <input type="text" class="form-control" name="dataAtualizacao" value="<?php echo $ultimaAtualizacao ?>" READONLY  size="60"> </div>
 
         
             
