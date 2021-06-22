@@ -1,7 +1,7 @@
 <br><br><br><br>
 <center>
    <h4 style='color: #3b5998;'>
-    FTP - SISTEMA DE FICHA TECNICA DE PRODUTOS
+    FTP - SISTEMA DE GERENCIAMENTO FICHA TECNICA DE PRODUTOS
    
    </h4>
 </center>
