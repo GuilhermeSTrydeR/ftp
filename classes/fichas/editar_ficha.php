@@ -37,6 +37,7 @@
 
 
         $f->editar($id, $dataAtualizacao, $nome, $codProduto, $tipoVenda, $ramo, $umidadeMinima, $umidadeMaxima, $secador);
+        echo "<script>alert('Ficha alterada com sucesso!');</script>";
         $url = '/paginas/admin/main.php?pagina=../../classes/fichas/visualizar_fichas';
         echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
 

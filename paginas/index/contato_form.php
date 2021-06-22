@@ -1,4 +1,18 @@
-<div id="contato_form_dir" style="float: right;">
+
+    <?php 
+        if(isset($_SESSION['logado'])){
+
+            echo "<div id='contato_form_dir' style='margin-left: 700px; margin-top: -100px;'>";
+
+        }
+        else{
+
+            echo "<div id='contato_form_dir' style='margin-left: 200px !important; '>";
+        }
+    
+    ?>
+
+
     <div class="row justify-content-md-center">
 
         <!-- regra para definir o texto no formulario de contato, como é utilizado a mesma pagina do 'index/contato_form' não eh necessario exibir o titulo para pessoas logadas, com isso: 

@@ -18,8 +18,7 @@
 
             $sql->execute();
 
-            $url = '/paginas/admin/main.php?pagina=../../classes/fichas/visualizar_fichas';
-            echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
+            
             
         }
 
@@ -39,7 +38,7 @@
             $sql->bindValue("secador", $secador);
             
             $sql->execute();
-            echo "<script>alert('Usuario alterado com sucesso!');</script>";
+            
             
         }
 

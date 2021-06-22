@@ -1,5 +1,9 @@
 <?php
     session_start();
+
+    // gambiarra para nao exibir erros, pois na linha +-70 esta dando um erro de valor nao numerico
+    error_reporting(0);
+    
     if(!isset($_POST['user']) && !isset($_POST['pass'])){
 
         header("Location: /");
@@ -66,11 +70,19 @@
         elseif($u->duplicidade($user) == false){
 
             //aqui pegamos o tempo em horas digitadas pelo usuario e convertemos em segundos(horas [vezes] 3600), depois somamos com os segundos atuais do sistema (unix timestamp) ambos em segundos pra que depois esse valor seja comparado na hora de logar.
-            $tempo = (($tempo * 3600) + time());
+            if(isset($tempo) || $tempo > 0){
+                $tempo = (($tempo * 3600) + time());
 
-            if($tempo > time()){
-                $status = 2;
+                if($tempo > time()){
+                    $status = 2;
+                }
+
             }
+
+
+         
+
+           
 
             $u->gravar($nome, $email, $user, $pass, $permissao, $status, $tempo, $telefone, $dataCadastro, $dataCadastroUnix, $idAdm, $excluido, $setor, $nasc);
 

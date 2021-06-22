@@ -1,4 +1,4 @@
-<center style="margin-left: 100px; margin-top: 100px !important; position: relative !important;">
+<center style="margin-left: 80px; margin-top: 100px !important; position: relative !important;">
         <style>
 
         .hiddenBtnXUsuarios{
@@ -9,11 +9,28 @@
         }
 
         </style>
-            <h4>USUARIOS</h4>
-<br><br>
-
 
         <?php
+            $consulta = $pdo->query('SELECT * FROM usuarios WHERE excluido = 0');
+
+
+            $cont = 0;
+            while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+
+                $cont++;
+
+            }
+            
+            if($cont > 0){
+
+        ?>
+
+
+            <h4>USUARIOS</h4>
+            <br><br>
+
+
+            <?php
 
  
 
@@ -135,6 +152,16 @@
         }
         
         echo "</table>";
+    }
+    else{
+
+        echo "<h4>Não há Usuários cadastrados</h4>";
+        echo "<br>";
+        echo "<a style='color: blue !important;' href='/paginas/admin/main.php?pagina=../../paginas/cadastros/cadastrar_usuario'>Para cadastrar um novo <b>usuário</b>, clique aqui!</a>";
+        echo "<br><br><br>";
+        echo "<img src='../../imagens/space.png' width=380 alt=''>";
+
+    }
 
     ?>
 </center>

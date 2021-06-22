@@ -21,7 +21,7 @@
 
         $nome = $_POST["nome"];
         $codProduto = $_POST["codProduto"];
-        $dataCriacao = $_POST["dataCriacao"];
+        
         $tipoVenda = $_POST["tipoVenda"];
         $ramo = $_POST["ramo"];
         $umidadeMinima = $_POST['umidadeMinima'];
@@ -35,7 +35,9 @@
         $codProduto = $f->codProduto($codProduto);
 
         $f->gravar($nome, $codProduto, $dataCriacao, $tipoVenda, $ramo, $umidadeMinima, $umidadeMaxima, $secador);
-
+        echo "<script>alert('Ficha Criada com sucesso!');</script>";
+        $url = '/paginas/admin/main.php?pagina=../../classes/fichas/visualizar_fichas';
+        echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
 
   
 

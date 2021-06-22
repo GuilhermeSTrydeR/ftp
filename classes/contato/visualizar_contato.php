@@ -16,6 +16,27 @@ obs: dar um jeito de implementar isso dentro de contato.class!!!
     </style>
 
 
+
+<?php
+        if($_SESSION['permissao'] > 1){
+
+       
+
+            $consulta = $pdo->query('SELECT * FROM contato WHERE excluido = 0');
+
+
+            $cont = 0;
+            while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+
+                $cont++;
+
+            }
+            
+            if($cont > 0){
+
+        ?>
+
+
 <h4>CONTATOS DE FEEDBACK</h4>
 <br><br>
     <?php
@@ -58,7 +79,25 @@ obs: dar um jeito de implementar isso dentro de contato.class!!!
             }
         
             echo "</table>";
-       
+
+
+        }
+        else{
+
+            echo "<h4>Ninguém enviou nenhum Feedback ainda</h4>";
+            echo "<br><br><br>";
+            echo "<img src='../../imagens/space.png' width=380 alt=''>";
+  
+    
+        }
+
+    }
+    else{
+        echo "<div style='margin-left: -600px !important;'>";
+        include("../../paginas/index/contato_form.php");
+        echo "</div>";
+
+    }
     
     ?>
 </center>

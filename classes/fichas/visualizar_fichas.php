@@ -4,6 +4,8 @@
     
     <?php
 
+        error_reporting(0);
+
         if(!isset($_SESSION['logado']) || $_SESSION['permissao'] != '3'){
         
             header("Location: /");
@@ -13,26 +15,28 @@
         $dataCadastro = gmdate("YmdHis", time());
 
         include("../../classes/fichas/ficha.class.php");
+        include("../../classes/conexao_bd.php");
         $f = new Ficha();
+
+        $consulta = $pdo->query("SELECT * FROM ficha WHERE excluido = 0");
+
+        $cont = 0;
+        while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+
+            $cont++;
+
+        }
+        
+        if($cont > 0){
+
+
+
 
     ?>
 
     <h4>FICHAS TECNICAS</h4>
-<br><br>
-
-
-
-
-
-
+        <br><br>
     <?php
-
-        include("../../classes/conexao_bd.php");
-
-
-
-
-        
         // variavel global de conexao ao banco
         global $pdo;
     
@@ -97,6 +101,18 @@
         
             echo "</table>";
             echo "</center>";
+
+        }
+        else{
+
+            echo "<h4>Não há Fichas cadastradas</h4>";
+            echo "<br>";
+            echo "<a style='color: blue !important;' href='/paginas/admin/main.php?pagina=../../paginas/cadastros/cadastrar_ficha'>Para cadastrar uma nova <b>ficha</b>, clique aqui!</a>";
+            echo "<br><br><br>";
+            echo "<img src='../../imagens/space.png' width=380 alt=''>";
+
+
+        }
     
     ?>
 </center>
